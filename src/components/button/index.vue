@@ -33,30 +33,61 @@ export default {
 <style lang="scss">
   @import '~styles/variable.scss';
   .#{$css-prefix} {
-    &btn {
-      width: 100%;
-      border-width: 0;
-      outline: 0;
-      position: relative;
-      display: block;
-      margin: 0 auto;
-      padding-left: 14px;
-      padding-right: 14px;
-      box-sizing: border-box;
-      font-size: 18px;
-      line-height: 2.3;
-      text-align: center;
-      text-decoration: none;
-      color: #FFFFFF;
-      border-radius: 4px;
-      overflow: hidden;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    &-btn {
+      border: 0;
+      outline: none;
+      background-color: transparent;
       -webkit-appearance: none;
+      text-align: center;
+      -webkit-user-select: none;
+      user-select: none;
+      box-shadow: none;
+      height: .9rem;
+      background-color: $white-color;
+      color: $white-color;
+      border-radius: 4px;
+      font-size: 18px;
+      cursor: default;
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      &:before {
+        border: 1px solid $primary-color;
+        box-sizing: border-box;
+        position: absolute;
+        content: '';
+        width: 200%;
+        height: 200%;
+        transform: scale(.5);
+        border-radius: 8px;
+        left: -50%;
+        top: -50%;
+      }
       &:active {
-        box-shadow:1px 0 100px rgba(0,0,0,0.15) inset;
+        box-shadow: 1px 0 100px rgba(0,0,0,0.15) inset;
       }
       &-primary {
-        background-color: #005cc5;
+        background-color: $primary-color;
+      }
+      &-ghost {
+        color: $primary-color;
+        background-color: $white-color;
+        &:active {
+          box-shadow: none;
+        }
+        &:before {
+          border-color: $primary-color;
+        }
+      }
+      &-danger {
+        background-color: $danger-color;
+        &:before {
+          border-color: $danger-color;
+        }
+      }
+      &-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
       }
     }
   }
