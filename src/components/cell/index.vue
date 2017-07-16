@@ -1,5 +1,5 @@
 <template>
-  <div class="yui-cell" @click="clickHandler">
+  <div class="yui-cell" :class="{ 'yui-cell-arrow': isLink }" @click="clickHandler">
     <div class="yui-cell-hd">
       <slot name="icon"></slot>
     </div>
@@ -9,7 +9,7 @@
       </p>
       <span class="yui-label-desc">{{ desc }}</span>
     </div>
-    <div class="yui-cell-ft" :class="{ 'yui-cell-arrow': isLink }">
+    <div class="yui-cell-ft">
       <slot name="value">{{ value }}</slot>
     </div>
     <slot name="child"></slot>
@@ -63,6 +63,10 @@ export default {
       transform: scaleY(0.5);
       left: 15px;
     }
+    &-hd {
+      display: flex;
+      align-items: center;
+    }
     &-bd {
       flex: 1;
     }
@@ -71,20 +75,23 @@ export default {
       color: $grey-color;
     }
     &-arrow {
-      position: relative;
-      &:after {
-        content: '';
-        display: inline-block;
-        height: 6px;
-        width: 6px;
-        border-width: 2px 2px 0 0;
-        border-color: $border-color;
-        border-style: solid;
-        transform: matrix(.71,.71,-.71,.71,0,0);
-        position: absolute;
-        top: 50%;
-        margin-top: -4px;
-        right: 2px;
+      .yui-cell-ft {
+        padding-right: 15px;
+        position: relative;
+        &:after {
+          content: '';
+          display: inline-block;
+          height: 6px;
+          width: 6px;
+          border-width: 2px 2px 0 0;
+          border-color: $border-color;
+          border-style: solid;
+          transform: matrix(.71,.71,-.71,.71,0,0);
+          position: absolute;
+          top: 50%;
+          margin-top: -4px;
+          right: 2px;
+        }
       }
     }
   }
