@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section :style="{ 'margin': '10px' }">
     <x-button>default</x-button>
     <x-button type="danger">danger</x-button>
     <x-button type="ghost">ghost</x-button>

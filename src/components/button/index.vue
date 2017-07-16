@@ -31,64 +31,64 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '~styles/variable.scss';
-  .#{$css-prefix} {
-    &-btn {
-      border: 0;
-      outline: none;
-      background-color: transparent;
-      -webkit-appearance: none;
-      text-align: center;
-      -webkit-user-select: none;
-      user-select: none;
-      box-shadow: none;
-      height: .9rem;
-      background-color: $white-color;
-      color: $white-color;
-      border-radius: 4px;
-      font-size: 18px;
-      cursor: default;
-      position: relative;
-      width: 100%;
+@import '~styles/variable.scss';
+.yui {
+  &-btn {
+    border: 0;
+    outline: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+    text-align: center;
+    -webkit-user-select: none;
+    user-select: none;
+    box-shadow: none;
+    height: .9rem;
+    background-color: $white-color;
+    color: $white-color;
+    border-radius: 4px;
+    font-size: 18px;
+    cursor: default;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    &:before {
+      border: 1px solid $primary-color;
       box-sizing: border-box;
-      &:before {
-        border: 1px solid $primary-color;
-        box-sizing: border-box;
-        position: absolute;
-        content: '';
-        width: 200%;
-        height: 200%;
-        transform: scale(.5);
-        border-radius: 8px;
-        left: -50%;
-        top: -50%;
-      }
+      position: absolute;
+      content: '';
+      width: 200%;
+      height: 200%;
+      transform: scale(.5);
+      border-radius: 8px;
+      left: -50%;
+      top: -50%;
+    }
+    &:active {
+      box-shadow: 1px 0 100px rgba(0,0,0,0.15) inset;
+    }
+    &-primary {
+      background-color: $primary-color;
+    }
+    &-ghost {
+      color: $primary-color;
+      background-color: $white-color;
       &:active {
-        box-shadow: 1px 0 100px rgba(0,0,0,0.15) inset;
+        box-shadow: none;
       }
-      &-primary {
-        background-color: $primary-color;
-      }
-      &-ghost {
-        color: $primary-color;
-        background-color: $white-color;
-        &:active {
-          box-shadow: none;
-        }
-        &:before {
-          border-color: $primary-color;
-        }
-      }
-      &-danger {
-        background-color: $danger-color;
-        &:before {
-          border-color: $danger-color;
-        }
-      }
-      &-disabled {
-        opacity: 0.5;
-        cursor: not-allowed;
+      &:before {
+        border-color: $primary-color;
       }
     }
+    &-danger {
+      background-color: $danger-color;
+      &:before {
+        border-color: $danger-color;
+      }
+    }
+    &-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
+}
 </style>
