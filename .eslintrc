@@ -1,0 +1,17 @@
+{
+	"extends": "eslint:recommended",
+	"plugins": ["vue"],
+	"env": {
+		"browser": true,
+		"node": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 6,
+		"sourceType": "module"
+	},
+	"rules": {
+		"indent": ["warn", 2],
+		"no-console": "off",
+		"semi": ["warn", "never"]
+	}
+}

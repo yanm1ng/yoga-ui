@@ -29,7 +29,7 @@ export default {
     }
   },
   methods: {
-    clickHandler (e) {
+    clickHandler(e) {
       this.$emit('on-click', e)
     }
   }

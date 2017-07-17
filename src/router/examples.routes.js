@@ -1,7 +1,7 @@
 const Demo = r => require.ensure([], () => r(require('examples/Demo')), 'Demo')
 const Button = r => require.ensure([], () => r(require('examples/Button')), 'Button')
 const Cell = r => require.ensure([], () => r(require('examples/Cell')), 'Cell')
-
+const Tab = r => require.ensure([], () => r(require('examples/Tab')), 'Tab')
 
 export default [
   {
@@ -15,5 +15,9 @@ export default [
   {
     path: '/cell',
     component: Cell
+  },
+  {
+    path: '/tab',
+    component: Tab
   }
 ]

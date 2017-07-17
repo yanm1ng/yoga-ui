@@ -13,7 +13,7 @@ export default {
     }
   },
   computed: {
-    classes () {
+    classes() {
       return [
         `yui-btn-${this.type}`,
         {
@@ -23,7 +23,7 @@ export default {
     }
   },
   methods: {
-    clickHandler (e) {
+    clickHandler(e) {
       this.$emit('on-click', e)
     }
   }
@@ -37,9 +37,7 @@ export default {
     border: 0;
     outline: none;
     background-color: transparent;
-    -webkit-appearance: none;
     text-align: center;
-    -webkit-user-select: none;
     user-select: none;
     box-shadow: none;
     height: .9rem;
