@@ -1,12 +1,15 @@
 <template>
   <div class="yui-tab" :class="{ 'yui-tab-animate': animate }">
     <slot></slot>
-    <div v-if="animate" :class="classes" :style="{ 'left': percentLeft, 'right': percentRight, 'background': color }"></div>
+    <div :class="classes" :style="{ 'left': percentLeft, 'right': percentRight, 'background': color }"></div>
   </div>
 </template>
 
 <script>
+import { parentMixin } from 'mixins/multi-items'
+
 export default {
+  mixins: [parentMixin],
   props: {
     animate: {
       type: Boolean,
@@ -15,10 +18,6 @@ export default {
     color: {
       type: String,
       default: '#108ee9'
-    },
-    currentIndex: {
-      type: Number,
-      default: 0
     }
   },
   computed: {
@@ -31,20 +30,17 @@ export default {
       ]
     },
     percentLeft() {
-      return `${this.currentIndex * (100 / this.number)}%`
+      return `${this.currentIndex * (100 / this.childLength)}%`
     },
     percentRight() {
-      return `${(this.number - this.currentIndex - 1) * (100 / this.number)}%`
+      return `${(this.childLength - this.currentIndex - 1) * (100 / this.childLength)}%`
     }
   },
   watch: {
-    currentIndex(oldVal, newVal) {
-      this.$emit('on-change', oldVal, newVal)
+    currentIndex(newVal, oldVal) {
+      this.$emit('on-change', newVal, oldVal)
     }
-  },
-  mounted () {
-    this.number = this.$children.length
-  },
+  }
 }
 </script>
 

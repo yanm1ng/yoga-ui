@@ -1,27 +1,36 @@
 <template>
-  <div :class="classes">
+  <div :class="classes" :style="style" @click="onItemClick">
     <slot></slot>
   </div>
 </template>
 
 <script>
+import { childMixin } from 'mixins/multi-items'
+
 export default {
+  mixins: [childMixin],
   props: {
     disabled: {
       type: Boolean,
       default: false
-    },
-    selected: Boolean
+    }
   },
   computed: {
     classes() {
       return [
         `yui-tab-item`,
         {
-          'yui-tab-selected': this.selected,
+          'yui-tab-selected': this.currentSelected,
           'yui-tab-disabled': this.disabled
         }
       ]
+    },
+    style() {
+      if (this.currentSelected) {
+        return {
+          color: this.$parent.color
+        }
+      }
     }
   }
 }
