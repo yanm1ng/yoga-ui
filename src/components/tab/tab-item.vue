@@ -38,8 +38,8 @@ export default {
 
 <style lang="scss">
 @import '~styles/variable.scss';
-.yui-tab {
-  &-item {
+.yui {
+  &-tab-item {
     box-sizing: border-box;
     flex: 1;
     font-size: 14px;
@@ -47,10 +47,10 @@ export default {
     text-align: center;
     color: $dark-color;
   }
-  &-selected {
+  &-tab-selected {
     color: $primary-color;
   }
-  &-disabled {
+  &-tab-disabled {
     cursor: not-allowed;
     color: $grey-color;
   }

@@ -26,18 +26,31 @@ export default {
 <style lang="scss">
 @import '~styles/variable.scss';
 .yui {
-  &-btn-tab {
+  &-button-tab {
     display: flex;
     text-align: center;
     position: relative;
+    margin: 0 20px;
+    user-select: none;
     &:before {
+      content: '';
       position: absolute;
-      border: 1px solid #c5cdd8;
+      box-sizing: border-box;
+      border: 1px solid $border-color;
+      border-radius: 40px;
       width: 200%;
       height: 200%;
       transform: scale(.5);
       left: -50%;
       top: -50%;
+    }
+    &>a {
+      display: block;
+      flex: 1;
+      font-size: 14px;
+      line-height: 40px;
+      text-align: center;
+      text-decoration: none;
     }
   }
 }

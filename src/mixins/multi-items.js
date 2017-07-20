@@ -1,19 +1,20 @@
 const parentMixin = {
-  mounted () {
+  mounted() {
     if (this.value >= 0) {
       this.currentIndex = this.value
     }
     this.updateIndex()
   },
   methods: {
-    updateIndex () {
-      if (!this.$children || !this.$children.length) return
-      this.childLength = this.$children.length
-      let children = this.$children
-      for (let i = 0; i < children.length; i++) {
-        children[i].currentIndex = i
-        if (children[i].currentSelected) {
-          this.index = i
+    updateIndex() {
+      if (this.$children && this.$children.length) {
+        this.childLength = this.$children.length
+        let children = this.$children
+        for (let i = 0; i < children.length; i++) {
+          children[i].currentIndex = i
+          if (children[i].currentSelected) {
+            this.index = i
+          }
         }
       }
     }
@@ -25,18 +26,18 @@ const parentMixin = {
     }
   },
   watch: {
-    currentIndex (val, oldVal) {
+    currentIndex(val, oldVal) {
       oldVal > -1 && this.$children[oldVal] && (this.$children[oldVal].currentSelected = false)
       val > -1 && this.$children[val] && (this.$children[val].currentSelected = true)
     },
-    index (val) {
+    index(val) {
       this.currentIndex = val
     },
-    value (val) {
+    value(val) {
       this.index = val
     }
   },
-  data () {
+  data() {
     return {
       index: -1,
       currentIndex: this.index,
@@ -52,17 +53,17 @@ const childMixin = {
       default: false
     }
   },
-  mounted () {
+  mounted() {
     this.$parent.updateIndex()
   },
-  beforeDestroy () {
+  beforeDestroy() {
     const $parent = this.$parent
     this.$nextTick(() => {
       $parent.updateIndex()
     })
   },
   methods: {
-    onItemClick () {
+    onItemClick() {
       if (typeof this.disabled === 'undefined' || this.disabled === false) {
         this.currentSelected = true
         this.$parent.currentIndex = this.currentIndex
@@ -73,16 +74,16 @@ const childMixin = {
     }
   },
   watch: {
-    currentSelected (val) {
+    currentSelected(val) {
       if (val) {
         this.$parent.index = this.currentIndex
       }
     },
-    selected (val) {
+    selected(val) {
       this.currentSelected = val
     }
   },
-  data () {
+  data() {
     return {
       currentIndex: -1,
       currentSelected: this.selected

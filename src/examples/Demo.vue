@@ -21,6 +21,7 @@ export default {
     return {
       demos: [
         { 'title': 'Button', 'link': 'button' },
+        { 'title': 'ButtonTab', 'link': 'button-tab' },
         { 'title': 'Cell', 'link': 'cell' },
         { 'title': 'Tab', 'link': 'tab' }
       ]

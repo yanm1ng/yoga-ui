@@ -46,29 +46,31 @@ export default {
 
 <style lang="scss">
 @import '~styles/variable.scss';
-.yui-tab {
-  height: 0.88rem;
-  background-color: $white-color;
-  position: relative;
-  display: flex;
-  &:after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    transform-origin: 0 0;
-    transform: scaleY(0.5);
-    bottom: -1px;
-    border-bottom: 1px solid $border-color;
-  }
-  &-ink-bar {
-    position: absolute;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-  }
-  &-animate {
-    transition: right 0.3s cubic-bezier(0.35, 0, 0.25, 1), left 0.3s cubic-bezier(0.35, 0, 0.25, 1) 0.09s;
+.yui {
+  &-tab {
+    height: 0.88rem;
+    background-color: $white-color;
+    position: relative;
+    display: flex;
+    &:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      transform-origin: 0 0;
+      transform: scaleY(0.5);
+      bottom: -1px;
+      border-bottom: 1px solid $border-color;
+    }
+    &-ink-bar {
+      position: absolute;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+    }
+    &-animate {
+      transition: right 0.3s cubic-bezier(0.35, 0, 0.25, 1), left 0.3s cubic-bezier(0.35, 0, 0.25, 1) 0.09s;
+    }
   }
 }
 </style>
