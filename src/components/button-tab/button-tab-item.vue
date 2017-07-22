@@ -41,13 +41,11 @@ export default {
 .yui {
   &-button-tab {
     &-item {
-      position: relative;
       color: $dark-color;
       background-color: $white-color;
       white-space: nowrap;
       overflow: hidden;
-      z-index: 1;
-      &:before {
+      &:after {
         content: '';
         border-left: 1px solid $border-color;
         transform: scaleX(.5);
@@ -57,17 +55,23 @@ export default {
         left: 0;
       }
       &:first-child {
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+        &:after {
+          display: none;
+        }
       }
       &:last-child {
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
       }
     }
     &-current {
       background-color: $primary-color;
       color: $white-color;
+      &:after {
+        display:none;
+      }
     }
     &-disabled {
       cursor: not-allowed;

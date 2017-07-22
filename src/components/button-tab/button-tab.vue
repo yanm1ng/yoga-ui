@@ -32,23 +32,26 @@ export default {
     position: relative;
     margin: 0 20px;
     user-select: none;
-    &:before {
+    &:after {
       content: '';
       position: absolute;
       box-sizing: border-box;
       border: 1px solid $border-color;
-      border-radius: 40px;
+      border-radius: 32px;
       width: 200%;
       height: 200%;
       transform: scale(.5);
       left: -50%;
       top: -50%;
     }
-    &>a {
+    & > a {
+      z-index: 100;
       display: block;
+      position: relative;
+      padding: 0;
       flex: 1;
       font-size: 14px;
-      line-height: 40px;
+      line-height: 32px;
       text-align: center;
       text-decoration: none;
     }
