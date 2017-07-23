@@ -23,7 +23,8 @@ export default {
         { 'title': 'Button', 'link': 'button' },
         { 'title': 'ButtonTab', 'link': 'button-tab' },
         { 'title': 'Cell', 'link': 'cell' },
-        { 'title': 'Tab', 'link': 'tab' }
+        { 'title': 'Tab', 'link': 'tab' },
+        { 'title': 'Popup', 'link': 'popup' }
       ]
     }
   },

@@ -3,6 +3,7 @@ const Button = r => require.ensure([], () => r(require('examples/Button')), 'But
 const Cell = r => require.ensure([], () => r(require('examples/Cell')), 'Cell')
 const Tab = r => require.ensure([], () => r(require('examples/Tab')), 'Tab')
 const ButtonTab = r => require.ensure([], () => r(require('examples/ButtonTab')), 'ButtonTab')
+const Popup = r => require.ensure([], () => r(require('examples/Popup')), 'Popup')
 
 export default [
   {
@@ -20,5 +21,8 @@ export default [
   }, {
     path: '/button-tab',
     component: ButtonTab
+  }, {
+    path: '/popup',
+    component: Popup
   }
 ]
