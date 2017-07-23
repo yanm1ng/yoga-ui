@@ -1,5 +1,5 @@
 <template>
-  <div class="yui-overlay" :style="styles" @click="clickHandler">
+  <div class="yui-overlay" :style="style" @click="clickHandler">
     <slot></slot>
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
     }
   },
   computed: {
-    styles () {
+    style () {
       return {
         'opacity': this.opacity
       }
