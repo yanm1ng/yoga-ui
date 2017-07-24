@@ -9,6 +9,7 @@
 import { parentMixin } from 'mixins/multi-items'
 
 export default {
+  name: 'tab',
   mixins: [parentMixin],
   props: {
     animate: {

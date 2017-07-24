@@ -14,6 +14,7 @@
 <script>
 import Overlay from '../overlay'
 export default {
+  name: 'popup',
   components: {
     Overlay
   },

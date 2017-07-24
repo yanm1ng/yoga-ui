@@ -4,6 +4,8 @@ import CellBox from './cell-box'
 import { Tab, TabItem } from './tab'
 import { ButtonTab, ButtonTabItem } from './button-tab'
 import Popup from './popup'
+import Toast from './toast'
+import Icon from './icon'
 
 export {
   XButton,
@@ -13,5 +15,7 @@ export {
   TabItem,
   ButtonTab,
   ButtonTabItem,
-  Popup
+  Popup,
+  Toast,
+  Icon
 }

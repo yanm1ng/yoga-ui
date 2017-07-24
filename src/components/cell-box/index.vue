@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  name: 'cell-box',
   props: {
     title: String
   }

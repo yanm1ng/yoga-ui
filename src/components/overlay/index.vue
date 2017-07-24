@@ -6,6 +6,7 @@
 
 <script>
 export default {
+  name: 'overlay',
   props: {
     opacity: {
       type: Number,
