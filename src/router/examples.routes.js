@@ -4,6 +4,8 @@ const Cell = r => require.ensure([], () => r(require('examples/Cell')), 'Cell')
 const Tab = r => require.ensure([], () => r(require('examples/Tab')), 'Tab')
 const ButtonTab = r => require.ensure([], () => r(require('examples/ButtonTab')), 'ButtonTab')
 const Popup = r => require.ensure([], () => r(require('examples/Popup')), 'Popup')
+const Toast = r => require.ensure([], () => r(require('examples/Toast')), 'Toast')
+const Icon = r => require.ensure([], () => r(require('examples/Icon')), 'Icon')
 
 export default [
   {
@@ -24,5 +26,11 @@ export default [
   }, {
     path: '/popup',
     component: Popup
+  }, {
+    path: '/toast',
+    component: Toast
+  }, {
+    path: '/icon',
+    component: Icon
   }
 ]
