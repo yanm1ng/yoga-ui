@@ -13,6 +13,7 @@
 
 <script>
 import Overlay from '../overlay'
+
 export default {
   name: 'popup',
   components: {
@@ -59,7 +60,7 @@ export default {
     }
   },
   watch: {
-    open (value) {
+    open(value) {
       if (value) {
         requestAnimationFrame(() => {
           this.$el.style.display = 'block'
@@ -75,10 +76,10 @@ export default {
     }
   },
   methods: {
-    enterHandler () {
+    enterHandler() {
       this.$emit('on-enter')
     },
-    closeHandler () {
+    closeHandler() {
       this.autoClose && this.$emit('on-close')
     }
   }
