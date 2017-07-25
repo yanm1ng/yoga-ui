@@ -83,6 +83,14 @@ export default {
 
 <style lang="scss">
 @import '~styles/variable.scss';
+@keyframes rotating{
+  from {
+    transform:rotate(0)
+  }
+  to {
+    transform:rotate(360deg)
+  }
+}
 .yui {
   &-toast {
     z-index: 1000;
@@ -110,6 +118,9 @@ export default {
         font-size: 40px;
         display: block;
         margin-bottom: 10px;
+      }
+      .yui-icon-loading {
+        animation:rotating 1.2s linear infinite
       }
     }
     &-center {
