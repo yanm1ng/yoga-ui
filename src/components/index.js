@@ -6,6 +6,7 @@ import { ButtonTab, ButtonTabItem } from './button-tab'
 import Popup from './popup'
 import Toast from './toast'
 import Icon from './icon'
+import Actionsheet from './actionsheet'
 
 export {
   XButton,
@@ -17,5 +18,6 @@ export {
   ButtonTabItem,
   Popup,
   Toast,
-  Icon
+  Icon,
+  Actionsheet
 }
