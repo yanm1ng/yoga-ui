@@ -18,10 +18,14 @@ export default {
   },
   computed: {
     classes() {
+      const childLen = this.$parent.$children.length - 1
       return [
         `yui-button-tab-item`,
         {
           'yui-button-tab-current': this.currentSelected,
+          'yui-button-tab-item-first': this.currentIndex === 0,
+          'yui-button-tab-item-last': this.currentIndex === childLen,
+          'yui-button-tab-item-middle': this.currentIndex > 0 && this.currentIndex !== childLen,
           'yui-button-tab-disabled': this.disabled
         }
       ]
@@ -48,31 +52,46 @@ export default {
       overflow: hidden;
       &:after {
         content: '';
-        border-left: 1px solid $border-color;
-        transform: scaleX(.5);
-        height: 100%;
         position: absolute;
-        top: 0;
         left: 0;
+        top: 0;
+        width: 200%;
+        color: $border-color;
+        height: 200%;
+        transform-origin: left top;
+        transform: scale(.5);
+        background-clip: padding-box;
+        box-sizing: border-box;
       }
-      &:first-child {
-        border-top-left-radius: 16px;
-        border-bottom-left-radius: 16px;
+      &-first {
+        border-top-left-radius: 32px;
+        border-bottom-left-radius: 32px;
         &:after {
-          display: none;
+          border: 1px solid $border-color;
+          border-right: none;
+          border-top-left-radius: 32px;
+          border-bottom-left-radius: 32px;
         }
       }
-      &:last-child {
-        border-top-right-radius: 16px;
-        border-bottom-right-radius: 16px;
+      &-middle {
+        &:after {
+          border: 1px solid $border-color;
+          border-right: none;
+        }
+      }
+      &-last {
+        border-top-right-radius: 32px;
+        border-bottom-right-radius: 32px;
+        &:after {
+          border: 1px solid $border-color;
+          border-top-right-radius: 32px;
+          border-bottom-right-radius: 32px;
+        }
       }
     }
     &-current {
       background-color: $primary-color;
       color: $white-color;
-      &:after {
-        display:none;
-      }
     }
     &-disabled {
       cursor: not-allowed;

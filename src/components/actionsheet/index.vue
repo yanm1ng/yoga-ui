@@ -69,7 +69,7 @@ export default {
           width: 100%;
           bottom: 0;
           left: 0;
-          border: 1px solid $border-color;
+          border-bottom: 1px solid $border-color;
           transform-origin: 0 0;
           transform: scaleY(0.5);
         }

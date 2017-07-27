@@ -1,5 +1,5 @@
 <template>
-  <div class="yui-button-tab">
+  <div class="yui-button-tabs">
     <slot></slot>
   </div>
 </template>
@@ -27,14 +27,12 @@ export default {
 <style lang="scss">
 @import '~styles/variable.scss';
 .yui {
-  &-button-tab {
+  &-button-tabs {
     display: flex;
     text-align: center;
     position: relative;
     margin: 0 20px;
     user-select: none;
-    border: 1px solid $border-color;
-    border-radius: 16px;
     & > a {
       z-index: 200;
       display: block;
