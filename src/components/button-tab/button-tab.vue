@@ -33,20 +33,10 @@ export default {
     position: relative;
     margin: 0 20px;
     user-select: none;
-    &:after {
-      content: '';
-      position: absolute;
-      box-sizing: border-box;
-      border: 1px solid $border-color;
-      border-radius: 32px;
-      width: 200%;
-      height: 200%;
-      transform: scale(.5);
-      left: -50%;
-      top: -50%;
-    }
+    border: 1px solid $border-color;
+    border-radius: 16px;
     & > a {
-      z-index: 100;
+      z-index: 200;
       display: block;
       position: relative;
       padding: 0;

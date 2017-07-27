@@ -73,7 +73,7 @@ export default {
       }
     }
     &:disabled {
-      opacity: 0.6;
+      opacity: $normal-opacity;
     }
   }
 }
