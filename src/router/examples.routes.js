@@ -8,6 +8,7 @@ const Toast = r => require.ensure([], () => r(require('examples/Toast')), 'Toast
 const Icon = r => require.ensure([], () => r(require('examples/Icon')), 'Icon')
 const Actionsheet = r => require.ensure([], () => r(require('examples/Actionsheet')), 'Actionsheet')
 const Badge = r => require.ensure([], () => r(require('examples/Badge')), 'Badge')
+const Switch = r => require.ensure([], () => r(require('examples/Switch')), 'Switch')
 
 export default [
   {
@@ -40,5 +41,8 @@ export default [
   }, {
     path: '/badge',
     component: Badge
+  }, {
+    path: '/switch',
+    component: Switch
   }
 ]

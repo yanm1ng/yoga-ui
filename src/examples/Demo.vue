@@ -28,7 +28,8 @@ export default {
         { 'title': 'Toast', 'link': 'toast' },
         { 'title': 'Icon', 'link': 'icon' },
         { 'title': 'ActionSheet', 'link': 'actionsheet' },
-        { 'title': 'Badge', 'link': 'badge' }
+        { 'title': 'Badge', 'link': 'badge' },
+        { 'title': 'Switch', 'link': 'switch' }
       ]
     }
   },

@@ -8,6 +8,7 @@ import Toast from './toast'
 import Icon from './icon'
 import Actionsheet from './actionsheet'
 import Badge from './badge'
+import XSwitch from './switch'
 
 export {
   XButton,
@@ -21,5 +22,6 @@ export {
   Toast,
   Icon,
   Actionsheet,
-  Badge
+  Badge,
+  XSwitch
 }
