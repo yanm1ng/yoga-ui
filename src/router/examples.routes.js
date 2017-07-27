@@ -7,6 +7,7 @@ const Popup = r => require.ensure([], () => r(require('examples/Popup')), 'Popup
 const Toast = r => require.ensure([], () => r(require('examples/Toast')), 'Toast')
 const Icon = r => require.ensure([], () => r(require('examples/Icon')), 'Icon')
 const Actionsheet = r => require.ensure([], () => r(require('examples/Actionsheet')), 'Actionsheet')
+const Badge = r => require.ensure([], () => r(require('examples/Badge')), 'Badge')
 
 export default [
   {
@@ -36,5 +37,8 @@ export default [
   }, {
     path: '/actionsheet',
     component: Actionsheet
+  }, {
+    path: '/badge',
+    component: Badge
   }
 ]

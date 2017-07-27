@@ -7,6 +7,7 @@ import Popup from './popup'
 import Toast from './toast'
 import Icon from './icon'
 import Actionsheet from './actionsheet'
+import Badge from './badge'
 
 export {
   XButton,
@@ -19,5 +20,6 @@ export {
   Popup,
   Toast,
   Icon,
-  Actionsheet
+  Actionsheet,
+  Badge
 }

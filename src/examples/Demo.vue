@@ -27,7 +27,8 @@ export default {
         { 'title': 'Popup', 'link': 'popup' },
         { 'title': 'Toast', 'link': 'toast' },
         { 'title': 'Icon', 'link': 'icon' },
-        { 'title': 'ActionSheet', 'link': 'actionsheet' }
+        { 'title': 'ActionSheet', 'link': 'actionsheet' },
+        { 'title': 'Badge', 'link': 'badge' }
       ]
     }
   },
