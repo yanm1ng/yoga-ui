@@ -73,6 +73,7 @@ export default {
     &-ft {
       text-align: right;
       color: $grey-color;
+      display: flex;
     }
     &-arrow {
       .yui-cell-ft {

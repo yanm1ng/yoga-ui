@@ -9,6 +9,8 @@ import Icon from './icon'
 import Actionsheet from './actionsheet'
 import Badge from './badge'
 import XSwitch from './switch'
+import Radio from './radio'
+import Checkbox from './checkbox'
 
 export {
   XButton,
@@ -23,5 +25,7 @@ export {
   Icon,
   Actionsheet,
   Badge,
-  XSwitch
+  XSwitch,
+  Radio,
+  Checkbox
 }

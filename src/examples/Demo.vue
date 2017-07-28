@@ -20,16 +20,18 @@ export default {
   data() {
     return {
       demos: [
-        { 'title': 'Button', 'link': 'button' },
-        { 'title': 'ButtonTab', 'link': 'button-tab' },
-        { 'title': 'Cell', 'link': 'cell' },
-        { 'title': 'Tab', 'link': 'tab' },
-        { 'title': 'Popup', 'link': 'popup' },
-        { 'title': 'Toast', 'link': 'toast' },
-        { 'title': 'Icon', 'link': 'icon' },
-        { 'title': 'ActionSheet', 'link': 'actionsheet' },
-        { 'title': 'Badge', 'link': 'badge' },
-        { 'title': 'Switch', 'link': 'switch' }
+        { title: 'Button', link: 'button' },
+        { title: 'ButtonTab', link: 'button-tab' },
+        { title: 'Cell', link: 'cell' },
+        { title: 'Tab', link: 'tab' },
+        { title: 'Popup', link: 'popup' },
+        { title: 'Toast', link: 'toast' },
+        { title: 'Icon', link: 'icon' },
+        { title: 'ActionSheet', link: 'actionsheet' },
+        { title: 'Badge', link: 'badge' },
+        { title: 'Switch', link: 'switch' },
+        { title: 'Radio', link: 'radio' },
+        { title: 'Checkbox', link: 'checkbox' }
       ]
     }
   },
