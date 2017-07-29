@@ -54,19 +54,8 @@ export default {
 
 <style lang="scss">
 @import '~styles/variable.scss';
-@keyframes zoomIn {
-  from {
-    opacity: 0;
-    -webkit-transform: scale(.5, .5);
-    transform: scale(.5, .5);
-  }
-  50% {
-    opacity: 1;
-  }
-}
 .yui {
   &-alert {
-    font-size: 16px;
     &-content {
       padding: 15px 20px;
       min-height: 1rem;
@@ -79,6 +68,7 @@ export default {
       }
     }
     &-footer {
+      font-size: 16px;
       position: relative;
       line-height: 42px;
       color: $primary-color;

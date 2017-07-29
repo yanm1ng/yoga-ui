@@ -1,10 +1,13 @@
 <template>
   <cell-box title="Switch">
-    <cell title="normal" :desc="value">
-      <x-switch :value="value" @on-change="handleChange" slot="value"></x-switch>
+    <cell title="normal" :desc="value1">
+      <x-switch :value="value1" slot="value" @on-change="handleChange"></x-switch>
     </cell>
-    <cell title="disabled" value="asas">
-      <x-switch :value="true" :disabled="true" @on-change="handleChange" slot="value"></x-switch>
+    <cell title="disabled">
+      <x-switch :value="true" :disabled="true" slot="value"></x-switch>
+    </cell>
+    <cell title="v-model" :desc="value2">
+      <x-switch v-model="value2" slot="value"></x-switch>
     </cell>
   </cell-box>
 </template>
@@ -24,12 +27,13 @@ export default {
   },
   data() {
     return {
-      value: false
+      value1: false,
+      value2: false
     }
   },
   methods: {
     handleChange(val) {
-      this.value = val
+      this.value1 = val
     }
   }
 }

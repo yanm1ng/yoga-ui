@@ -21,7 +21,7 @@ export default {
   name: 'cell',
   props: {
     title: String,
-    desc: String,
+    desc: [String, Boolean, Number],
     value: String,
     isLink: {
       type: Boolean,

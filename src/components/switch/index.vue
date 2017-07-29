@@ -1,5 +1,5 @@
 <template>
-  <input type="checkbox" class="yui-switch" :disabled="disabled" :checked="value" @change="checkHandler" />
+  <input type="checkbox" class="yui-switch" :disabled="disabled" v-model="currentValue" />
 </template>
 
 <script>
@@ -15,9 +15,18 @@ export default {
       default: false
     }
   },
-  methods: {
-    checkHandler(e) {
-      this.$emit('on-change', e.target.checked)
+  data() {
+    return {
+      currentValue: this.value
+    }
+  },
+  watch:{
+    currentValue(val) {
+      this.$emit('input', val)
+      this.$emit('on-change', val)
+    },
+    value (val) {
+      this.currentValue = val
     }
   }
 }
