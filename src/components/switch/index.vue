@@ -1,11 +1,17 @@
 <template>
-  <input type="checkbox" class="yui-switch" :disabled="disabled" v-model="currentValue" />
+  <cell :title="title" :desc="desc">
+    <input type="checkbox" slot="value" class="yui-switch" :disabled="disabled" v-model="currentValue" />
+  </cell>
 </template>
 
 <script>
+import Cell from '../cell'
+
 export default {
   name: 'switch',
   props: {
+    title: String,
+    desc: String,
     value: {
       type: Boolean,
       default: false
@@ -28,6 +34,9 @@ export default {
     value (val) {
       this.currentValue = val
     }
+  },
+  components: {
+    Cell
   }
 }
 </script>

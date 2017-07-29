@@ -1,9 +1,7 @@
 <template>
   <section>
     <cell-box title="Alert">
-      <cell title="normal">
-        <x-switch :value="open" @on-change="handleChange" slot="value"></x-switch>
-      </cell>
+      <x-switch v-model="open" title="normal"></x-switch>
     </cell-box>
     <alert v-model="open" content="你好吗？" title="温馨提示" @on-show="onShow" @on-hide="onHide"></alert>
   </section>

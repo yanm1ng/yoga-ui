@@ -1,14 +1,8 @@
 <template>
   <cell-box title="Switch">
-    <cell title="normal" :desc="value1">
-      <x-switch :value="value1" slot="value" @on-change="handleChange"></x-switch>
-    </cell>
-    <cell title="disabled">
-      <x-switch :value="true" :disabled="true" slot="value"></x-switch>
-    </cell>
-    <cell title="v-model" :desc="value2">
-      <x-switch v-model="value2" slot="value"></x-switch>
-    </cell>
+    <x-switch :value="value1" @on-change="handleChange" title="normal" :desc="value1+''"></x-switch>
+    <x-switch :value="true" :disabled="true" title="disabled"></x-switch>
+    <x-switch v-model="value2" title="v-model" :desc="value2+''"></x-switch>
   </cell-box>
 </template>
 
