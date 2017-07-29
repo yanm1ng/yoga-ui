@@ -1,5 +1,5 @@
 <template>
-  <div class="yui-toast">
+  <div class="yui-toast" v-show="show">
     <div :class="classes">
       <icon :name="iconName" v-if="checkStatus" />
       <div><slot></slot></div>
@@ -19,7 +19,10 @@ export default {
     },
     direction: {
       type: String,
-      default: 'center'
+      default: 'center',
+      validator: function (value) {
+        return ['top', 'bottom', 'center'].indexOf(value) !== -1
+      }
     },
     time: {
       type: Number,
@@ -61,11 +64,11 @@ export default {
     showChange(value) {
       if (value) {
         requestAnimationFrame(() => {
-          this.$el.style.display = 'block'
+          this.$el.style.opacity = 1
         })
         setTimeout(() => {
           requestAnimationFrame(() => {
-            this.$el.style.display = 'none'
+            this.$el.style.opacity = 0
             this.$emit('on-close')
             if (this.destroy) {
               this.$el.remove()
@@ -83,12 +86,12 @@ export default {
 
 <style lang="scss">
 @import '~styles/variable.scss';
-@keyframes rotating{
+@keyframes rotating {
   from {
-    transform:rotate(0)
+    transform: rotate(0)
   }
   to {
-    transform:rotate(360deg)
+    transform: rotate(360deg)
   }
 }
 .yui {
@@ -98,11 +101,11 @@ export default {
     width: 100%;
     height: 100%;
     text-align: center;
-    display: none;
     top: 0;
     left: 0;
+    transition: opacity 0.3s ease-in-out;
     &-content {
-      background: rgba(0, 0, 0, .9);
+      background: rgba(0, 0, 0, .75);
       color: $white-color;
       font-size: 16px;
       padding: 10px 20px;
