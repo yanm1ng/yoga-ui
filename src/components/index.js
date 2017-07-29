@@ -11,6 +11,7 @@ import Badge from './badge'
 import XSwitch from './switch'
 import Radio from './radio'
 import Checkbox from './checkbox'
+import Alert from './alert'
 
 export {
   XButton,
@@ -27,5 +28,6 @@ export {
   Badge,
   XSwitch,
   Radio,
-  Checkbox
+  Checkbox,
+  Alert
 }

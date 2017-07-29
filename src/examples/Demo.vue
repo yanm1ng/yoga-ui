@@ -31,7 +31,8 @@ export default {
         { title: 'Badge', link: 'badge' },
         { title: 'Switch', link: 'switch' },
         { title: 'Radio', link: 'radio' },
-        { title: 'Checkbox', link: 'checkbox' }
+        { title: 'Checkbox', link: 'checkbox' },
+        { title: 'Alert', link: 'alert' }
       ]
     }
   },

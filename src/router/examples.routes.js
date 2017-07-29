@@ -11,6 +11,7 @@ const Badge = r => require.ensure([], () => r(require('examples/Badge')), 'Badge
 const Switch = r => require.ensure([], () => r(require('examples/Switch')), 'Switch')
 const Radio = r => require.ensure([], () => r(require('examples/Radio')), 'Radio')
 const Checkbox = r => require.ensure([], () => r(require('examples/Checkbox')), 'Checkbox')
+const Alert = r => require.ensure([], () => r(require('examples/Alert')), 'Alert')
 
 export default [
   {
@@ -52,5 +53,8 @@ export default [
   }, {
     path: '/checkbox',
     component: Checkbox
+  }, {
+    path: '/alert',
+    component: Alert
   }
 ]
