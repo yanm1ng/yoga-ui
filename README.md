@@ -29,13 +29,13 @@
 * [] Table
 * [] Flow
 * [] Progress
-* [] Badge
-* [] Switch
+* [*] Badge
+* [*] Switch
 * [] Swiper
 * [] Form
   * [] Input
-  * [] Radio
-  * [] CheckBox
+  * [*] Radio
+  * [*] Checkbox
   * [] Selector
   * [] TextArea
 * [] Picker
