@@ -81,10 +81,10 @@ export default {
     &-checked {
       .yui-iconfont {
         position: absolute;
-        top: -6px;
-        left: -2px;
+        top: -7px;
+        left: -3px;
         display: block;
-        font-size: 24px;
+        font-size: 26px;
         color: $primary-color;
       }
     }
