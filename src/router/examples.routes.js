@@ -12,6 +12,7 @@ const Switch = r => require.ensure([], () => r(require('examples/Switch')), 'Swi
 const Radio = r => require.ensure([], () => r(require('examples/Radio')), 'Radio')
 const Checkbox = r => require.ensure([], () => r(require('examples/Checkbox')), 'Checkbox')
 const Alert = r => require.ensure([], () => r(require('examples/Alert')), 'Alert')
+const Confirm = r => require.ensure([], () => r(require('examples/Confirm')), 'Confirm')
 
 export default [
   {
@@ -56,5 +57,8 @@ export default [
   }, {
     path: '/alert',
     component: Alert
+  }, {
+    path: '/confirm',
+    component: Confirm
   }
 ]

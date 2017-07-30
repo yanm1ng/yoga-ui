@@ -32,7 +32,8 @@ export default {
         { title: 'Switch', link: 'switch' },
         { title: 'Radio', link: 'radio' },
         { title: 'Checkbox', link: 'checkbox' },
-        { title: 'Alert', link: 'alert' }
+        { title: 'Alert', link: 'alert' },
+        { title: 'Confirm', link: 'confirm' }
       ]
     }
   },

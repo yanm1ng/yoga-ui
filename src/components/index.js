@@ -12,6 +12,7 @@ import XSwitch from './switch'
 import Radio from './radio'
 import Checkbox from './checkbox'
 import Alert from './alert'
+import Confirm from './confirm'
 
 export {
   XButton,
@@ -29,5 +30,6 @@ export {
   XSwitch,
   Radio,
   Checkbox,
-  Alert
+  Alert,
+  Confirm
 }
