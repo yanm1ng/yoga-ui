@@ -1,11 +1,12 @@
 .popup-fade-enter-active, .popup-fade-leave-active {
-  transition: opacity $transition-time
+  opacity: 1;
+  transition: opacity 0.4s;
 }
 .popup-fade-enter, .popup-fade-leave-active {
-  opacity: 0
+  opacity: 0;
 }
 .popup-slide-top-enter-active, .popup-slide-top-leave-active {
-  transition: transform $transition-time
+  transition: transform $transition-time;
 }
 .popup-slide-top-enter, .popup-slide-top-leave-active {
   transform: translateY(-100%);
@@ -17,7 +18,7 @@
   transform: translateY(-100%);
 }
 .popup-slide-bottom-enter-active, .popup-slide-bottom-leave-active {
-  transition: transform $transition-time
+  transition: transform $transition-time;
 }
 .popup-slide-bottom-enter, .popup-slide-bottom-leave-active {
   transform: translateY(100%);
@@ -29,7 +30,7 @@
   transform: translateY(100%);
 }
 .popup-slide-left-enter-active, .popup-slide-left-leave-active {
-  transition: transform $transition-time
+  transition: transform $transition-time;
 }
 .popup-slide-left-enter, .popup-slide-left-leave-active {
   transform: translateX(-100%);
@@ -41,7 +42,7 @@
   transform: translateX(-100%);
 }
 .popup-slide-right-enter-active, .popup-slide-right-leave-active {
-  transition: transform $transition-time
+  transition: transform $transition-time;
 }
 .popup-slide-right-enter, .popup-slide-right-leave-active {
   transform: translateX(100%);

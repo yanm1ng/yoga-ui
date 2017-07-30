@@ -55,7 +55,7 @@ export default {
   mounted() {
     if (this.open) {
       requestAnimationFrame(() => {
-        this.$el.style.display = 'block'
+        this.$el.style.zIndex = 1000
       })
     }
   },
@@ -63,15 +63,15 @@ export default {
     open(value) {
       if (value) {
         requestAnimationFrame(() => {
-          this.$el.style.display = 'block'
+          this.$el.style.zIndex = 1000
           this.$emit('on-open')
         })
       } else {
         setTimeout(() => {
           requestAnimationFrame(() => {
-            this.$el.style.display = 'none'
+            this.$el.style.zIndex = -1
           })
-        }, 300)
+        }, 400)
       }
     }
   },
@@ -91,7 +91,7 @@ export default {
 @import '~styles/transition.scss';
 
 .yui {
-  &-popup{
+  &-popup {
     position: fixed;
     left: 0;
     top: 0;
@@ -99,8 +99,7 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    z-index: 1000;
-    display: none;
+    z-index: -1;
     user-select: none;
     &-inner {
       background: $white-color;
