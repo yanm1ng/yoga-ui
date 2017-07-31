@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import app from './app'
 import router from './router'
-import { resetRootFontSize } from 'utils/reset'
+import { resetRootFontSize } from 'utils'
 
 new Vue({
   router,
