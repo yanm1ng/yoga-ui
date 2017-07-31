@@ -29,6 +29,7 @@ export default {
         { title: 'Icon', link: 'icon' },
         { title: 'ActionSheet', link: 'actionsheet' },
         { title: 'Badge', link: 'badge' },
+        { title: 'Input', link: 'input' },
         { title: 'Switch', link: 'switch' },
         { title: 'Radio', link: 'radio' },
         { title: 'Checkbox', link: 'checkbox' },

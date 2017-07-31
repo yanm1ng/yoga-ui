@@ -9,6 +9,7 @@ const Icon = r => require.ensure([], () => r(require('examples/Icon')), 'Icon')
 const Actionsheet = r => require.ensure([], () => r(require('examples/Actionsheet')), 'Actionsheet')
 const Badge = r => require.ensure([], () => r(require('examples/Badge')), 'Badge')
 const Switch = r => require.ensure([], () => r(require('examples/Switch')), 'Switch')
+const Input = r => require.ensure([], () => r(require('examples/Input')), 'Input')
 const Radio = r => require.ensure([], () => r(require('examples/Radio')), 'Radio')
 const Checkbox = r => require.ensure([], () => r(require('examples/Checkbox')), 'Checkbox')
 const Alert = r => require.ensure([], () => r(require('examples/Alert')), 'Alert')
@@ -48,6 +49,9 @@ export default [
   }, {
     path: '/switch',
     component: Switch
+  }, {
+    path: '/input',
+    component: Input
   }, {
     path: '/radio',
     component: Radio

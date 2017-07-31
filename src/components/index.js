@@ -13,7 +13,8 @@ import Radio from './radio'
 import Checkbox from './checkbox'
 import Alert from './alert'
 import Confirm from './confirm'
-
+import XInput from './input'
+ 
 export {
   XButton,
   Cell,
@@ -31,5 +32,6 @@ export {
   Radio,
   Checkbox,
   Alert,
-  Confirm
+  Confirm,
+  XInput
 }
