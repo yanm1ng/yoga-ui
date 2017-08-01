@@ -10,18 +10,18 @@ export default {
   props: {
     opacity: {
       type: Number,
-      default: 0.35
+      default: 0.3
     }
   },
   computed: {
-    style () {
+    style() {
       return {
-        'opacity': this.opacity
+        'background-color': `rgba(0, 0, 0, ${this.opacity})`
       }
     }
   },
   methods: {
-    clickHandler (e) {
+    clickHandler(e) {
       this.$emit('click', e)
     }
   }
@@ -37,7 +37,6 @@ export default {
     top: 0;
     height: 100%;
     width: 100%;
-    background: $black-color;
     user-select: none;
   }
 }

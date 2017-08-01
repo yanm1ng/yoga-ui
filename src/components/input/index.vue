@@ -55,7 +55,7 @@ import Cell from '../cell'
 import Icon from '../icon'
 
 export default {
-  name: 'input',
+  name: 'x-input',
   props: {
     value: String,
     title: {

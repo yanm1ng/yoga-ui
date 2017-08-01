@@ -8,7 +8,7 @@
 import Cell from '../cell'
 
 export default {
-  name: 'switch',
+  name: 'x-switch',
   props: {
     title: String,
     desc: String,

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="yui-cells-box">
     <div class="yui-cells-title">{{ title }}</div>
     <div class="yui-cells">
       <slot></slot>
@@ -44,6 +44,10 @@ export default {
     &:after {
       bottom: -1px;
       border-bottom: 1px solid $border-color;
+    }
+    &-box {
+      margin-bottom: 20px;
+      position: relative;
     }
   }
 }

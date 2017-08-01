@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
   "dependencies": {
+    "autosize": "^4.0.0",
     "babel-polyfill": "^6.23.0",
     "css-loader": "^0.28.4",
     "node-sass": "^4.5.3",

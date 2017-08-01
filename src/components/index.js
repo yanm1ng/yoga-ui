@@ -14,7 +14,8 @@ import Checkbox from './checkbox'
 import Alert from './alert'
 import Confirm from './confirm'
 import XInput from './input'
- 
+import XTextarea from './textarea'
+
 export {
   XButton,
   Cell,
@@ -33,5 +34,6 @@ export {
   Checkbox,
   Alert,
   Confirm,
-  XInput
+  XInput,
+  XTextarea
 }
