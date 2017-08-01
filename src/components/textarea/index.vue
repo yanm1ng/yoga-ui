@@ -6,6 +6,7 @@
         :placeholder="placeholder"
         :rows="rows"
         :cols="cols"
+        :disabled="disabled"
         :maxlength="max"
         :style="textareaStyle"
         @focus="$emit('on-focus')"
@@ -42,6 +43,10 @@ export default {
     showCounter: {
       type: Boolean,
       default: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     },
     autoSize: {
       type: Boolean,

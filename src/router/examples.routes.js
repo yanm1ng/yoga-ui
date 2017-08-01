@@ -15,6 +15,7 @@ const Checkbox = r => require.ensure([], () => r(require('examples/Checkbox')), 
 const Textarea = r => require.ensure([], () => r(require('examples/Textarea')), 'Textarea')
 const Alert = r => require.ensure([], () => r(require('examples/Alert')), 'Alert')
 const Confirm = r => require.ensure([], () => r(require('examples/Confirm')), 'Confirm')
+const Flex = r => require.ensure([], () => r(require('examples/Flex')), 'Flex')
 
 export default [
   {
@@ -68,5 +69,8 @@ export default [
   }, {
     path: '/confirm',
     component: Confirm
+  }, {
+    path: '/flex',
+    component: Flex
   }
 ]

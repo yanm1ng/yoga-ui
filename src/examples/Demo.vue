@@ -35,7 +35,8 @@ export default {
         { title: 'Checkbox', link: 'checkbox' },
         { title: 'Textarea', link: 'textarea' },
         { title: 'Alert', link: 'alert' },
-        { title: 'Confirm', link: 'confirm' }
+        { title: 'Confirm', link: 'confirm' },
+        { title: 'Flex', link: 'flex' }
       ]
     }
   },
