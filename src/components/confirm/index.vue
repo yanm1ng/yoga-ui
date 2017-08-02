@@ -111,7 +111,6 @@ export default {
       display: block;
       flex: 1;
       position: relative;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       &-default {
         color: $grey-color;
       }
