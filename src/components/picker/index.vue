@@ -21,8 +21,8 @@
         >
         </div>
       </div>
-      <div class="yui-picker-indicator"></div>
     </div>
+    <div class="yui-picker-indicator"></div>
   </div>
 </template>
 
@@ -58,12 +58,20 @@ export default {
       default: 0
     }
   },
-  mounted () {
-    this.$touch.scrollElement = this.$el.querySelector('.yui-picker')
+  mounted() {
+    this.$touch.element = this.$el.querySelector('.yui-picker')
     requestAnimationFrame(this.scrollToActive)
+    this.isScrolling = false
+    this.$touch.element.addEventListener('scroll', () => {
+      clearTimeout(this.isScrolling)
+      this.isScrolling = setTimeout(() => {
+        this.$touch.scrollEnd = true
+        this.computedScrollTop()
+      }, 66)
+    }, false)
   },
   methods: {
-    scrollToActive () {
+    scrollToActive() {
       let node = this.$el.querySelector('.yui-picker-active')
       let index = 0
       Array.from(this.$el.querySelectorAll('.yui-picker-item')).forEach((item, i) => {
@@ -72,24 +80,32 @@ export default {
         }
       })
       requestAnimationFrame(() => {
-        this.$touch.scrollElement.scrollTop = node ? index * (node.offsetHeight || 34) : 0
+        this.$touch.element.scrollTop = node ? index * 34 : 0
       })
     },
-    onTouchEnd () {
-      this.$touch.scrollEnd = true
-      this.computedScrollTop()
+    onScroll() {
+      if (this.$touch && this.$touch.scrollEnd) {
+        this.computedScrollTop()
+      }
     },
-    onTouchMove (e) {
+    onTouchStart(e) {
+      this.$touch.scrollEnd = false
+      this.$touch.maxScrollTop = this.$touch.element.scrollHeight - this.$touch.element.offsetHeight
+      this.pageY = e.changedTouches[0].pageY
+      this.$timer && clearTimeout(this.$timer)
+      this.$pullTimer && clearTimeout(this.$pullTimer)
+    },
+    onTouchMove(e) {
       let pageY = e.changedTouches[0].pageY
       if (this.pageY) {
-        if (this.$touch.scrollElement.scrollTop === 0 && pageY - this.pageY > 0) {
+        if (this.$touch.element.scrollTop === 0 && pageY - this.pageY > 0) {
           this.$pullTimer && clearTimeout(this.$pullTimer)
           this.$pullTimer = setTimeout(() => {
             this.$emit('on-pulldown')
           }, 500)
           e.preventDefault()
           e.stopPropagation()
-        } else if (Math.round(this.$touch.scrollElement.scrollTop) === this.$touch.maxScrollTop && pageY - this.pageY < 0) {
+        } else if (Math.round(this.$touch.element.scrollTop) === this.$touch.maxScrollTop && pageY - this.pageY < 0) {
           this.$pullTimer && clearTimeout(this.$pullTimer)
           this.$pullTimer = setTimeout(() => {
             this.$emit('on-pullup')
@@ -100,17 +116,9 @@ export default {
       }
       this.pageY = pageY
     },
-    onTouchStart (e) {
-      this.$touch.scrollEnd = false
-      this.$touch.maxScrollTop = this.$touch.scrollElement.scrollHeight - this.$touch.scrollElement.offsetHeight
-      this.pageY = e.changedTouches[0].pageY
-      this.$timer && clearTimeout(this.$timer)
-      this.$pullTimer && clearTimeout(this.$pullTimer)
-    },
-    onScroll() {
-      if (this.$touch && this.$touch.scrollEnd) {
-        this.computedScrollTop()
-      }
+    onTouchEnd() {
+      this.$touch.scrollEnd = true
+      this.computedScrollTop()
     },
     computedScrollTop() {
       this.$timer && clearTimeout(this.$timer)
@@ -132,13 +140,13 @@ export default {
             value !== this.value && this.$emit('on-change', value, this.index).$emit('input', value, this.index)
           }
         })
-      }, 51)
+      }, 50)
     }
   },
   created() {
     this.$touch = {}
   },
-  destroyed () {
+  destroyed() {
     this.$touch = null
   }
 }
@@ -165,35 +173,31 @@ export default {
       padding: 103px 0;
     }
     &-indicator {
+      position: absolute;
+      height: 34px;
+      width: 100%;
+      background-color: rgba(206, 206, 206, 0.1);
+      top: 50%;
+      transform: translateY(-50%);
       &:before {
-        border-top: 1px solid $border-color;
         content: '';
-        display: block;
         position: absolute;
         left: 0;
+        top: 0;
         width: 100%;
-        top: 102px;
+        border-top: 1px solid $border-color;
         transform-origin: 0 0;
-        transform: scaleY(0.5);
-        box-shadow:
-          0 -45px 0 45px hsla(0, 0%, 100%, .3),
-          0 -158px 0 3px hsla(0, 0%, 100%, .4),
-          0 -228px 0 2px hsla(0, 0%, 100%, .5);
+        transform: scaleY(.5);
       }
       &:after {
-        border-bottom: 1px solid $border-color;
         content: '';
-        display: block;
         position: absolute;
         left: 0;
+        bottom: 0;
         width: 100%;
+        border-bottom: 1px solid $border-color;
         transform-origin: 0 0;
-        transform: scaleY(0.5);
-        top: 135px;
-        box-shadow:
-          0 45px 0 45px hsla(0, 0%, 100%, .3),
-          0 125px 0 34px hsla(0, 0%, 100%, .4),
-          0 184px 0 24px hsla(0, 0%, 100%, .5);
+        transform: scaleY(.5);
       }
     }
     &-item {

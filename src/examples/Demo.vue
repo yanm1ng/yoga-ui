@@ -36,7 +36,8 @@ export default {
         { title: 'Textarea', link: 'textarea' },
         { title: 'Alert', link: 'alert' },
         { title: 'Confirm', link: 'confirm' },
-        { title: 'Flex', link: 'flex' }
+        { title: 'Flex', link: 'flex' },
+        { title: 'Picker', link: 'picker' }
       ]
     }
   },

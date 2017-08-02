@@ -16,6 +16,7 @@ import Confirm from './confirm'
 import XInput from './input'
 import XTextarea from './textarea'
 import { Flex, FlexItem } from './flex'
+import Picker from './picker'
 
 export {
   XButton,
@@ -38,5 +39,6 @@ export {
   XInput,
   XTextarea,
   Flex,
-  FlexItem
+  FlexItem,
+  Picker
 }
