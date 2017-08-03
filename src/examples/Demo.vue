@@ -1,25 +1,25 @@
 <template>
   <section>
-    <cell-box title="所有组件">
-      <cell :title="item.title" is-link v-for="(item, index) in demos" :key="item.title" @on-click="goRoute(index)"></cell>
-    </cell-box>
+    <grid v-for="(grids, index) in demos" :key="index">
+      <grid-item v-for="item in grids" :key="item.title" @on-item-click="goRoute(item.link)" :label="item.title"></grid-item>
+    </grid>
   </section>
 </template>
 
 <script>
 import {
-  Cell,
-  CellBox
+  Grid,
+  GridItem
 } from 'components'
 
 export default {
   components: {
-    Cell,
-    CellBox
+    Grid,
+    GridItem
   },
   data() {
     return {
-      demos: [
+      demos: this.split([
         { title: 'Button', link: 'button' },
         { title: 'ButtonTab', link: 'button-tab' },
         { title: 'Cell', link: 'cell' },
@@ -39,13 +39,32 @@ export default {
         { title: 'Flex', link: 'flex' },
         { title: 'Picker', link: 'picker' },
         { title: 'Grid', link: 'grid' }
-      ]
+      ])
     }
   },
   methods: {
-    goRoute(key) {
-      const link = this.demos[key].link
+    goRoute(link) {
       this.$router.push(link)
+    },
+    split(array) {
+      let chunks = []
+      let count = Math.ceil(array.length / 3)
+      while (count > 0) {
+        chunks.push(array.slice((count - 1) * 3, count * 3))
+        count--
+      }
+      chunks = chunks.reverse()
+      const lastList = chunks[chunks.length - 1]
+      const lastLength = lastList.length
+      if (lastLength < 3) {
+        for (let i = 0; i < 3 - lastLength; i++) {
+          lastList.push({
+            title: '----',
+            link: ''
+          })
+        }
+      }
+      return chunks
     }
   }
 }
