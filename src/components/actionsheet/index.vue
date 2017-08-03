@@ -17,7 +17,7 @@ export default {
   props: {
     menus: {
       type: Array,
-      default: []
+      default: () => []
     },
     open: {
       type: Boolean,

@@ -19,7 +19,7 @@ export default {
     title: String,
     values: {
       type: Array,
-      default: []
+      default: () => []
     },
     options: {
       type: Array,
@@ -29,12 +29,7 @@ export default {
   },
   data() {
     return {
-      currentValues: []
-    }
-  },
-  created() {
-    if (this.values) {
-      this.currentValues = this.values
+      currentValues: this.values
     }
   },
   computed: {
