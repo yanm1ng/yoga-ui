@@ -55,7 +55,7 @@ import Cell from '../cell'
 import Icon from '../icon'
 
 export default {
-  name: 'input',
+  name: 'x-input',
   props: {
     value: String,
     title: {
@@ -116,7 +116,6 @@ export default {
     border: 0;
     outline: 0;
     -webkit-appearance: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     background-color: transparent;
     font-size: inherit;
     height: 1.4em;

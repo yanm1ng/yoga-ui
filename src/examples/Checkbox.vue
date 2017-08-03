@@ -1,6 +1,7 @@
 <template>
   <section>
-    <checkbox title="选择题" :max="2" :values="values" :options="options" @on-change="handleChange"></checkbox>
+    <checkbox title="选择题" :values="values1" :options="options" @on-change="handleChange"></checkbox>
+    <checkbox title="选择题(最多2个)" :max="2" :values="values2" :options="options" @on-change="handleChange"></checkbox>
   </section>
 </template>
 
@@ -10,7 +11,8 @@ import { Checkbox } from 'components'
 export default {
   data() {
     return {
-      values: ['1'],
+      values1: ['1'],
+      values2: [],
       options: [
         { label: '选项一', value: '1' },
         { label: '选项二', value: '2' },

@@ -33,8 +33,12 @@ export default {
         { title: 'Switch', link: 'switch' },
         { title: 'Radio', link: 'radio' },
         { title: 'Checkbox', link: 'checkbox' },
+        { title: 'Textarea', link: 'textarea' },
         { title: 'Alert', link: 'alert' },
-        { title: 'Confirm', link: 'confirm' }
+        { title: 'Confirm', link: 'confirm' },
+        { title: 'Flex', link: 'flex' },
+        { title: 'Picker', link: 'picker' },
+        { title: 'Grid', link: 'grid' }
       ]
     }
   },

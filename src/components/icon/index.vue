@@ -10,7 +10,10 @@ export default {
   props: {
     name: {
       type: String,
-      default: 'emoji'
+      default: 'emoji',
+      validator: function(value) {
+        return ['check', 'close', 'emoji', 'favorfill', 'favor', 'loading', 'roundcheckfill', 'roundcheck', 'roundclosefill', 'roundclose', 'roundrightfill', 'roundright', 'search', 'timefill', 'time', 'unfold', 'warnfill', 'warn', 'likefill', 'like', 'order', 'back', 'more', 'scan', 'questionfill', 'question', 'top', 'pulldown', 'pullup', 'right', 'refresh', 'deletefill', 'delete', 'home', 'homefill', 'squarecheckfill', 'square', 'squarecheck', 'round', 'roundaddfill', 'roundadd', 'add', 'share'].indexOf(value) !== -1
+      }
     }
   },
   computed: {

@@ -42,7 +42,6 @@ export default {
       font-size: 14px;
       line-height: 32px;
       text-align: center;
-      text-decoration: none;
     }
   }
 }

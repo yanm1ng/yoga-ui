@@ -14,7 +14,11 @@ import Checkbox from './checkbox'
 import Alert from './alert'
 import Confirm from './confirm'
 import XInput from './input'
- 
+import XTextarea from './textarea'
+import { Flex, FlexItem } from './flex'
+import Picker from './picker'
+import { Grid, GridItem } from './grid'
+
 export {
   XButton,
   Cell,
@@ -33,5 +37,11 @@ export {
   Checkbox,
   Alert,
   Confirm,
-  XInput
+  XInput,
+  XTextarea,
+  Flex,
+  FlexItem,
+  Picker,
+  Grid,
+  GridItem
 }

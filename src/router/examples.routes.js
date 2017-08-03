@@ -12,8 +12,12 @@ const Switch = r => require.ensure([], () => r(require('examples/Switch')), 'Swi
 const Input = r => require.ensure([], () => r(require('examples/Input')), 'Input')
 const Radio = r => require.ensure([], () => r(require('examples/Radio')), 'Radio')
 const Checkbox = r => require.ensure([], () => r(require('examples/Checkbox')), 'Checkbox')
+const Textarea = r => require.ensure([], () => r(require('examples/Textarea')), 'Textarea')
 const Alert = r => require.ensure([], () => r(require('examples/Alert')), 'Alert')
 const Confirm = r => require.ensure([], () => r(require('examples/Confirm')), 'Confirm')
+const Flex = r => require.ensure([], () => r(require('examples/Flex')), 'Flex')
+const Picker = r => require.ensure([], () => r(require('examples/Picker')), 'Picker')
+const Grid = r => require.ensure([], () => r(require('examples/Grid')), 'Grid')
 
 export default [
   {
@@ -59,10 +63,22 @@ export default [
     path: '/checkbox',
     component: Checkbox
   }, {
+    path: '/textarea',
+    component: Textarea
+  }, {
     path: '/alert',
     component: Alert
   }, {
     path: '/confirm',
     component: Confirm
+  }, {
+    path: '/flex',
+    component: Flex
+  }, {
+    path: '/picker',
+    component: Picker
+  }, {
+    path: '/grid',
+    component: Grid
   }
 ]
