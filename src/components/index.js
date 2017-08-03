@@ -17,6 +17,7 @@ import XInput from './input'
 import XTextarea from './textarea'
 import { Flex, FlexItem } from './flex'
 import Picker from './picker'
+import { Grid, GridItem } from './grid'
 
 export {
   XButton,
@@ -40,5 +41,7 @@ export {
   XTextarea,
   Flex,
   FlexItem,
-  Picker
+  Picker,
+  Grid,
+  GridItem
 }

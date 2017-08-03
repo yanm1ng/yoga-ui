@@ -37,7 +37,8 @@ export default {
         { title: 'Alert', link: 'alert' },
         { title: 'Confirm', link: 'confirm' },
         { title: 'Flex', link: 'flex' },
-        { title: 'Picker', link: 'picker' }
+        { title: 'Picker', link: 'picker' },
+        { title: 'Grid', link: 'grid' }
       ]
     }
   },

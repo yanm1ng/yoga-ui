@@ -17,6 +17,7 @@ const Alert = r => require.ensure([], () => r(require('examples/Alert')), 'Alert
 const Confirm = r => require.ensure([], () => r(require('examples/Confirm')), 'Confirm')
 const Flex = r => require.ensure([], () => r(require('examples/Flex')), 'Flex')
 const Picker = r => require.ensure([], () => r(require('examples/Picker')), 'Picker')
+const Grid = r => require.ensure([], () => r(require('examples/Grid')), 'Grid')
 
 export default [
   {
@@ -76,5 +77,8 @@ export default [
   }, {
     path: '/picker',
     component: Picker
+  }, {
+    path: '/grid',
+    component: Grid
   }
 ]
