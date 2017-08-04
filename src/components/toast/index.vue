@@ -1,10 +1,12 @@
 <template>
-  <div class="yui-toast" v-show="show">
-    <div :class="classes">
-      <icon :name="iconName" v-if="checkStatus" />
-      <div><slot></slot></div>
+  <transition name="toast-fade">
+    <div class="yui-toast" v-show="currentValue">
+      <div :class="classes">
+        <icon :name="iconName" v-if="checkStatus" />
+        <div><slot>{{ title }}</slot></div>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -13,7 +15,7 @@ import Icon from '../icon'
 export default {
   name: 'toast',
   props: {
-    show: {
+    value: {
       type: Boolean,
       default: false
     },
@@ -24,6 +26,7 @@ export default {
         return ['top', 'bottom', 'center'].indexOf(value) !== -1
       }
     },
+    title: String,
     time: {
       type: Number,
       default: 2000
@@ -51,31 +54,27 @@ export default {
       return [ 'success', 'error', 'loading', 'warning' ].indexOf(status) !== -1
     }
   },
-  mounted() {
-    const { show } = this
-    this.showChange(show)
-  },
-  watch: {
-    show(value) {
-      this.showChange(value)
+  data() {
+    return {
+      currentValue: this.value,
+      timeout: null
     }
   },
-  methods: {
-    showChange(value) {
+  watch: {
+    currentValue(value) {
       if (value) {
-        requestAnimationFrame(() => {
-          this.$el.style.opacity = 1
-        })
-        setTimeout(() => {
-          requestAnimationFrame(() => {
-            this.$el.style.opacity = 0
-            this.$emit('on-close')
-            if (this.destroy) {
-              this.$el.remove()
-            }
-          })
+        this.$emit('input', true)
+        this.$emit('on-show')
+        clearTimeout(this.timeout)
+        this.timeout = setTimeout(() => {
+          this.currentValue = false
+          this.$emit('input', false)
+          this.$emit('on-hide')
         }, this.time)
       }
+    },
+    value(value) {
+      this.currentValue = value
     }
   },
   components: {
@@ -86,6 +85,8 @@ export default {
 
 <style lang="scss">
 @import '~styles/variable.scss';
+@import '~styles/transition.scss';
+
 @keyframes rotating {
   from {
     transform: rotate(0)
@@ -103,13 +104,12 @@ export default {
     text-align: center;
     top: 0;
     left: 0;
-    transition: opacity 0.3s ease-in-out;
     &-content {
-      background: rgba(0, 0, 0, .75);
+      background: rgba(0, 0, 0, .7);
       color: $white-color;
       font-size: 16px;
       padding: 10px 20px;
-      border-radius: 3px;
+      border-radius: 4px;
       box-shadow: 0 1px 5px rgba(0, 0, 0, .1);
       display: inline-block;
       word-break: break-all;
