@@ -1,6 +1,6 @@
 # vue-components-mobile
 
-> Vue.js UI Component on Mobile
+> A Vue.js 2.0 UI Component for Mobile
 
 ## Demo
 
@@ -10,36 +10,3 @@
   npm install
   npm start
 ```
-
-## Components
-
-* Button
-* Cell
-* Tab
-* Button-Tab
-* Icon
-* Toast
-* Popup
-* Actionsheet
-
-## TODO
-
-* [] Alert
-* [] Confirm
-* [] Table
-* [] Flow
-* [] Progress
-* [*] Badge
-* [*] Switch
-* [] Swiper
-* [] Form
-  * [] Input
-  * [*] Radio
-  * [*] Checkbox
-  * [] Selector
-  * [] TextArea
-* [] Picker
-  * [] DatePicker
-  * [] AddressPicker
-* [] Divider
-* [] TabBar
