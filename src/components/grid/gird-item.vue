@@ -91,7 +91,7 @@ export default {
       font-size: 28px;
       text-align: center;
       color: $primary-color;
-      margin: 0 auto 5px 0;
+      margin: 0 auto 5px auto;
     }
     &-label {
       display: block;

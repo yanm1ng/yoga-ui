@@ -1,6 +1,6 @@
 <template>
   <transition>
-    <popup :open="open" direction="center" :autoClose="false" @on-close="closeHandler" class="yui-confirm">
+    <popup :open="open" direction="center" :auto-close="false" @on-close="closeHandler" class="yui-confirm">
       <div class="yui-confirm-content">
         <div class="yui-confirm-content-hd">
           <strong>{{ title }}</strong>

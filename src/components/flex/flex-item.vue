@@ -10,7 +10,7 @@ export default {
   props: {
     span: Number
   },
-  beforeMount () {
+  beforeMount() {
     this.bodyWidth = document.documentElement.offsetWidth
   },
   methods: {
