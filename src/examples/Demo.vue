@@ -38,7 +38,10 @@ export default {
         { title: 'Confirm', link: 'confirm' },
         { title: 'Flex', link: 'flex' },
         { title: 'Picker', link: 'picker' },
-        { title: 'Grid', link: 'grid' }
+        { title: 'Grid', link: 'grid' },
+        { title: 'Accordion', link: 'accordion' },
+        { title: 'PopupPicker', link: 'popup-picker' },
+        { title: 'Step', link: 'step' }
       ])
     }
   },

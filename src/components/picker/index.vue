@@ -6,7 +6,7 @@
       @touchmove="onTouchMove"
     >
       <div class="yui-picker-scroller">
-        <div v-if="placeholder" class="yui-picker-item yui-picker-placeholder">
+        <div v-if="placeholder" class="yui-picker-item yui-picker-placeholder" data-value="">
           {{ placeholder }}
         </div>
         <div
@@ -48,12 +48,11 @@ export default {
   props: {
     options: Array,
     placeholder: String,
-    value: {
-      type: String
-    },
-    index: {
-      type: Number,
-      default: 0
+    value: String
+  },
+  watch: {
+    options() {
+      requestAnimationFrame(this.scrollToActive)
     }
   },
   mounted() {
@@ -125,7 +124,7 @@ export default {
           let active = this.$el.querySelectorAll('.yui-picker-item')[index]
           if (active) {
             let value = active.dataset.value
-            value !== this.value && this.$emit('on-change', value, this.index).$emit('input', value, this.index)
+            value !== this.value && this.$emit('on-change', value).$emit('input', value)
           }
         })
       }, 50)
@@ -195,6 +194,10 @@ export default {
       white-space: nowrap;
       padding: 0px 20px;
       height: 34px;
+      color: $black-color;
+    }
+    &-placeholder {
+      color: $grey-color;
     }
   }
 }

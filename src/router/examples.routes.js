@@ -18,6 +18,9 @@ const Confirm = r => require.ensure([], () => r(require('examples/Confirm')), 'C
 const Flex = r => require.ensure([], () => r(require('examples/Flex')), 'Flex')
 const Picker = r => require.ensure([], () => r(require('examples/Picker')), 'Picker')
 const Grid = r => require.ensure([], () => r(require('examples/Grid')), 'Grid')
+const Accordion = r => require.ensure([], () => r(require('examples/Accordion')), 'Accordion')
+const PopupPicker = r => require.ensure([], () => r(require('examples/PopupPicker')), 'PopupPicker')
+const Step = r => require.ensure([], () => r(require('examples/Step')), 'Step')
 
 export default [
   {
@@ -80,5 +83,14 @@ export default [
   }, {
     path: '/grid',
     component: Grid
+  }, {
+    path: '/accordion',
+    component: Accordion
+  }, {
+    path: '/popup-picker',
+    component: PopupPicker
+  }, {
+    path: '/step',
+    component: Step
   }
 ]

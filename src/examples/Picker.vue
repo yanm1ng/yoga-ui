@@ -1,6 +1,8 @@
 <template>
   <section>
-    <picker :options="options"></picker>
+    <picker :options="options" v-model="value1" @on-change="handleChange"></picker>
+    <br>
+    <picker :options="options" v-model="value2" placeholder="请选择" @on-change="handleChange"></picker>
   </section>
 </template>
 
@@ -10,15 +12,22 @@ import { Picker } from 'components'
 let options = []
 for (let i = 2017; i > 1995; i--) {
   options.push({
-    label: i,
-    value: i
+    label: i + '',
+    value: i + ''
   })
 }
 
 export default {
   data() {
     return {
-      options
+      options,
+      value1: '2014',
+      value2: ''
+    }
+  },
+  methods: {
+    handleChange(val) {
+      console.log(val)
     }
   },
   components: {
@@ -26,7 +35,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>
