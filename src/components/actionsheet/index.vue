@@ -14,6 +14,10 @@ import Popup from '../popup'
 
 export default {
   name: 'actionsheet',
+  model: {
+    prop: 'open',
+    event: 'change'
+  },
   props: {
     open: {
       type: Boolean,
@@ -34,11 +38,11 @@ export default {
   },
   methods: {
     closeHandler() {
-      this.autoClose && this.$emit('on-close')
+      this.autoClose && this.$emit('on-close').$emit('change', false)
     },
     itemHandler(value) {
       this.$emit('on-change', value)
-      this.autoClose && this.$emit('on-close')
+      this.closeHandler()
     }
   },
   components: {

@@ -2,6 +2,7 @@
   <section>
     <radio title="选择题1" :value="value1" :options="options" @on-change="handleChange1"></radio>
     <radio title="选择题2" position="right" :value="value2" :options="options" @on-change="handleChange2"></radio>
+    <radio title="v-model" v-model="value3" :options="options"></radio>
   </section>
 </template>
 
@@ -16,7 +17,8 @@ export default {
       options: [
         { label: '选项一', value: '1' },
         { label: '选项二', value: '2' }
-      ]
+      ],
+      value3: '1'
     }
   },
   methods: {
