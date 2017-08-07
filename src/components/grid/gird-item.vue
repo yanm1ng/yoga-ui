@@ -91,14 +91,13 @@ export default {
       font-size: 28px;
       text-align: center;
       color: $primary-color;
-      margin: 0 auto;
+      margin: 0 auto 5px auto;
     }
     &-label {
       display: block;
       text-align: center;
-      margin-top: 5px;
       color: $black-color;
-      font-size: 14px;
+      font-size: 16px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;

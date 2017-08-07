@@ -4,11 +4,9 @@
       class="yui-picker"
       @touchstart="onTouchStart"
       @touchmove="onTouchMove"
-      @touchend="onTouchEnd"
-      @scroll="onScroll"
     >
       <div class="yui-picker-scroller">
-        <div v-if="placeholder" class="yui-picker-item yui-picker-placeholder">
+        <div v-if="placeholder" class="yui-picker-item yui-picker-placeholder" data-value="">
           {{ placeholder }}
         </div>
         <div
@@ -50,12 +48,11 @@ export default {
   props: {
     options: Array,
     placeholder: String,
-    value: {
-      type: String
-    },
-    index: {
-      type: Number,
-      default: 0
+    value: String
+  },
+  watch: {
+    options() {
+      requestAnimationFrame(this.scrollToActive)
     }
   },
   mounted() {
@@ -67,7 +64,7 @@ export default {
       this.isScrolling = setTimeout(() => {
         this.$touch.scrollEnd = true
         this.computedScrollTop()
-      }, 66)
+      }, 60)
     }, false)
   },
   methods: {
@@ -82,11 +79,6 @@ export default {
       requestAnimationFrame(() => {
         this.$touch.element.scrollTop = node ? index * 34 : 0
       })
-    },
-    onScroll() {
-      if (this.$touch && this.$touch.scrollEnd) {
-        this.computedScrollTop()
-      }
     },
     onTouchStart(e) {
       this.$touch.scrollEnd = false
@@ -116,28 +108,23 @@ export default {
       }
       this.pageY = pageY
     },
-    onTouchEnd() {
-      this.$touch.scrollEnd = true
-      this.computedScrollTop()
-    },
     computedScrollTop() {
       this.$timer && clearTimeout(this.$timer)
       this.$timer = setTimeout(() => {
         this.$touch.scrollEnd = false
-        let node = this.$el.querySelector('.yui-picker')
-        let _scrollTop = node.scrollTop
+        let _scrollTop = this.$touch.element.scrollTop
         let index = Math.round(_scrollTop / 34)
         let scrollTop = index * 34
         requestAnimationFrame(() => {
           if (_scrollTop !== scrollTop) {
             easeout(_scrollTop, scrollTop, 4, (value) => {
-              node.scrollTop = value
+              this.$touch.element.scrollTop = value
             })
           }
           let active = this.$el.querySelectorAll('.yui-picker-item')[index]
           if (active) {
             let value = active.dataset.value
-            value !== this.value && this.$emit('on-change', value, this.index).$emit('input', value, this.index)
+            value !== this.value && this.$emit('on-change', value).$emit('input', value)
           }
         })
       }, 50)
@@ -207,6 +194,10 @@ export default {
       white-space: nowrap;
       padding: 0px 20px;
       height: 34px;
+      color: $black-color;
+    }
+    &-placeholder {
+      color: $grey-color;
     }
   }
 }

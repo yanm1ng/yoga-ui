@@ -8,9 +8,23 @@
 export default {
   name: 'x-button',
   props: {
-    disabled: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     type: {
-      default: 'primary'
+      type: String,
+      default: 'primary',
+      validator: function(val) {
+        return ['primary', 'ghost', 'danger'].indexOf(val) !== -1
+      }
+    },
+    size: {
+      type: String,
+      default: 'normal',
+      validator: function(val) {
+        return ['normal', 'mini'].indexOf(val) !== -1
+      }
     }
   },
   computed: {
@@ -18,6 +32,7 @@ export default {
       return [
         `yui-btn-${this.type}`,
         {
+          'yui-btn-mini': this.size === 'mini',
           'yui-btn-disabled': this.disabled
         }
       ]
@@ -35,11 +50,8 @@ export default {
 @import '~styles/variable.scss';
 .yui {
   &-btn {
-    border: 0;
-    outline: none;
     background-color: transparent;
     text-align: center;
-    user-select: none;
     box-shadow: none;
     height: .9rem;
     background-color: $white-color;
@@ -64,6 +76,13 @@ export default {
     }
     &:active {
       box-shadow: 1px 0 100px rgba(0,0,0,0.15) inset;
+    }
+    &-mini {
+      display: inline-block;
+      font-size: 13px;
+      height: .6rem;
+      width: auto;
+      padding: 0 20px;
     }
     &-primary {
       background-color: $primary-color;

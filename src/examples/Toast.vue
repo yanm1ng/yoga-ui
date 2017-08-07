@@ -1,25 +1,31 @@
 <template>
-  <section :style="{ 'margin': '10px' }">
-    <x-button @on-click="handleToast('center')">Open Toast Center</x-button>
-    <x-button @on-click="handleToast('bottom')">Open Toast Bottom</x-button>
-    <x-button @on-click="handleToast('icon')">Open Toast Icon</x-button>
-    <x-button @on-click="handleToast('loading')">Open Toast Loading</x-button>
-    <toast :show="center" @on-close="handleToast('center')">恭喜你答对了</toast>
-    <toast :show="bottom" direction="bottom" @on-close="handleToast('bottom')">恭喜你答对了</toast>
-    <toast :show="icon" status="success" @on-close="handleToast('icon')">恭喜你答对了</toast>
-    <toast :show="loading" status="loading" @on-close="handleToast('loading')">加载中</toast>
+  <section>
+    <cell-box title="Toast">
+      <x-switch v-model="center" title="center"></x-switch>
+      <x-switch v-model="bottom" title="bottom"></x-switch>
+      <x-switch v-model="icon" title="with icon"></x-switch>
+      <x-switch v-model="loading" title="loading"></x-switch>
+    </cell-box>
+    <toast v-model="center">恭喜你答对了</toast>
+    <toast v-model="bottom" direction="bottom" @on-close="handleToast('bottom')">恭喜你答对了</toast>
+    <toast v-model="icon" status="success" @on-close="handleToast('icon')">恭喜你答对了</toast>
+    <toast v-model="loading" status="loading" @on-close="handleToast('loading')">加载中</toast>
   </section>
 </template>
 
 <script>
 import {
-  XButton,
+  XSwitch,
+  Cell,
+  CellBox,
   Toast
 } from 'components'
 
 export default {
   components: {
-    XButton,
+    XSwitch,
+    Cell,
+    CellBox,
     Toast
   },
   data() {
@@ -28,11 +34,6 @@ export default {
       bottom: false,
       icon: false,
       loading: false
-    }
-  },
-  methods: {
-    handleToast(direction) {
-      this[direction] = !this[direction]
     }
   }
 }

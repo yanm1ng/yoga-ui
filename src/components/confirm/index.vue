@@ -1,18 +1,16 @@
 <template>
-  <transition>
-    <popup :open="open" direction="center" :autoClose="false" @on-close="closeHandler" class="yui-confirm">
-      <div class="yui-confirm-content">
-        <div class="yui-confirm-content-hd">
-          <strong>{{ title }}</strong>
-        </div>
-        <div class="yui-confirm-content-bd">{{ content }}</div>
+  <popup :open="open" direction="center" :auto-close="false" @on-close="closeHandler" class="yui-confirm">
+    <div class="yui-confirm-content">
+      <div class="yui-confirm-content-hd">
+        <strong>{{ title }}</strong>
       </div>
-      <div class="yui-confirm-footer">
-        <a href="javascript:;" class="yui-confirm-btn yui-confirm-btn-default" @click="onCancel">{{ cancelText }}</a>
-        <a href="javascript:;" class="yui-confirm-btn yui-confirm-btn-primary" @click="onConfirm">{{ confirmText }}</a>
-      </div>
-    </popup>
-  </transition>
+      <div class="yui-confirm-content-bd">{{ content }}</div>
+    </div>
+    <div class="yui-confirm-footer">
+      <a href="javascript:;" class="yui-confirm-btn yui-confirm-btn-default" @click="onCancel">{{ cancelText }}</a>
+      <a href="javascript:;" class="yui-confirm-btn yui-confirm-btn-primary" @click="onConfirm">{{ confirmText }}</a>
+    </div>
+  </popup>
 </template>
 
 <script>

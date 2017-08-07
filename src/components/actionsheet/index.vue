@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" direction="bottom" :autoClose="autoClose" @on-close="closeHandler">
+  <popup :open="open" direction="bottom" :auto-close="autoClose" @on-close="closeHandler">
     <div class="yui-actionsheet">
       <ul v-if="menus.length" class="yui-actionsheet-menus">
         <li v-for="item in menus" :key="item.value" @click="itemHandler(item.value)">{{ item.label }}</li>
@@ -14,14 +14,18 @@ import Popup from '../popup'
 
 export default {
   name: 'actionsheet',
+  model: {
+    prop: 'open',
+    event: 'change'
+  },
   props: {
-    menus: {
-      type: Array,
-      default: []
-    },
     open: {
       type: Boolean,
       default: false
+    },
+    menus: {
+      type: Array,
+      default: () => []
     },
     showCancel: {
       type: Boolean,
@@ -34,11 +38,11 @@ export default {
   },
   methods: {
     closeHandler() {
-      this.autoClose && this.$emit('on-close')
+      this.autoClose && this.$emit('on-close').$emit('change', false)
     },
     itemHandler(value) {
       this.$emit('on-change', value)
-      this.autoClose && this.$emit('on-close')
+      this.closeHandler()
     }
   },
   components: {

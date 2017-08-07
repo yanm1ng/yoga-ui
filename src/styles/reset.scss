@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   user-select: none;
 }
@@ -15,4 +15,9 @@ a { text-decoration: none; }
 hr {
   border: none;
   height: 1px;
+}
+button, input, optgroup, select, textarea{ 
+  -webkit-appearance: none; 
+  border: 0;
+  outline: none;
 }

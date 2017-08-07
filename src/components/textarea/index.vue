@@ -102,10 +102,6 @@ export default {
 .yui {
   &-textarea {
     width: 100%;
-    border: 0;
-    outline: 0;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     resize: none;
     font-size: inherit;
     line-height: 1.4;
