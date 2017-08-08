@@ -65,7 +65,10 @@ export default {
     desc: String,
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
+      validator: function(value) {
+        return ['text', 'tel', 'number', 'email'].indexOf(value) !== -1
+      }
     },
     placeholder: String,
     max: Number,

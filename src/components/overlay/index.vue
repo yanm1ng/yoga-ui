@@ -10,7 +10,10 @@ export default {
   props: {
     opacity: {
       type: Number,
-      default: 0.3
+      default: 0.3,
+      validator: function(value) {
+        return value > 0 && value < 1
+      }
     }
   },
   computed: {

@@ -13,9 +13,11 @@
 
 <script>
 import Overlay from '../overlay'
+import { historyMixin } from 'mixins/history'
 
 export default {
   name: 'popup',
+  mixins: [historyMixin],
   components: {
     Overlay
   },
@@ -30,7 +32,10 @@ export default {
     },
     direction: {
       type: String,
-      default: 'bottom'
+      default: 'bottom',
+      validator: function(value) {
+        return ['bottom', 'left', 'right', 'top'].indexOf(value) !== -1
+      }
     },
     autoClose: {
       type: Boolean,
@@ -55,6 +60,7 @@ export default {
   mounted() {
     if (this.open) {
       requestAnimationFrame(() => {
+        this.full && this.pushState()
         this.$el.style.zIndex = 1000
       })
     }
@@ -63,12 +69,14 @@ export default {
     open(value) {
       if (value) {
         requestAnimationFrame(() => {
+          this.full && this.pushState()
           this.$el.style.zIndex = 1000
           this.$emit('on-open')
         })
       } else {
         setTimeout(() => {
           requestAnimationFrame(() => {
+            this.full && this.popState()
             this.$el.style.zIndex = -1
           })
         }, 400)
