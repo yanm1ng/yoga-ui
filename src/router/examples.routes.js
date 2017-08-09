@@ -1,6 +1,7 @@
 const Demo = r => require.ensure([], () => r(require('examples/Demo')), 'Demo')
 const Button = r => require.ensure([], () => r(require('examples/Button')), 'Button')
 const Cell = r => require.ensure([], () => r(require('examples/Cell')), 'Cell')
+const Card = r => require.ensure([], () => r(require('examples/Card')), 'Card')
 const Tab = r => require.ensure([], () => r(require('examples/Tab')), 'Tab')
 const ButtonTab = r => require.ensure([], () => r(require('examples/ButtonTab')), 'ButtonTab')
 const Popup = r => require.ensure([], () => r(require('examples/Popup')), 'Popup')
@@ -21,6 +22,9 @@ const Grid = r => require.ensure([], () => r(require('examples/Grid')), 'Grid')
 const Accordion = r => require.ensure([], () => r(require('examples/Accordion')), 'Accordion')
 const PopupPicker = r => require.ensure([], () => r(require('examples/PopupPicker')), 'PopupPicker')
 const Step = r => require.ensure([], () => r(require('examples/Step')), 'Step')
+const Select = r => require.ensure([], () => r(require('examples/Select')), 'Select')
+const Progress = r => require.ensure([], () => r(require('examples/Progress')), 'Progress')
+const Divider = r => require.ensure([], () => r(require('examples/Divider')), 'Divider')
 
 export default [
   {
@@ -32,6 +36,9 @@ export default [
   }, {
     path: '/cell',
     component: Cell
+  }, {
+    path: '/card',
+    component: Card
   }, {
     path: '/tab',
     component: Tab
@@ -92,5 +99,14 @@ export default [
   }, {
     path: '/step',
     component: Step
+  }, {
+    path: '/select',
+    component: Select
+  }, {
+    path: '/progress',
+    component: Progress
+  }, {
+    path: '/divider',
+    component: Divider
   }
 ]

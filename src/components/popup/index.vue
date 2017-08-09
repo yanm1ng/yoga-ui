@@ -34,7 +34,7 @@ export default {
       type: String,
       default: 'bottom',
       validator: function(value) {
-        return ['bottom', 'left', 'right', 'top'].indexOf(value) !== -1
+        return ['bottom', 'left', 'right', 'top', 'center'].indexOf(value) !== -1
       }
     },
     autoClose: {
