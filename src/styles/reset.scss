@@ -11,12 +11,14 @@ th, td {
   margin: 0;
   padding: 0;
 }
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
 hr {
   border: none;
   height: 1px;
 }
-button, input, optgroup, select, textarea{ 
+button, input, optgroup, select, textarea { 
   -webkit-appearance: none; 
   border: 0;
   outline: none;
