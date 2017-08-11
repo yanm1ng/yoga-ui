@@ -62,6 +62,9 @@ export default {
         padding: 10px 20px;
         position: relative;
         background-color: $white-color;
+        &:active {
+          background-color: $background-color;
+        }
         &:last-child {
           &:before {
             display: none;

@@ -25,6 +25,10 @@ export default {
       validator: function(val) {
         return ['normal', 'mini'].indexOf(val) !== -1
       }
+    },
+    circle: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -33,6 +37,7 @@ export default {
         `yui-btn-${this.type}`,
         {
           'yui-btn-mini': this.size === 'mini',
+          'yui-btn-circle': this.circle,
           'yui-btn-disabled': this.disabled
         }
       ]
@@ -56,7 +61,7 @@ export default {
     height: .9rem;
     background-color: $white-color;
     color: $white-color;
-    border-radius: 4px;
+    border-radius: 3px;
     font-size: 18px;
     cursor: default;
     position: relative;
@@ -70,12 +75,20 @@ export default {
       width: 200%;
       height: 200%;
       transform: scale(.5);
-      border-radius: 8px;
+      border-radius: 6px;
       left: -50%;
       top: -50%;
     }
     &:active {
       box-shadow: 1px 0 100px rgba(0,0,0,0.15) inset;
+    }
+    &-circle {
+      border-radius: 200px;
+      &.yui-btn {
+        &:before {
+          border-radius: 200px;
+        }
+      }
     }
     &-mini {
       display: inline-block;

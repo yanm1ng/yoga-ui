@@ -131,6 +131,9 @@ export default {
       }
     }
     &-cell {
+      &:active {
+        background-color: $white-color !important;
+      }
       .yui-cell-bd {
         flex: none;
         margin-right: 20px;

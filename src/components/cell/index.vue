@@ -49,6 +49,9 @@ export default {
     background-color: $white-color;
     overflow: hidden;
     position: relative;
+    &:active {
+      background-color: $background-color;
+    }
     &:first-child:before {
       display: none;
     }
