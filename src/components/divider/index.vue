@@ -20,7 +20,6 @@ export default {
 .yui {
   &-divider {
     font-size: 14px;
-    white-space: nowrap;
     overflow: hidden;
     text-align: center;
     padding: 10px 0;
@@ -35,7 +34,10 @@ export default {
       transform: scaleY(0.5);
     }
     &-content {
-      flex: 0;
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      max-width: 200px;
       padding: 0 10px;
     }
   }
