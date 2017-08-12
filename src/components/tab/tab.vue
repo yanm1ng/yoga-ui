@@ -36,11 +36,6 @@ export default {
     percentRight() {
       return `${(this.childLength - this.currentIndex - 1) * (100 / this.childLength)}%`
     }
-  },
-  watch: {
-    currentIndex(newVal, oldVal) {
-      this.$emit('on-change', newVal, oldVal)
-    }
   }
 }
 </script>

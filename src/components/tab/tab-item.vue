@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" :style="style" @click="onItemClick">
+  <div :class="classes" :style="styles" @click="onItemClick">
     <slot></slot>
   </div>
 </template>
@@ -26,7 +26,7 @@ export default {
         }
       ]
     },
-    style() {
+    styles() {
       if (this.currentSelected) {
         return {
           color: this.$parent.color

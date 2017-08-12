@@ -15,11 +15,6 @@ export default {
       type: String,
       default: '#108ee9'
     }
-  },
-  watch: {
-    currentIndex(newVal, oldVal) {
-      this.$emit('on-change', newVal, oldVal)
-    }
   }
 }
 </script>
