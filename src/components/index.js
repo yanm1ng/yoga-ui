@@ -25,6 +25,8 @@ import { Step, StepItem } from './step'
 import XSelect from './select'
 import XProgress from './progress'
 import Divider from './divider'
+import Notify from './notify'
+import { TabBar, TabBarItem } from './tab-bar'
 
 export {
   XButton,
@@ -58,5 +60,8 @@ export {
   StepItem,
   XSelect,
   XProgress,
-  Divider
+  Divider,
+  Notify,
+  TabBar,
+  TabBarItem
 }

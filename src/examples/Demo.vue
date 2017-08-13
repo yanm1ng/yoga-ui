@@ -49,6 +49,7 @@ export default {
         { title: 'Select', link: 'select' },
         { title: 'Step', link: 'step' },
         { title: 'Tab', link: 'tab' },
+        { title: 'TabBar', link: 'tab-bar' },
         { title: 'Textarea', link: 'textarea' },
         { title: 'Toast', link: 'toast' }
       ])

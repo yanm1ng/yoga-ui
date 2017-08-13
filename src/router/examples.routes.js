@@ -25,6 +25,8 @@ const Step = r => require.ensure([], () => r(require('examples/Step')), 'Step')
 const Select = r => require.ensure([], () => r(require('examples/Select')), 'Select')
 const Progress = r => require.ensure([], () => r(require('examples/Progress')), 'Progress')
 const Divider = r => require.ensure([], () => r(require('examples/Divider')), 'Divider')
+const Notify = r => require.ensure([], () => r(require('examples/Notify')), 'Notify')
+const TabBar = r => require.ensure([], () => r(require('examples/TabBar')), 'TabBar')
 
 export default [
   {
@@ -108,5 +110,11 @@ export default [
   }, {
     path: '/divider',
     component: Divider
+  }, {
+    path: '/notify',
+    component: Notify
+  }, {
+    path: '/tab-bar',
+    component: TabBar
   }
 ]
