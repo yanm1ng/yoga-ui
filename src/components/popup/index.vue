@@ -1,7 +1,7 @@
 <template>
   <div class="yui-popup">
     <transition name="popup-fade" v-if="!full">
-      <overlay v-if="open" @click="closeHandler"></overlay>
+      <overlay v-if="withMask && open" @click="closeHandler"></overlay>
     </transition>
     <transition :name="transitionName" @enter="enterHandler">
       <div v-if="open" :class="classes">
@@ -38,6 +38,10 @@ export default {
       }
     },
     autoClose: {
+      type: Boolean,
+      default: true
+    },
+    withMask: {
       type: Boolean,
       default: true
     }

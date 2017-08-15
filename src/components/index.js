@@ -27,6 +27,7 @@ import XProgress from './progress'
 import Divider from './divider'
 import Notify from './notify'
 import { TabBar, TabBarItem } from './tab-bar'
+import Keyboard from './keyboard'
 
 export {
   XButton,
@@ -63,5 +64,6 @@ export {
   Divider,
   Notify,
   TabBar,
-  TabBarItem
+  TabBarItem,
+  Keyboard
 }

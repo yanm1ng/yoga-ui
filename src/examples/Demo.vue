@@ -39,6 +39,7 @@ export default {
         { title: 'Grid', link: 'grid' },
         { title: 'Icon', link: 'icon' },
         { title: 'Input', link: 'input' },
+        { title: 'Keyboard', link: 'keyboard' },
         { title: 'Notify', link: 'notify' },
         { title: 'Popup', link: 'popup' },
         { title: 'Picker', link: 'picker' },

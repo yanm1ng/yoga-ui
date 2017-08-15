@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" direction="top" :auto-close="autoClose" :class="classes">
+  <popup :open="open" :with-mask="false" direction="top" :auto-close="autoClose" :class="classes">
     <slot></slot>
   </popup>
 </template>
@@ -72,9 +72,6 @@ export default {
 .yui {
   &-notify {
     height: auto !important;
-    & > .yui-overlay {
-      display: none;
-    }
     & > .yui-popup-inner {
       position: relative;
       font-size: 14px;

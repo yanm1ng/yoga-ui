@@ -27,6 +27,7 @@ const Progress = r => require.ensure([], () => r(require('examples/Progress')), 
 const Divider = r => require.ensure([], () => r(require('examples/Divider')), 'Divider')
 const Notify = r => require.ensure([], () => r(require('examples/Notify')), 'Notify')
 const TabBar = r => require.ensure([], () => r(require('examples/TabBar')), 'TabBar')
+const Keyboard = r => require.ensure([], () => r(require('examples/Keyboard')), 'Keyboard')
 
 export default [
   {
@@ -116,5 +117,8 @@ export default [
   }, {
     path: '/tab-bar',
     component: TabBar
+  }, {
+    path: '/keyboard',
+    component: Keyboard
   }
 ]
