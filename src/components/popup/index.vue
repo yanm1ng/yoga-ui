@@ -1,7 +1,7 @@
 <template>
   <div class="yui-popup">
     <transition name="popup-fade" v-if="!full">
-      <overlay v-if="open" @click="closeHandler"></overlay>
+      <overlay v-if="withMask && open" @click="closeHandler"></overlay>
     </transition>
     <transition :name="transitionName" @enter="enterHandler">
       <div v-if="open" :class="classes">
@@ -13,9 +13,11 @@
 
 <script>
 import Overlay from '../overlay'
+import { historyMixin } from 'mixins/history'
 
 export default {
   name: 'popup',
+  mixins: [historyMixin],
   components: {
     Overlay
   },
@@ -30,9 +32,16 @@ export default {
     },
     direction: {
       type: String,
-      default: 'bottom'
+      default: 'bottom',
+      validator: function(value) {
+        return ['bottom', 'left', 'right', 'top', 'center'].indexOf(value) !== -1
+      }
     },
     autoClose: {
+      type: Boolean,
+      default: true
+    },
+    withMask: {
       type: Boolean,
       default: true
     }
@@ -55,6 +64,7 @@ export default {
   mounted() {
     if (this.open) {
       requestAnimationFrame(() => {
+        this.full && this.pushState()
         this.$el.style.zIndex = 1000
       })
     }
@@ -63,12 +73,14 @@ export default {
     open(value) {
       if (value) {
         requestAnimationFrame(() => {
+          this.full && this.pushState()
           this.$el.style.zIndex = 1000
           this.$emit('on-open')
         })
       } else {
         setTimeout(() => {
           requestAnimationFrame(() => {
+            this.full && this.popState()
             this.$el.style.zIndex = -1
           })
         }, 400)

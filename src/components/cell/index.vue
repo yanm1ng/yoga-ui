@@ -45,10 +45,13 @@ export default {
     display: flex;
     align-items: center;
     line-height: 1.4;
-    font-size: 17px;
+    font-size: 16px;
     background-color: $white-color;
     overflow: hidden;
     position: relative;
+    &:active {
+      background-color: $background-color;
+    }
     &:first-child:before {
       display: none;
     }

@@ -2,7 +2,6 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
-  user-select: none;
 }
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
 dl, dt, dd, ul, ol, li, pre,
@@ -11,12 +10,14 @@ th, td {
   margin: 0;
   padding: 0;
 }
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+}
 hr {
   border: none;
   height: 1px;
 }
-button, input, optgroup, select, textarea{ 
+button, input, optgroup, select, textarea { 
   -webkit-appearance: none; 
   border: 0;
   outline: none;

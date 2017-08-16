@@ -45,7 +45,7 @@
         @focus="onFocus"
         @blur="onBlur"
       />
-      <icon v-show="showClear && currentValue" name="roundclosefill" @click.native="clearInput"></icon>
+      <icon v-show="showClear && currentValue && controlClear" name="roundclosefill" @click.native="clearInput"></icon>
     </div>
   </cell>
 </template>
@@ -65,7 +65,10 @@ export default {
     desc: String,
     type: {
       type: String,
-      default: 'text'
+      default: 'text',
+      validator: function(value) {
+        return ['text', 'tel', 'number', 'email'].indexOf(value) !== -1
+      }
     },
     placeholder: String,
     max: Number,
@@ -76,7 +79,8 @@ export default {
   },
   data() {
     return {
-      currentValue: this.value
+      currentValue: this.value,
+      controlClear: false
     }
   },
   methods: {
@@ -85,14 +89,21 @@ export default {
       this.$refs.input.focus()
     },
     onFocus($event) {
+      this.controlClear = true
       this.$emit('on-focus', this.currentValue, $event)
     },
     onBlur($event) {
+      setTimeout(() => {
+        this.controlClear = false
+      }, 200)
       this.$emit('on-blur', this.currentValue, $event)
     }
   },
   watch: {
     currentValue(val) {
+      if (val) {
+        this.controlClear = true
+      }
       this.$emit('input', val)
       this.$emit('on-change', val)
     },
@@ -128,6 +139,9 @@ export default {
       }
     }
     &-cell {
+      &:active {
+        background-color: $white-color !important;
+      }
       .yui-cell-bd {
         flex: none;
         margin-right: 20px;

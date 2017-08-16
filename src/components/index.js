@@ -1,6 +1,7 @@
 import XButton from './button'
 import Cell from './cell'
 import CellBox from './cell-box'
+import Card from './card'
 import { Tab, TabItem } from './tab'
 import { ButtonTab, ButtonTabItem } from './button-tab'
 import Popup from './popup'
@@ -18,11 +19,21 @@ import XTextarea from './textarea'
 import { Flex, FlexItem } from './flex'
 import Picker from './picker'
 import { Grid, GridItem } from './grid'
+import Accordion from './accordion'
+import PopupPicker from './popup-picker'
+import { Step, StepItem } from './step'
+import XSelect from './select'
+import XProgress from './progress'
+import Divider from './divider'
+import Notify from './notify'
+import { TabBar, TabBarItem } from './tab-bar'
+import Keyboard from './keyboard'
 
 export {
   XButton,
   Cell,
   CellBox,
+  Card,
   Tab,
   TabItem,
   ButtonTab,
@@ -43,5 +54,16 @@ export {
   FlexItem,
   Picker,
   Grid,
-  GridItem
+  GridItem,
+  Accordion,
+  PopupPicker,
+  Step,
+  StepItem,
+  XSelect,
+  XProgress,
+  Divider,
+  Notify,
+  TabBar,
+  TabBarItem,
+  Keyboard
 }

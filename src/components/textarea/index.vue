@@ -112,6 +112,9 @@ export default {
       position: relative;
     }
     &-cell {
+      &:active {
+        background-color: $white-color !important;
+      }
       .yui-cell-bd {
         flex: none;
       }

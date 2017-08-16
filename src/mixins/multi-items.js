@@ -29,6 +29,8 @@ const parentMixin = {
     currentIndex(val, oldVal) {
       oldVal > -1 && this.$children[oldVal] && (this.$children[oldVal].currentSelected = false)
       val > -1 && this.$children[val] && (this.$children[val].currentSelected = true)
+      this.$emit('input', val)
+      this.$emit('on-change', val, oldVal)
     },
     index(val) {
       this.currentIndex = val

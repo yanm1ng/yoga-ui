@@ -9,4 +9,5 @@ new Vue({
 }).$mount('#app')
 
 window.addEventListener('resize', resetRootFontSize)
+document.body.addEventListener('touchstart', function () {})
 resetRootFontSize()
