@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="demo-header">
-      <img class="demo-logo" src="../assets/logo.png" />
+      <img class="demo-logo" :src="logo" />
       <p>Vue.js移动端组件库</p>
     </div>
     <grid v-for="(grids, index) in demos" :key="index">
@@ -15,6 +15,7 @@ import {
   Grid,
   GridItem
 } from 'components'
+import logo from 'assets/logo.png'
 
 export default {
   components: {
@@ -53,7 +54,8 @@ export default {
         { title: 'TabBar', link: 'tab-bar' },
         { title: 'Textarea', link: 'textarea' },
         { title: 'Toast', link: 'toast' }
-      ])
+      ]),
+      logo
     }
   },
   methods: {

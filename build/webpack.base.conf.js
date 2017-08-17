@@ -9,7 +9,7 @@ function resolve (dir) {
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: resolve('examples')
   },
   output: {
     path: config.build.assetsRoot,
@@ -23,11 +23,11 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.common.js',
       'src': resolve('src'),
+      'examples': resolve('examples'),
       'assets': resolve('src/assets'),
       'components': resolve('src/components'),
       'styles': resolve('src/styles'),
       'utils': resolve('src/utils'),
-      'examples': resolve('src/examples'),
       'mixins': resolve('src/mixins')
     }
   },
@@ -36,7 +36,7 @@ module.exports = {
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
-        enforce: "pre",
+        enforce: 'pre',
         include: [resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')

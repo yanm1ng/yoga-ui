@@ -8,5 +8,5 @@
   git clone https://github.com/yanm1ng/vue-components vue-components
   cd vue-components
   npm install
-  npm start
+  npm run dev
 ```

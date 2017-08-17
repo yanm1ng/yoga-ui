@@ -23,7 +23,7 @@ module.exports = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'index.html',
+      template: 'examples/index.html',
       inject: true
     }),
     new FriendlyErrorsPlugin()
