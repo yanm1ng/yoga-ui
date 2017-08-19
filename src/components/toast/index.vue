@@ -51,7 +51,7 @@ export default {
     },
     checkStatus() {
       const { status } = this
-      return [ 'success', 'error', 'loading', 'warning' ].indexOf(status) !== -1
+      return ['success', 'error', 'loading', 'warning'].indexOf(status) !== -1
     }
   },
   data() {

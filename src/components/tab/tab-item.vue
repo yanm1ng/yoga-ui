@@ -19,7 +19,7 @@ export default {
   computed: {
     classes() {
       return [
-        `yui-tab-item`,
+        'yui-tab-item',
         {
           'yui-tab-selected': this.currentSelected,
           'yui-tab-disabled': this.disabled

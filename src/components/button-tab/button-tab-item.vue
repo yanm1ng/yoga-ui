@@ -20,7 +20,7 @@ export default {
     classes() {
       const childLen = this.$parent.$children.length - 1
       return [
-        `yui-button-tab-item`,
+        'yui-button-tab-item',
         {
           'yui-button-tab-current': this.currentSelected,
           'yui-button-tab-item-first': this.currentIndex === 0,

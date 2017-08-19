@@ -26,7 +26,7 @@ export default {
       currentValue: this.value
     }
   },
-  watch:{
+  watch: {
     currentValue(val) {
       this.$emit('input', val)
       this.$emit('on-change', val)
