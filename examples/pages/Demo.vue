@@ -41,6 +41,7 @@ export default {
         { title: 'Icon', link: 'icon' },
         { title: 'Input', link: 'input' },
         { title: 'Keyboard', link: 'keyboard' },
+        { title: 'Marquee', link: 'marquee' },
         { title: 'Notify', link: 'notify' },
         { title: 'Popup', link: 'popup' },
         { title: 'Picker', link: 'picker' },
