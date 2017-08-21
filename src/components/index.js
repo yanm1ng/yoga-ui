@@ -28,6 +28,7 @@ import Divider from './divider'
 import Notify from './notify'
 import { TabBar, TabBarItem } from './tab-bar'
 import Keyboard from './keyboard'
+import { XMarquee, XMarqueeItem } from './marquee'
 
 export {
   XButton,
@@ -65,5 +66,7 @@ export {
   Notify,
   TabBar,
   TabBarItem,
-  Keyboard
+  Keyboard,
+  XMarquee,
+  XMarqueeItem
 }
