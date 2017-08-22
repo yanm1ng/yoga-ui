@@ -28,6 +28,7 @@ const Divider = r => require.ensure([], () => r(require('examples/pages/Divider'
 const Notify = r => require.ensure([], () => r(require('examples/pages/Notify')), 'Notify')
 const TabBar = r => require.ensure([], () => r(require('examples/pages/TabBar')), 'TabBar')
 const Keyboard = r => require.ensure([], () => r(require('examples/pages/Keyboard')), 'Keyboard')
+const Marquee = r => require.ensure([], () => r(require('examples/pages/Marquee')), 'Marquee')
 
 export default [
   {
@@ -120,5 +121,8 @@ export default [
   }, {
     path: '/keyboard',
     component: Keyboard
+  }, {
+    path: '/marquee',
+    component: Marquee
   }
 ]

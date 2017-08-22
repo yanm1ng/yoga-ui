@@ -12,6 +12,21 @@
 	"rules": {
 		"indent": ["warn", 2],
 		"no-console": "off",
-		"semi": ["warn", "never"]
+		"semi": ["warn", "never"],
+		"no-dupe-args": "error",
+		"no-dupe-keys": "error",
+		"use-isnan": 2,
+		"no-eval": "error",
+		"valid-typeof": 2,
+		"quotes": ["error", "single"],
+		"no-spaced-func": "error",
+		"no-shadow-restricted-names": "error",
+		"comma-dangle": [2, "never"],
+		"array-bracket-spacing": [2, "never"],
+		"comma-spacing": [2, { "before": false, "after": true }],
+		"key-spacing": [2, { "beforeColon": false, "afterColon": true }],
+		"space-in-parens": ["error", "never"],
+		"space-infix-ops": "error",
+		"spaced-comment": ["error", "always"]
 	}
 }

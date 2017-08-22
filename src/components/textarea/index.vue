@@ -79,7 +79,7 @@ export default {
           height: `${this.height}px`
         }
       }
-    },
+    }
   },
   watch: {
     currentValue(val) {
