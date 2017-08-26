@@ -1,13 +1,13 @@
-#### 问题描述
+#### Description
 
-（简明扼要地描述一下问题）
+Simply describe your question
 
-#### 产生环境
+#### Environment
 
-设备：（手机、平板移动设备）
-操作系统及版本：
-提示错误信息
+Your device, Vue version, components...
 
-#### 复现步骤
-1. ... 
-2. ...
+#### Reproduction Step
+
+1. first...
+2. second...
+3. then...
