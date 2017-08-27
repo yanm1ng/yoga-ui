@@ -59,6 +59,7 @@ export default {
     text-align: center;
     box-shadow: none;
     height: .9rem;
+    line-height: 1;
     background-color: $white-color;
     color: $white-color;
     border-radius: 3px;
