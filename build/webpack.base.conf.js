@@ -28,7 +28,8 @@ module.exports = {
       'components': resolve('src/components'),
       'styles': resolve('src/styles'),
       'utils': resolve('src/utils'),
-      'mixins': resolve('src/mixins')
+      'mixins': resolve('src/mixins'),
+      'directives': resolve('src/directives')
     }
   },
   module: {
