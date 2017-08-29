@@ -81,7 +81,7 @@ export default {
       top: -50%;
     }
     &:active {
-      box-shadow: 1px 0 100px rgba(0,0,0,0.15) inset;
+      box-shadow: 1px 0 100px rgba(0, 0, 0, 0.15) inset;
     }
     &-circle {
       border-radius: 200px;
@@ -105,6 +105,7 @@ export default {
       color: $primary-color;
       background-color: $white-color;
       &:active {
+        background-color: $background-color;
         box-shadow: none;
       }
       &:before {
