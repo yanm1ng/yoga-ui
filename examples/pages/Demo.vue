@@ -43,6 +43,7 @@ export default {
         { title: 'Keyboard', link: 'keyboard' },
         { title: 'Marquee', link: 'marquee' },
         { title: 'Notify', link: 'notify' },
+        { title: 'Popover', link: 'popover' },
         { title: 'Popup', link: 'popup' },
         { title: 'Picker', link: 'picker' },
         { title: 'PopupPicker', link: 'popup-picker' },
