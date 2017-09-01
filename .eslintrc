@@ -10,8 +10,11 @@
 		"sourceType": "module"
 	},
 	"rules": {
+		// 禁止 for 循环出现方向错误的循环，比如 for (i = 0; i < 10; i--)
 		"indent": ["warn", 2],
 		"no-console": "off",
+		"no-debugger": "error",
+		"no-duplicate-case": "error",
 		"semi": ["warn", "never"],
 		"no-dupe-args": "error",
 		"no-dupe-keys": "error",
