@@ -29,6 +29,7 @@ const Notify = r => require.ensure([], () => r(require('examples/pages/Notify'))
 const TabBar = r => require.ensure([], () => r(require('examples/pages/TabBar')), 'TabBar')
 const Keyboard = r => require.ensure([], () => r(require('examples/pages/Keyboard')), 'Keyboard')
 const Marquee = r => require.ensure([], () => r(require('examples/pages/Marquee')), 'Marquee')
+const Popover = r => require.ensure([], () => r(require('examples/pages/Popover')), 'Popover')
 
 export default [
   {
@@ -124,5 +125,8 @@ export default [
   }, {
     path: '/marquee',
     component: Marquee
+  }, {
+    path: '/popover',
+    component: Popover
   }
 ]

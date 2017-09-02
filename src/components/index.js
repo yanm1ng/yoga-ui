@@ -29,6 +29,7 @@ import Notify from './notify'
 import { TabBar, TabBarItem } from './tab-bar'
 import Keyboard from './keyboard'
 import { XMarquee, XMarqueeItem } from './marquee'
+import Popover from './popover'
 
 export {
   XButton,
@@ -68,5 +69,6 @@ export {
   TabBarItem,
   Keyboard,
   XMarquee,
-  XMarqueeItem
+  XMarqueeItem,
+  Popover
 }
