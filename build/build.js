@@ -10,16 +10,19 @@ var webpack = require('webpack')
 var config = require('../config')
 var mode = process.argv[2]
 var webpackConfig
-if (mode === 'doc') {
-  webpackConfig = require('./webpack.doc.conf')
+var buildConfig
+if (mode === 'docs') {
+  buildConfig = config.docs
+  webpackConfig = require('./webpack.docs.conf')
 } else {
+  buildConfig = config.dist
   webpackConfig = require('./webpack.dist.conf')
 }
 
 var spinner = ora('building for production...')
 spinner.start()
 
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+rm(path.join(buildConfig.assetsRoot, buildConfig.assetsSubDirectory), err => {
   if (err) throw err
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()

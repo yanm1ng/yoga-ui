@@ -1,7 +1,7 @@
 var path = require('path')
 
 module.exports = {
-  doc: {
+  docs: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../docs/index.html'),
     assetsRoot: path.resolve(__dirname, '../docs'),
@@ -11,14 +11,11 @@ module.exports = {
     productionGzip: false,
     productionGzipExtensions: ['js', 'css']
   },
-  build: {
+  dist: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: '',
     assetsPublicPath: '/',
-    productionSourceMap: true,
-    productionGzip: false,
     productionGzipExtensions: ['js', 'css']
   },
   dev: {
