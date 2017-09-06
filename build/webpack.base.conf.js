@@ -12,10 +12,10 @@ module.exports = {
     app: resolve('examples')
   },
   output: {
-    path: config.build.assetsRoot,
+    path: config.dist.assetsRoot,
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
+      ? config.dist.assetsPublicPath
       : config.dev.assetsPublicPath
   },
   resolve: {
