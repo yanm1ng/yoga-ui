@@ -1,6 +1,6 @@
 <template>
   <section>
-    <popover style="margin: 40px;" content="pop at top">
+    <popover style="margin: 40px;" content="pop at top" arrow-align="start">
       <span>pop at top</span>
     </popover>
     <popover style="margin: 40px;" direction="bottom" content="pop at bottom">

@@ -17,6 +17,13 @@
 <script>
 import clickOutside from 'directives/click-outside'
 
+const arrowMap = {
+  'bottom': 'up',
+  'left': 'right',
+  'right': 'left',
+  'top': 'down'
+}
+
 export default {
   name: 'popover',
   directives: {
@@ -46,6 +53,13 @@ export default {
       type: String,
       default: '#efeff4'
     },
+    arrowAlign: {
+      type: String,
+      default: 'center',
+      validator: function(value) {
+        return ['center', 'start', 'end'].indexOf(value) !== -1
+      }
+    },
     content: String
   },
   data() {
@@ -56,14 +70,13 @@ export default {
   },
   computed: {
     arrowClass() {
-      const { direction } = this
-      return {
-        'yui-popover-arrow': true,
-        'yui-popover-arrow-up': direction === 'bottom',
-        'yui-popover-arrow-right': direction === 'left',
-        'yui-popover-arrow-left': direction === 'right',
-        'yui-popover-arrow-down': direction === 'top'
-      }
+      const { direction, arrowAlign } = this
+      const arrowDirection = arrowMap[direction]
+      return [
+        'yui-popover-arrow',
+        `yui-popover-arrow-${arrowDirection}`,
+        `yui-popover-arrow-${arrowDirection}-${arrowAlign}`
+      ]
     }
   },
   watch: {
@@ -85,7 +98,7 @@ export default {
       this.currentShow = !this.currentShow
     },
     contenthandler() {
-
+      this.$emit('on-click-content')
     }
   },
   mounted() {
@@ -136,37 +149,61 @@ export default {
       position: absolute;
       width: 0;
       height: 0;
+      &-up, &-down {
+        &-start {
+          left: 10px;
+        }
+        &-end {
+          right: 10px;
+        }
+      }
+      &-left, &-right {
+        &-start {
+          top: 5px;
+        }
+        &-end {
+          bottom: 5px;
+        }
+      }
       &-up {
         border-left: $arrow-width solid transparent;
         border-right: $arrow-width solid transparent;
         border-bottom: $arrow-width solid $background-color;
-        left: 50%;
-        transform: translateX(-50%);
         top: -$arrow-width;
+        &-center {
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
       &-down {
         border-left: $arrow-width solid transparent;
         border-right: $arrow-width solid transparent;
         border-top: $arrow-width solid $background-color;
-        left: 50%;
-        transform: translateX(-50%);
         bottom: -$arrow-width;
+        &-center {
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
       &-left {
         border-top: $arrow-width solid transparent;
         border-bottom: $arrow-width solid transparent;
         border-right: $arrow-width solid $background-color;
-        top: 50%;
-        transform: translateY(-50%);
         left: -$arrow-width;
+        &-center {
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
       &-right {
         border-top: $arrow-width solid transparent;
         border-bottom: $arrow-width solid transparent;
         border-left: $arrow-width solid $background-color;
-        top: 50%;
-        transform: translateY(-50%);
         right: -$arrow-width;
+        &-center {
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
     }
     &-body {

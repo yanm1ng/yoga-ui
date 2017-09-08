@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build:doc": "node build/build.js doc",
+    "build:docs": "node build/build.js docs",
     "build:dist": "node build/build.js dist",
     "test": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "lint": "eslint --ext .js,.vue src examples test/unit/specs"
