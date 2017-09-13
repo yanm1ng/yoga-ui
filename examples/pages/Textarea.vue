@@ -14,18 +14,7 @@
 </template>
 
 <script>
-import {
-  CellBox,
-  XTextarea,
-  XInput
-} from 'components'
-
 export default {
-  components: {
-    CellBox,
-    XTextarea,
-    XInput
-  },
   data() {
     return {
       value1: '',

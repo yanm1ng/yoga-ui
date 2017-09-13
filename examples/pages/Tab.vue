@@ -19,16 +19,7 @@
 </template>
 
 <script>
-import {
-  Tab,
-  TabItem
-} from 'components'
-
 export default {
-  components: {
-    Tab,
-    TabItem
-  },
   methods: {
     handleChange(e) {
       console.log(e)

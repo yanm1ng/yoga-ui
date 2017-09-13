@@ -8,16 +8,7 @@
 </template>
 
 <script>
-import {
-  XButton,
-  Actionsheet
-} from 'components'
-
 export default {
-  components: {
-    XButton,
-    Actionsheet
-  },
   data() {
     return {
       menus: [

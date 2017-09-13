@@ -8,20 +8,7 @@
 </template>
 
 <script>
-import {
-  XSwitch,
-  Cell,
-  CellBox,
-  Alert
-} from 'components'
-
 export default {
-  components: {
-    XSwitch,
-    Cell,
-    CellBox,
-    Alert
-  },
   data() {
     return {
       open: false

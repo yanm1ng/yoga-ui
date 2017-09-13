@@ -7,10 +7,6 @@
 </template>
 
 <script>
-import {
-  Accordion
-} from 'components'
-
 export default {
   data() {
     return {
@@ -25,9 +21,6 @@ export default {
     handleChange(values) {
       console.log(values)
     }
-  },
-  components: {
-    Accordion
   }
 }
 </script>

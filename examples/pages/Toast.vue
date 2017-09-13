@@ -14,20 +14,7 @@
 </template>
 
 <script>
-import {
-  XSwitch,
-  Cell,
-  CellBox,
-  Toast
-} from 'components'
-
 export default {
-  components: {
-    XSwitch,
-    Cell,
-    CellBox,
-    Toast
-  },
   data() {
     return {
       center: false,
