@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import { Picker } from 'components'
-
 let options = []
 for (let i = 2017; i > 1995; i--) {
   options.push({
@@ -29,9 +27,6 @@ export default {
     handleChange(val) {
       console.log(val)
     }
-  },
-  components: {
-    Picker
   }
 }
 </script>

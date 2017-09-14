@@ -10,20 +10,7 @@
 </template>
 
 <script>
-import {
-  XSwitch,
-  Cell,
-  CellBox,
-  Confirm
-} from 'components'
-
 export default {
-  components: {
-    XSwitch,
-    Cell,
-    CellBox,
-    Confirm
-  },
   data() {
     return {
       open1: false,

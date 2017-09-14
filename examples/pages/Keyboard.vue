@@ -8,22 +8,11 @@
 </template>
 
 <script>
-import {
-  Keyboard,
-  CellBox,
-  XInput
-} from 'components'
-
 export default {
   data() {
     return {
       value: ''
     }
-  },
-  components: {
-    Keyboard,
-    CellBox,
-    XInput
   }
 }
 </script>

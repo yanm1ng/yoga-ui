@@ -9,16 +9,7 @@
 </template>
 
 <script>
-import {
-  ButtonTab,
-  ButtonTabItem
-} from 'components'
-
 export default {
-  components: {
-    ButtonTab,
-    ButtonTabItem
-  },
   methods: {
     handleChange(e) {
       console.log(e)

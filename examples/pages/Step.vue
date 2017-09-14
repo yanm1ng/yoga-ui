@@ -17,18 +17,7 @@
 </template>
 
 <script>
-import {
-  Step,
-  StepItem,
-  XButton
-} from 'components'
-
 export default {
-  components: {
-    Step,
-    StepItem,
-    XButton
-  },
   data() {
     return {
       current: 0

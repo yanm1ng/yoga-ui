@@ -26,16 +26,8 @@
 </template>
 
 <script>
-import {
-  Flex,
-  FlexItem
-} from 'components'
-
 export default {
-  components: {
-    Flex,
-    FlexItem
-  }
+
 }
 </script>
 

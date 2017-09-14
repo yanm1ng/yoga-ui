@@ -9,16 +9,7 @@
 </template>
 
 <script>
-import {
-  CellBox,
-  XInput
-} from 'components'
-
 export default {
-  components: {
-    CellBox,
-    XInput
-  },
   data() {
     return {
       value1: '',

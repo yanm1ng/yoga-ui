@@ -19,15 +19,9 @@
 </template>
 
 <script>
-import {
-  Card
-} from 'components'
 import logo from 'assets/logo.png'
 
 export default {
-  components: {
-    Card
-  },
   data() {
     return {
       logo

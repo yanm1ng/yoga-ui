@@ -7,8 +7,6 @@
 </template>
 
 <script>
-import { Radio } from 'components'
-
 export default {
   data() {
     return {
@@ -28,9 +26,6 @@ export default {
     handleChange2(val) {
       this.value2 = val
     }
-  },
-  components: {
-    Radio
   }
 }
 </script>

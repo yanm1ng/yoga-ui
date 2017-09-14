@@ -12,12 +12,6 @@
 </template>
 
 <script>
-import {
-  CellBox,
-  XSwitch,
-  PopupPicker
-} from 'components'
-
 const year = ['2017', '2016', '2015', '2014', '2013', '2012', '2011', '2010', '2009', '2008', '2007']
 const month = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 let pickers = []
@@ -53,11 +47,6 @@ export default {
     onChange(values) {
       console.log(values)
     }
-  },
-  components: {
-    CellBox,
-    XSwitch,
-    PopupPicker
   }
 }
 </script>
