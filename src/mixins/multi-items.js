@@ -3,7 +3,6 @@ const parentMixin = {
     if (this.value >= 0) {
       this.currentIndex = this.value
     }
-    this.updateIndex()
   },
   methods: {
     updateIndex() {
