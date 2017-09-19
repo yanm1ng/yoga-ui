@@ -32,7 +32,6 @@ export default {
   },
   computed: {
     classes() {
-      console.log(this.badge)
       return [
         'yui-tab-bar-item',
         {

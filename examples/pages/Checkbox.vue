@@ -6,8 +6,6 @@
 </template>
 
 <script>
-import { Checkbox } from 'components'
-
 export default {
   data() {
     return {
@@ -24,9 +22,6 @@ export default {
     handleChange(values) {
       console.log(values)
     }
-  },
-  components: {
-    Checkbox
   }
 }
 </script>

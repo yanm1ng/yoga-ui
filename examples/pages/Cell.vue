@@ -15,17 +15,9 @@
 </template>
 
 <script>
-import {
-  Cell,
-  CellBox
-} from 'components'
 import logo from 'assets/logo.png'
 
 export default {
-  components: {
-    Cell,
-    CellBox
-  },
   data() {
     return {
       logo

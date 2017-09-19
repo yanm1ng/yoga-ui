@@ -8,11 +8,6 @@
 </template>
 
 <script>
-import {
-  CellBox,
-  XSelect
-} from 'components'
-
 export default {
   data() {
     return {
@@ -25,10 +20,6 @@ export default {
       value1: '',
       value2: ''
     }
-  },
-  components: {
-    CellBox,
-    XSelect
   }
 }
 </script>

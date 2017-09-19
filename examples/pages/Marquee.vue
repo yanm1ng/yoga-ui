@@ -9,15 +9,7 @@
 </template>
 
 <script>
-import {
-  XMarquee,
-  XMarqueeItem
-} from 'components'
-
 export default {
-  components: {
-    XMarquee,
-    XMarqueeItem
-  }
+
 }
 </script>

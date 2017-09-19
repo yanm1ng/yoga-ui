@@ -9,15 +9,7 @@
 </template>
 
 <script>
-import {
-  TabBar,
-  TabBarItem
-} from 'components'
-
 export default {
-  components: {
-    TabBar,
-    TabBarItem
-  }
+  
 }
 </script>

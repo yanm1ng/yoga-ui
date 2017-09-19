@@ -7,18 +7,7 @@
 </template>
 
 <script>
-import {
-  XSwitch,
-  Cell,
-  CellBox
-} from 'components'
-
 export default {
-  components: {
-    XSwitch,
-    Cell,
-    CellBox
-  },
   data() {
     return {
       value1: false,

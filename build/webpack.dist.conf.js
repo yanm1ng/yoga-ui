@@ -29,7 +29,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.dist.assetsRoot,
     filename: utils.assetsPath('[name].js'),
-    chunkFilename: utils.assetsPath('[name].js')
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   plugins: [
     new webpack.DefinePlugin({

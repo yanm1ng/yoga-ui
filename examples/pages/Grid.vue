@@ -20,16 +20,8 @@
 </template>
 
 <script>
-import {
-  Grid,
-  GridItem
-} from 'components'
-
 export default {
-  components: {
-    Grid,
-    GridItem
-  }
+
 }
 </script>
 

@@ -7,18 +7,7 @@
 </template>
 
 <script>
-import {
-  Icon,
-  Grid,
-  GridItem
-} from 'components'
-
 export default {
-  components: {
-    Icon,
-    Grid,
-    GridItem
-  },
   data() {
     return {
       icons: this.split([

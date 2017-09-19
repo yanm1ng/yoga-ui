@@ -2,6 +2,9 @@ import Vue from 'vue'
 import app from './app'
 import router from './router'
 import { resetRootFontSize } from 'utils'
+import yogaUI from 'src'
+
+Vue.use(yogaUI)
 
 new Vue({
   router,
@@ -9,7 +12,4 @@ new Vue({
 }).$mount('#app')
 
 window.addEventListener('resize', resetRootFontSize)
-window.document.body.addEventListener('touchstart', function () {
-  // Do nothing
-}, false)
 resetRootFontSize()

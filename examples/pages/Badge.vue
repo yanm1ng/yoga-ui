@@ -10,13 +10,7 @@
 </template>
 
 <script>
-import {
-  Badge
-} from 'components'
-
 export default {
-  components: {
-    Badge
-  }
+  
 }
 </script>

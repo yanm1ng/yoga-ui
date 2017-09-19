@@ -14,12 +14,6 @@
 </template>
 
 <script>
-import {
-  Notify,
-  XSwitch,
-  CellBox
-} from 'components'
-
 export default {
   data() {
     return {
@@ -28,11 +22,6 @@ export default {
       open3: false,
       open4: false
     }
-  },
-  components: {
-    Notify,
-    XSwitch,
-    CellBox
   }
 }
 </script>

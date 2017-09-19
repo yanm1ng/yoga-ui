@@ -11,17 +11,9 @@
 </template>
 
 <script>
-import {
-  Grid,
-  GridItem
-} from 'components'
 import logo from 'assets/logo.png'
 
 export default {
-  components: {
-    Grid,
-    GridItem
-  },
   data() {
     return {
       demos: this.split([

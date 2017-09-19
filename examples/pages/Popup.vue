@@ -24,16 +24,7 @@
 </template>
 
 <script>
-import {
-  XButton,
-  Popup
-} from 'components'
-
 export default {
-  components: {
-    XButton,
-    Popup
-  },
   data() {
     return {
       bottom: false,

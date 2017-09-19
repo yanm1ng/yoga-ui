@@ -16,13 +16,7 @@
 </template>
 
 <script>
-import {
-  Popover
-} from 'components'
-
 export default {
-  components: {
-    Popover
-  }
+
 }
 </script>

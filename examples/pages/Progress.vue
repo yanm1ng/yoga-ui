@@ -8,11 +8,6 @@
 </template>
 
 <script>
-import {
-  XProgress,
-  XButton
-} from 'components'
-
 export default {
   data() {
     return {
@@ -28,10 +23,6 @@ export default {
         this.percent = percent + 10
       }
     }
-  },
-  components: {
-    XProgress,
-    XButton
   }
 }
 </script>

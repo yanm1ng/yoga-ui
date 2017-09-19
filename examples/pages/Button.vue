@@ -16,17 +16,7 @@
 </template>
 
 <script>
-import {
-  XButton,
-  Flex,
-  FlexItem
-} from 'components'
-
 export default {
-  components: {
-    XButton,
-    Flex,
-    FlexItem
-  }
+  
 }
 </script>
