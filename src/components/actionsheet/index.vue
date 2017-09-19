@@ -88,6 +88,16 @@ export default {
       position: relative;
       margin-top: 8px;
       background-color: $white-color;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-top: 1px solid $border-color;
+        transform-origin: 0 0;
+        transform: scaleY(0.5);
+      }
     }
   }
 }
