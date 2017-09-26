@@ -4,7 +4,7 @@
       <ul v-if="menus.length" class="yui-actionsheet-menus">
         <li v-for="item in menus" :key="item.value" @click="itemHandler(item.value)">{{ item.label }}</li>
       </ul>
-      <div v-if="showCancel" class="yui-actionsheet-cancel" @click="closeHandler">取消</div>
+      <div v-if="showCancel" class="yui-actionsheet-cancel" @click="cancelHandler">取消</div>
     </div>
   </popup>
 </template>
@@ -39,6 +39,10 @@ export default {
   methods: {
     closeHandler() {
       this.autoClose && this.$emit('on-close').$emit('change', false)
+    },
+    cancelHandler() {
+      this.$emit('on-cancel')
+      this.closeHandler()
     },
     itemHandler(value) {
       this.$emit('on-change', value)
@@ -88,6 +92,16 @@ export default {
       position: relative;
       margin-top: 8px;
       background-color: $white-color;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        border-top: 1px solid $border-color;
+        transform-origin: 0 0;
+        transform: scaleY(0.5);
+      }
     }
   }
 }

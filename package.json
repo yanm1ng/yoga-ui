@@ -1,7 +1,7 @@
 {
-  "name": "vue-component",
-  "version": "1.0.0",
-  "description": "component built with Vue.js",
+  "name": "yoga-ui",
+  "version": "1.0.3",
+  "description": "A Vue.js 2.0 UI Component for Mobile",
   "author": "yanm1ng",
   "private": true,
   "scripts": {
