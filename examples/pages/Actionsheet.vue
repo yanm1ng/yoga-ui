@@ -3,7 +3,7 @@
     <x-button @on-click="handleActionsheet('normal')">Open Actionsheet</x-button>
     <x-button @on-click="handleActionsheet('cancel')">Open Actionsheet(Cancel)</x-button>
     <actionsheet :menus="menus" :open="normal" @on-close="handleActionsheet('normal')" @on-change="onChange"></actionsheet>
-    <actionsheet :menus="menus" :open="cancel" :showCancel="true" @on-close="handleActionsheet('cancel')" @on-change="onChange"></actionsheet>
+    <actionsheet :menus="menus" v-model="cancel" :showCancel="true" @on-change="onChange" @on-cancel="onCancel"></actionsheet>
   </section>
 </template>
 
@@ -25,7 +25,10 @@ export default {
       this[type] = !this[type]
     },
     onChange(value) {
-      console.log(value)
+      console.log('clicked item:', value)
+    },
+    onCancel() {
+      console.log('cancel')
     }
   }
 }
