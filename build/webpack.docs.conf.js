@@ -9,30 +9,34 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
-var env = config.doc.env
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 var webpackConfig = merge(baseWebpackConfig, {
+  entry: {
+    app: resolve('examples')
+  },
   module: {
     rules: utils.styleLoaders({
-      sourceMap: config.doc.productionSourceMap,
+      sourceMap: config.docs.productionSourceMap,
       extract: true
     })
   },
-  devtool: config.doc.productionSourceMap ? '#source-map' : false,
+  devtool: config.docs.productionSourceMap ? '#source-map' : false,
   output: {
-    path: config.doc.assetsRoot,
+    path: config.docs.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': env
+      'process.env': config.docs.env
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
-      },
-      sourceMap: true
+      }
     }),
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
@@ -43,15 +47,9 @@ var webpackConfig = merge(baseWebpackConfig, {
       }
     }),
     new HtmlWebpackPlugin({
-      filename: config.doc.index,
+      filename: config.docs.index,
       template: 'examples/index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      },
-      chunksSortMode: 'dependency'
+      inject: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -72,7 +70,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   ]
 })
 
-if (config.doc.productionGzip) {
+if (config.docs.productionGzip) {
   var CompressionWebpackPlugin = require('compression-webpack-plugin')
 
   webpackConfig.plugins.push(
