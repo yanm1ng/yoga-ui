@@ -22,6 +22,7 @@
 <script>
 import Popup from '../popup'
 import Picker from '../picker'
+import { pure } from 'utils'
 
 export default {
   name: 'popup-picker',
@@ -81,10 +82,6 @@ export default {
     Popup,
     Picker
   }
-}
-
-function pure(obj) {
-  return JSON.parse(JSON.stringify(obj))
 }
 </script>
 

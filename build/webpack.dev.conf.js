@@ -1,3 +1,4 @@
+var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
@@ -6,11 +7,19 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
 
 module.exports = merge(baseWebpackConfig, {
+  entry: {
+    app: ['./build/dev-client', resolve('examples')]
+  },
+  output: {
+    path: config.dist.assetsRoot,
+    filename: '[name].js',
+    publicPath: config.dev.assetsPublicPath
+  },
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
   },

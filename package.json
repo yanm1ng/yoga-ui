@@ -4,6 +4,7 @@
   "description": "A Vue.js 2.0 UI Component for Mobile",
   "author": "yanm1ng",
   "private": true,
+  "main": "src/index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build:docs": "node build/build.js docs",

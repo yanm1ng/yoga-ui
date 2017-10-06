@@ -4,7 +4,7 @@
       <ul v-if="menus.length" class="yui-actionsheet-menus">
         <li v-for="item in menus" :key="item.value" @click="itemHandler(item.value)">{{ item.label }}</li>
       </ul>
-      <div v-if="showCancel" class="yui-actionsheet-cancel" @click="cancelHandler">取消</div>
+      <div v-if="showCancel" class="yui-actionsheet-cancel" @click="cancelHandler">{{ cancelText }}</div>
     </div>
   </popup>
 </template>
@@ -30,6 +30,10 @@ export default {
     showCancel: {
       type: Boolean,
       default: false
+    },
+    cancelText: {
+      type: String,
+      default: '取消'
     },
     autoClose: {
       type: Boolean,

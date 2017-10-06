@@ -13,6 +13,28 @@
   npm run dev
 ```
 
+## Install
+
+1. Global
+```javascript
+import yogaUI from 'yoga-ui'
+
+Vue.use(yogaUI)
+```
+
+2. Component
+```javascript
+import {
+  XButton
+} from 'yoga-ui/src/components'
+
+export default {
+  components: {
+    XButton
+  }
+}
+```
+
 ## Components
 
 [See](https://github.com/yanm1ng/yoga-ui/tree/master/src/components)

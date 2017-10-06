@@ -2,14 +2,13 @@ var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
+var package = require('../package.json')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-
-var env = config.dist.env
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -29,12 +28,12 @@ var webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.dist.assetsRoot,
     filename: utils.assetsPath('[name].js'),
-    libraryTarget: 'umd',
-    umdNamedDefine: true
+    libraryTarget: 'umd'
   },
   plugins: [
+    new webpack.BannerPlugin(package.name + ' v' + package.version + ' by yanm1ng (c) ' + new Date().getFullYear()),
     new webpack.DefinePlugin({
-      'process.env': env
+      'process.env': config.dist.env
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {

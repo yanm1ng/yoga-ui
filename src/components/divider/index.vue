@@ -1,16 +1,29 @@
 <template>
   <p class="yui-divider">
-    <span class="yui-divider-bar"></span>
+    <span class="yui-divider-bar" :style="barStyle"></span>
     <span class="yui-divider-content">
       <slot></slot>
     </span>
-    <span class="yui-divider-bar"></span>
+    <span class="yui-divider-bar" :style="barStyle"></span>
   </p>
 </template>
 
 <script>
 export default {
-  name: 'divider'
+  name: 'divider',
+  props: {
+    barColor: {
+      type: String,
+      default: '#dddddd'
+    }
+  },
+  computed: {
+    barStyle() {
+      return {
+        'background-color': this.barColor
+      }
+    }
+  }
 }
 </script>
 

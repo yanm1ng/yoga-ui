@@ -8,16 +8,6 @@ function resolve (dir) {
 }
 
 module.exports = {
-  entry: {
-    app: resolve('examples')
-  },
-  output: {
-    path: config.dist.assetsRoot,
-    filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.dist.assetsPublicPath
-      : config.dev.assetsPublicPath
-  },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {

@@ -12,6 +12,7 @@
 import Cell from '../cell'
 import CellBox from '../cell-box'
 import Icon from '../icon'
+import { pure, bubbleSort } from 'utils'
 
 export default {
   name: 'checkbox',
@@ -62,7 +63,7 @@ export default {
       } else {
         this.currentValues.splice(index, 1)
       }
-      this.$emit('on-change', pure(this.currentValues))
+      this.$emit('on-change', pure(bubbleSort(this.currentValues)))
     }
   },
   components: {
@@ -70,10 +71,6 @@ export default {
     CellBox,
     Icon
   }
-}
-
-function pure(obj) {
-  return JSON.parse(JSON.stringify(obj))
 }
 </script>
 

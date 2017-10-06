@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" :with-mask="false" :auto-close="false" direction="bottom" @on-close="onClose" class="yui-keyboard">
+  <popup :open="show" :with-mask="false" :auto-close="false" direction="bottom" @on-close="onClose" class="yui-keyboard">
     <div class="yui-keyboard-body">
       <div class="yui-keyboard-header">
         <a href="javascript:;" class="yui-keyboard-btn cancel-btn" @click="onClose">{{ cancelText }}</a>
@@ -21,6 +21,10 @@ import Popup from '../popup'
 export default {
   name: 'keyboard',
   props: {
+    open: {
+      type: Boolean,
+      default: true
+    },
     random: {
       type: Boolean,
       default: false
@@ -36,7 +40,7 @@ export default {
   },
   data() {
     return {
-      open: true,
+      show: true,
       value: ''
     }
   },
@@ -66,10 +70,10 @@ export default {
       this.$emit('input', value)
     },
     onClose() {
-      this.open = false
+      this.show = false
     },
     onConfirm() {
-      this.open = false
+      this.show = false
     },
     split(array) {
       let chunks = []

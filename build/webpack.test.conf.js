@@ -1,5 +1,6 @@
 var utils = require('./utils')
 var webpack = require('webpack')
+var config = require('../config')
 var merge = require('webpack-merge')
 var baseConfig = require('./webpack.base.conf')
 
@@ -16,7 +17,7 @@ var webpackConfig = merge(baseConfig, {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': require('../config/test.env')
+      'process.env': config.test.env
     })
   ]
 })

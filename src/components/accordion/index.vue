@@ -12,6 +12,7 @@
 <script>
 import Cell from '../cell'
 import CellBox from '../cell-box'
+import { pure, bubbleSort } from 'utils'
 
 export default {
   name: 'accordion',
@@ -53,7 +54,7 @@ export default {
       } else {
         this.currentOpened.splice(index, 1)
       }
-      this.$emit('on-change', pure(this.currentOpened))
+      this.$emit('on-change', pure(bubbleSort(this.currentOpened)))
     },
     classes(index) {
       const { currentOpened, animate } = this
@@ -70,10 +71,6 @@ export default {
     Cell,
     CellBox
   }
-}
-
-function pure(obj) {
-  return JSON.parse(JSON.stringify(obj))
 }
 </script>
 

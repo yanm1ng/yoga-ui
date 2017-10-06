@@ -26,5 +26,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {},
     cssSourceMap: false
+  },
+  test: {
+    env: require('./test.env')
   }
 }
