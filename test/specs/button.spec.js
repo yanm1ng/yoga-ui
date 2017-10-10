@@ -1,7 +1,7 @@
 import { getRenderedVm, createVue } from '../utils'
 import Button from 'components/button'
 
-describe('Component button testing', () => {
+describe('component button testing', () => {
   it('should render correct classes', () => {
     let vm = getRenderedVm(Button, {})
     expect(vm.$el.className).toEqual('yui-btn yui-btn-primary')
@@ -38,7 +38,7 @@ describe('Component button testing', () => {
     let result = null
     let vm = createVue({
       template: `
-        <x-button @on-click="handleClick"></x-button>
+        <x-button @on-click="handleClick">button</x-button>
       `,
       methods: {
         handleClick(e) {
@@ -48,6 +48,7 @@ describe('Component button testing', () => {
     })
     vm.$el.click()
     setTimeout(() => {
+      expect(vm.$el.textContent).toEqual('button')
       expect(result).not.toBeNull()
     }, 20)
   })
