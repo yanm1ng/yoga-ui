@@ -31,6 +31,7 @@ describe('component button testing', () => {
     let vm = getRenderedVm(Button, {
       disabled: true
     })
+    expect(vm.disabled).toEqual(true)
     expect(vm.$el.disabled).toEqual(true)
     expect(vm.$el.classList.contains('yui-btn-disabled')).toEqual(true)
   })
