@@ -34,6 +34,18 @@ describe('component cell testing', () => {
     expect(vm.isLink).toEqual(true)
     expect(vm.$el.classList.contains('yui-cell-arrow')).toEqual(true)
   })
+  it('should render slot:icon', () => {
+    let vm = createVue({
+      template: `
+        <cell title="haha">
+          <div slot="icon" style="width: 20px; height: 20px;"></div>
+        </cell>
+      `
+    })
+    setTimeout(() => {
+      expect(vm.$el.querySelector('.yui-cell-hd').innerHTML.replace(/\s/g, '')).toEqual('<div style="width: 20px; height: 20px;"><span>标题</span></div>')
+    }, 200)
+  })
   it('click event', () => {
     let result = null
     let vm = createVue({
