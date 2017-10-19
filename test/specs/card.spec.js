@@ -44,7 +44,7 @@ describe('component card testing', () => {
       `
     })
     setTimeout(() => {
-      expect(vm.$el.querySelector('.yui-card-hd-left').innerHTML.replace(/\s/g, '')).toEqual('<div style="width: 20px; height: 20px;"><span>标题</span></div>')
+      expect(vm.$el.querySelector('.yui-card-hd-left').innerHTML.replace(/\s/g, '')).toEqual('<divstyle="width:20px;height:20px;"></div><span>标题</span>')
     }, 200)
   })
   it('should render slot:body', () => {
@@ -58,7 +58,7 @@ describe('component card testing', () => {
       `
     })
     setTimeout(() => {
-      expect(vm.$el.querySelector('.yui-card-bd').innerHTML.replace(/\s/g, '')).toEqual('<div><p>custom content</p></div>')
+      expect(vm.$el.querySelector('.yui-card-bd').innerHTML.replace(/\s/g, '')).toEqual('<div><p>customcontent</p></div>')
     }, 200)
   })
   it('click events', () => {
