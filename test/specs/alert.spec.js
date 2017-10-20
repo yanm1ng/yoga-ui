@@ -35,7 +35,7 @@ describe('component alert testing', () => {
     expect(vm.btnText).toEqual('btnText')
     expect(vm.$el.querySelector('.yui-alert-footer').textContent).toEqual('btnText')
   })
-  it('click hidden', () => {
+  it('click hidden', next => {
     let vm = createVue({
       template: `
         <alert v-model="open" content="你好吗？" title="温馨提示"></alert>
@@ -50,6 +50,7 @@ describe('component alert testing', () => {
     // waiting vue transition
     setTimeout(() => {
       expect(vm.$el.children.length).toEqual(0)
+      next()
     }, 500)
   })
 })

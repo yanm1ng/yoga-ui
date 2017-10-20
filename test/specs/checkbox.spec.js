@@ -44,7 +44,7 @@ describe('component checkbox testing', () => {
     expect(vm.values.length).toEqual(1)
     expect(vm.$el.querySelectorAll('.yui-checkbox-checked').length).toEqual(1)
   })
-  it('click checked', () => {
+  it('click checked', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -70,9 +70,10 @@ describe('component checkbox testing', () => {
       expect(result).not.toBeNull()
       expect(result.length).toEqual(1)
       expect(vm.$el.querySelectorAll('.yui-checkbox-checked').length).toEqual(1)
+      next()
     }, 200)
   })
-  it('click with props:max', () => {
+  it('click with props:max', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -101,6 +102,7 @@ describe('component checkbox testing', () => {
       expect(result.length).toEqual(2)
       expect(vm.$el.querySelectorAll('.yui-checkbox-checked').length).toEqual(2)
       expect(options[2].querySelector('.yui-checkbox').classList.contains('yui-checkbox-checked')).toEqual(false)
+      next()
     }, 200)
   })
 })

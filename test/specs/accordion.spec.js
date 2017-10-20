@@ -44,7 +44,7 @@ describe('component accordion testing', () => {
     })
     expect(vm.single).toEqual(true)
   })
-  it('click', () => {
+  it('click', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -67,9 +67,10 @@ describe('component accordion testing', () => {
     vm.$el.querySelector('.yui-cell-arrow').click()
     setTimeout(() => {
       expect(result).not.toBeNull()
+      next()
     }, 200)
   })
-  it('click single', () => {
+  it('click single', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -95,6 +96,7 @@ describe('component accordion testing', () => {
     setTimeout(() => {
       expect(result).not.toBeNull()
       expect(result.length).toEqual(1)
+      next()
     }, 200)
   })
 })

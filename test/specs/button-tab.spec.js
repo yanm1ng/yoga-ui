@@ -8,7 +8,7 @@ describe('component button-tab testing', () => {
     let vm = getRenderedVm(ButtonTab, {})
     expect(vm.$el.className).toEqual('yui-button-tabs')
   })
-  it('child should render correct classes', () => {
+  it('child should render correct classes', next => {
     let vm = createVue({
       template: `
         <button-tab>
@@ -24,9 +24,10 @@ describe('component button-tab testing', () => {
       expect(buttons[0].classList.contains('yui-button-tab-item-first')).toEqual(true)
       expect(buttons[1].classList.contains('yui-button-tab-item-middle')).toEqual(true)
       expect(buttons[2].classList.contains('yui-button-tab-item-last')).toEqual(true)
+      next()
     }, 200)
   })
-  it('should render props:color', () => {
+  it('should render props:color', next => {
     let vm = createVue({
       template: `
         <button-tab color="#eeeeee">
@@ -39,9 +40,10 @@ describe('component button-tab testing', () => {
     const buttons = vm.$el.querySelectorAll('.yui-button-tab-item')
     setTimeout(() => {
       expect(buttons[0].style.backgroundColor).toEqual('rgb(238, 238, 238)')
+      next()
     }, 200)
   })
-  it('click button item', () => {
+  it('click button item', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -62,6 +64,7 @@ describe('component button-tab testing', () => {
     setTimeout(() => {
       expect(buttons[1].classList.contains('yui-button-tab-current')).toEqual(true)
       expect(result).not.toBeNull()
+      next()
     }, 200)
   })
 })

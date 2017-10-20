@@ -52,7 +52,7 @@ describe('component confirm testing', () => {
     expect(vm.confirmText).toEqual('confirmText')
     expect(vm.$el.querySelector('.yui-confirm-btn-primary').textContent.replace(/\s/g, '')).toEqual('confirmText')
   })
-  it('click confirm', () => {
+  it('click confirm', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -73,10 +73,11 @@ describe('component confirm testing', () => {
     confirmBtn.click()
     setTimeout(() => {
       expect(result).toEqual('confirm')
-      expect(open).toEqual(false)
+      expect(vm.open).toEqual(false)
+      next()
     }, 200)
   })
-  it('click cancel', () => {
+  it('click cancel', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -97,7 +98,8 @@ describe('component confirm testing', () => {
     cancelBtn.click()
     setTimeout(() => {
       expect(result).toEqual('cancel')
-      expect(open).toEqual(false)
+      expect(vm.open).toEqual(false)
+      next()
     }, 200)
   })
 })

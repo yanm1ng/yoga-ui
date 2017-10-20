@@ -35,7 +35,7 @@ describe('component card testing', () => {
     expect(vm.$el.querySelector('.yui-card-ft')).not.toBeNull()
     expect(vm.$el.querySelector('.yui-card-ft').textContent).toEqual('footer')
   })
-  it('should render slot:icon', () => {
+  it('should render slot:icon', next => {
     let vm = createVue({
       template: `
         <card head-title="标题" head-desc="描述" footer="查看更多">
@@ -45,9 +45,10 @@ describe('component card testing', () => {
     })
     setTimeout(() => {
       expect(vm.$el.querySelector('.yui-card-hd-left').innerHTML.replace(/\s/g, '')).toEqual('<divstyle="width:20px;height:20px;"></div><span>标题</span>')
+      next()
     }, 200)
   })
-  it('should render slot:body', () => {
+  it('should render slot:body', next => {
     let vm = createVue({
       template: `
         <card head-title="标题" head-desc="描述" footer="查看更多">
@@ -59,9 +60,10 @@ describe('component card testing', () => {
     })
     setTimeout(() => {
       expect(vm.$el.querySelector('.yui-card-bd').innerHTML.replace(/\s/g, '')).toEqual('<div><p>customcontent</p></div>')
+      next()
     }, 200)
   })
-  it('click events', () => {
+  it('click events', next => {
     let headResult = null
     let bodyResult = null
     let footerResult = null
@@ -92,6 +94,7 @@ describe('component card testing', () => {
       expect(headResult).not.toBeNull()
       expect(bodyResult).not.toBeNull()
       expect(footerResult).not.toBeNull()
+      next()
     }, 200)
   })
 })
