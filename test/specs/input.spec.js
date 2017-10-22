@@ -64,6 +64,6 @@ describe('component input testing', () => {
         </cell-box>
       `
     })
-    expect(vm.$el.querySelector('input').getAttribute('disabled')).toEqual(true)
+    expect(vm.$el.querySelector('input').disabled).toEqual(true)
   })
 })
