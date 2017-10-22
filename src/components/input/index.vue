@@ -8,6 +8,7 @@
         ref="input"
         :maxlength="max"
         :placeholder="placeholder"
+        :disabled="disabled"
         v-model="currentValue"
         @focus="onFocus"
         @blur="onBlur"
@@ -19,6 +20,7 @@
         ref="input"
         :maxlength="max"
         :placeholder="placeholder"
+        :disabled="disabled"
         v-model="currentValue"
         @focus="onFocus"
         @blur="onBlur"
@@ -30,6 +32,7 @@
         ref="input"
         :maxlength="max"
         :placeholder="placeholder"
+        :disabled="disabled"
         v-model="currentValue"
         @focus="onFocus"
         @blur="onBlur"
@@ -41,6 +44,7 @@
         ref="input"
         :maxlength="max"
         :placeholder="placeholder"
+        :disabled="disabled"
         v-model="currentValue"
         @focus="onFocus"
         @blur="onBlur"
@@ -71,6 +75,10 @@ export default {
       }
     },
     placeholder: String,
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     max: Number,
     showClear: {
       type: Boolean,
