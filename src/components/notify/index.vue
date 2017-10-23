@@ -52,6 +52,15 @@ export default {
       }
     }
   },
+  created() {
+    if (this.autoClose && this.open) {
+      clearTimeout(this.timeout)
+      this.timeout = setTimeout(() => {
+        this.$emit('change', false)
+        this.$emit('on-hide')
+      }, this.time)
+    }
+  },
   computed: {
     classes() {
       return [
