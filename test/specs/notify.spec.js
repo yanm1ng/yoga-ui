@@ -17,23 +17,27 @@ describe('component notify testing', () => {
   it('should render props:autoClose', () => {
     let vm = createVue({
       template: `
-        <notify :open="true" auto-close>重要提示</notify>
+        <notify :open="true" :auto-close="false">重要提示</notify>
       `
     })
     setTimeout(() => {
-      expect(vm.open).toEqual(false)
-      expect(vm.$el.childNodes).toBeNull()
+      expect(vm.$el.querySelector('.yui-popup-inner')).not.toBeNull()
     }, 2500)
   })
-  it('should render props:time', () => {
+  it('should render props:time', next => {
     let vm = createVue({
       template: `
-        <notify :open="true" :time="1000">重要提示</notify>
-      `
+        <notify v-model="open" :time="1000">重要提示</notify>
+      `,
+      data() {
+        return {
+          open: true
+        }
+      }
     })
     setTimeout(() => {
-      expect(vm.time).toEqual(1000)
-      expect(vm.$el.childNodes).toBeNull()
+      expect(vm.$el.children.length).toEqual(0)
+      next()
     }, 1500)
   })
   it('should render with slot', () => {
@@ -44,21 +48,27 @@ describe('component notify testing', () => {
     })
     expect(vm.$el.querySelector('.yui-popup-inner').textContent).toEqual('重要提示')
   })
-  it('state change callback', () => {
+  it('state change callback', next => {
     let result = null
     let vm = createVue({
       template: `
-        <notify :open="true" auto-close @change="onChange">重要提示</notify>
+        <notify v-model="open" @change="onChange">重要提示</notify>
       `,
+      data() {
+        return {
+          open: true
+        }
+      },
       methods: {
-        onChange(value) {
-          result = value
+        onChange() {
+          result = false
         }
       }
     })
     setTimeout(() => {
       expect(result).toEqual(false)
-      expect(vm.$el.childNodes).toBeNull()
+      expect(vm.$el.children.length).toEqual(0)
+      next()
     }, 2500)
   })
 })
