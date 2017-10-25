@@ -30,6 +30,7 @@ import { TabBar, TabBarItem } from './tab-bar'
 import Keyboard from './keyboard'
 import { XMarquee, XMarqueeItem } from './marquee'
 import Popover from './popover'
+import Overlay from './overlay'
 
 export {
   XButton,
@@ -70,5 +71,6 @@ export {
   Keyboard,
   XMarquee,
   XMarqueeItem,
-  Popover
+  Popover,
+  Overlay
 }
