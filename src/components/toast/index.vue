@@ -31,11 +31,7 @@ export default {
       type: Number,
       default: 2000
     },
-    status: String,
-    destroy: {
-      type: Boolean,
-      default: false
-    }
+    status: String
   },
   computed: {
     classes() {
@@ -75,6 +71,16 @@ export default {
     },
     value(value) {
       this.currentValue = value
+    }
+  },
+  created() {
+    if (this.currentValue) {
+      clearTimeout(this.timeout)
+      this.timeout = setTimeout(() => {
+        this.currentValue = false
+        this.$emit('input', false)
+        this.$emit('on-hide')
+      }, this.time)
     }
   },
   components: {
