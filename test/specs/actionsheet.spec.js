@@ -49,7 +49,7 @@ describe('component actionsheet testing', () => {
     })
     expect(vm.autoClose).toEqual(false)
   })
-  it('click menu', () => {
+  it('click menu', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -76,9 +76,10 @@ describe('component actionsheet testing', () => {
       expect(vm.open).toEqual(false)
       expect(result).toEqual('value2')
       expect(vm.$el.querySelector('.yui-actionsheet')).toBeNull()
+      next()
     }, 500)
   })
-  it('click menu not close menus', () => {
+  it('click menu not close menus', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -102,9 +103,10 @@ describe('component actionsheet testing', () => {
     const menus = vm.$el.querySelector('.yui-actionsheet-menus').children
     menus[0].click()
     setTimeout(() => {
-      expect(vm.open).toEqual(false)
+      expect(vm.open).toEqual(true)
       expect(result).toEqual('value1')
       expect(vm.$el.querySelector('.yui-actionsheet')).not.toBeNull()
+      next()
     }, 500)
   })
 })

@@ -35,7 +35,7 @@ describe('component button testing', () => {
     expect(vm.$el.disabled).toEqual(true)
     expect(vm.$el.classList.contains('yui-btn-disabled')).toEqual(true)
   })
-  it('click', () => {
+  it('click', next => {
     let result = null
     let vm = createVue({
       template: `
@@ -51,6 +51,7 @@ describe('component button testing', () => {
     setTimeout(() => {
       expect(vm.$el.textContent).toEqual('button')
       expect(result).not.toBeNull()
+      next()
     }, 20)
   })
 })
