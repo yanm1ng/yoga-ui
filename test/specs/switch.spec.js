@@ -67,4 +67,30 @@ describe('component switch testing', () => {
     })
     expect(vm.$el.querySelector('.yui-switch').getAttribute('disabled')).toEqual('disabled')
   })
+  it('events', next => {
+    let result = null
+    let vm = createVue({
+      template: `
+        <cell-box title="switch">
+          <x-switch v-model="value" title="title" @on-change="onChange"></x-switch>
+        </cell-box>
+      `,
+      data() {
+        return {
+          value: false
+        }
+      },
+      methods: {
+        onChange() {
+          result = 'changed'
+        }
+      }
+    })
+    vm.$el.querySelector('.yui-switch').click()
+    setTimeout(() => {
+      expect(vm.$el.querySelector('.yui-switch').value).toEqual('on')
+      expect(result).toEqual('changed')
+      next()
+    }, 500)
+  })
 })
