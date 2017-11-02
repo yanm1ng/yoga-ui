@@ -46,6 +46,28 @@ describe('component radio testing', () => {
     })
     expect(vm.$el.querySelector('.yui-cell-ft').innerHTML.indexOf('yui-radio')).not.toEqual(-1)
   })
+  it('v-model bind', next => {
+    let vm = createVue({
+      template: `
+        <radio title="title" v-model="value" :options="options"></radio>
+      `,
+      data() {
+        return {
+          value: '1',
+          options: [
+            { label: '选项一', value: '1' },
+            { label: '选项二', value: '2' }
+          ]
+        }
+      }
+    })
+    const radios = vm.$el.querySelectorAll('.yui-cell')
+    radios[1].click()
+    setTimeout(() => {
+      expect(vm.value).toEqual('2')
+      next()
+    }, 500)
+  })
   it('check events', next => {
     let result = null
     let vm = createVue({
