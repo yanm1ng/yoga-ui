@@ -48,7 +48,19 @@ export default {
       default: '取消'
     },
     placeholder: String,
-    pickers: Array
+    pickers: {
+      type: Array,
+      required: true,
+      validator: function (options) {
+        let i = 0
+        options.forEach(function(elm) {
+          if (elm.hasOwnProperty('title') && elm.hasOwnProperty('options')) {
+            i++
+          }
+        }, this)
+        return i === options.length
+      }
+    }
   },
   watch: {
     open(val) {

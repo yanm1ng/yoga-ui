@@ -25,7 +25,16 @@ export default {
     },
     menus: {
       type: Array,
-      default: () => []
+      required: true,
+      validator: function (options) {
+        let i = 0
+        options.forEach(function(elm) {
+          if (elm.hasOwnProperty('label') && elm.hasOwnProperty('value')) {
+            i++
+          }
+        }, this)
+        return i === options.length
+      }
     },
     showCancel: {
       type: Boolean,
