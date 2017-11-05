@@ -29,7 +29,16 @@ export default {
     },
     options: {
       type: Array,
-      required: true
+      required: true,
+      validator: function (options) {
+        let i = 0
+        options.forEach(function(elm) {
+          if (elm.hasOwnProperty('label') && elm.hasOwnProperty('value')) {
+            i++
+          }
+        }, this)
+        return i === options.length
+      }
     }
   },
   methods: {
