@@ -6,9 +6,7 @@
       <badge v-if="badge === ''" class="yui-tab-bar-item-badge-dot"></badge>
       <badge :text="badge" v-if="badge" class="yui-tab-bar-item-badge"></badge>
     </span>
-    <span class="yui-tab-bar-item-title">
-      {{ title }}
-    </span>
+    <span class="yui-tab-bar-item-title">{{ title }}</span>
   </a>
 </template>
 
