@@ -1,8 +1,13 @@
 import { createVue } from '../utils'
 
 describe('component marquee testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <x-marquee>
           <x-marquee-item>好消息好消息</x-marquee-item>
@@ -15,7 +20,7 @@ describe('component marquee testing', () => {
     expect(vm.$el.querySelectorAll('.yui-marquee-item').length).toEqual(5)
   })
   it('should render props:height', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <x-marquee :height="50">
           <x-marquee-item>好消息好消息</x-marquee-item>
@@ -27,7 +32,7 @@ describe('component marquee testing', () => {
     expect(vm.$el.style.height).toEqual('50px')
   })
   it('should render props:direction', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <x-marquee direction="down">
           <x-marquee-item>好消息好消息</x-marquee-item>
@@ -42,7 +47,7 @@ describe('component marquee testing', () => {
     }, 3000)
   })
   it('should render props:align', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <x-marquee align="left">
           <x-marquee-item>好消息好消息</x-marquee-item>
@@ -54,7 +59,7 @@ describe('component marquee testing', () => {
     expect(vm.$el.querySelector('.yui-marquee-box').classList.contains('yui-marquee-box-align-left')).toEqual(true)
   })
   it('should render props:speed', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <x-marquee :speed="1000">
           <x-marquee-item>好消息好消息</x-marquee-item>
@@ -69,7 +74,7 @@ describe('component marquee testing', () => {
     }, 2000)
   })
   it('should render props:time', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <x-marquee :time="500">
           <x-marquee-item>好消息好消息</x-marquee-item>

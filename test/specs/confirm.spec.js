@@ -1,15 +1,20 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Confirm from 'components/confirm'
 
 describe('component confirm testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(Confirm, {
+    vm = getRenderedVm(Confirm, {
       content: 'content'
     })
     expect(vm.$el.classList.contains('yui-confirm')).toEqual(true)
   })
   it('should render props:open', () => {
-    let vm = getRenderedVm(Confirm, {
+    vm = getRenderedVm(Confirm, {
       open: true,
       content: 'content'
     })
@@ -17,7 +22,7 @@ describe('component confirm testing', () => {
     expect(vm.$el.children).not.toBeNull()
   })
   it('should render props:title', () => {
-    let vm = getRenderedVm(Confirm, {
+    vm = getRenderedVm(Confirm, {
       open: true,
       title: 'title',
       content: 'content'
@@ -26,7 +31,7 @@ describe('component confirm testing', () => {
     expect(vm.$el.querySelector('.yui-confirm-content-hd').textContent).toEqual('title')
   })
   it('should render props:content', () => {
-    let vm = getRenderedVm(Confirm, {
+    vm = getRenderedVm(Confirm, {
       open: true,
       title: 'title',
       content: 'content'
@@ -35,7 +40,7 @@ describe('component confirm testing', () => {
     expect(vm.$el.querySelector('.yui-confirm-content-bd').textContent).toEqual('content')
   })
   it('should render props:cancelText', () => {
-    let vm = getRenderedVm(Confirm, {
+    vm = getRenderedVm(Confirm, {
       open: true,
       cancelText: 'cancelText',
       content: 'content'
@@ -44,7 +49,7 @@ describe('component confirm testing', () => {
     expect(vm.$el.querySelector('.yui-confirm-btn-default').textContent.replace(/\s/g, '')).toEqual('cancelText')
   })
   it('should render props:confirmText', () => {
-    let vm = getRenderedVm(Confirm, {
+    vm = getRenderedVm(Confirm, {
       open: true,
       confirmText: 'confirmText',
       content: 'content'
@@ -54,7 +59,7 @@ describe('component confirm testing', () => {
   })
   it('click confirm', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <confirm v-model="open" content="你好吗？" @on-confirm="onConfirm"></confirm>
       `,
@@ -79,7 +84,7 @@ describe('component confirm testing', () => {
   })
   it('click cancel', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <confirm v-model="open" content="你好吗？" @on-cancel="onCancel"></confirm>
       `,

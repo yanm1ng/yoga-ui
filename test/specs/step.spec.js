@@ -1,8 +1,13 @@
-import { createVue } from '../utils'
+import { createVue, destroyVM } from '../utils'
 
 describe('component step testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct class', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <step :current="1">
           <step-item title="step1"></step-item>
@@ -15,7 +20,7 @@ describe('component step testing', () => {
     expect(vm.$el.querySelectorAll('.yui-step-item').length).toEqual(3)
   })
   it('should render props:current', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <step :current="1">
           <step-item title="step1"></step-item>
@@ -33,7 +38,7 @@ describe('component step testing', () => {
     }, 500)
   })
   it('should render props:direction', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <step direction="vertical">
           <step-item title="step1"></step-item>
@@ -45,7 +50,7 @@ describe('component step testing', () => {
     expect(vm.$el.classList.contains('yui-steps-vertical')).toEqual(true)
   })
   it('should render props:title', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <step>
           <step-item title="step1"></step-item>

@@ -1,8 +1,13 @@
-import { createVue } from '../utils'
+import { createVue, destroyVM } from '../utils'
 
 describe('component tab-bar testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct class', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <tab-bar>
           <tab-bar-item title="Home" icon="home"></tab-bar-item>
@@ -15,7 +20,7 @@ describe('component tab-bar testing', () => {
     expect(vm.$el.querySelectorAll('.yui-tab-bar-item').length).toEqual(3)
   })
   it('should render props:color', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <tab-bar color="#eb4735">
           <tab-bar-item title="Home" icon="home"></tab-bar-item>
@@ -30,7 +35,7 @@ describe('component tab-bar testing', () => {
     }, 500)
   })
   it('should render props:icon', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <tab-bar color="#eb4735">
           <tab-bar-item title="Home" icon="home"></tab-bar-item>
@@ -44,7 +49,7 @@ describe('component tab-bar testing', () => {
     expect(vm.$el.querySelector('.yui-icon-share')).not.toBeNull()
   })
   it('should render props:title', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <tab-bar color="#eb4735">
           <tab-bar-item title="Home" icon="home"></tab-bar-item>
@@ -59,7 +64,7 @@ describe('component tab-bar testing', () => {
     expect(titles[2].textContent).toEqual('Share')
   })
   it('should render props:badge-dot', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <tab-bar color="#eb4735">
           <tab-bar-item title="Home" icon="home" badge></tab-bar-item>
@@ -72,7 +77,7 @@ describe('component tab-bar testing', () => {
     expect(items[0].innerHTML.indexOf('yui-tab-bar-item-badge-dot')).not.toEqual(-1)
   })
   it('should render props:badge-text', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <tab-bar color="#eb4735">
           <tab-bar-item title="Home" icon="home" badge="3"></tab-bar-item>
@@ -86,7 +91,7 @@ describe('component tab-bar testing', () => {
     expect(vm.$el.querySelector('.yui-tab-bar-item-badge').textContent).toEqual('3')
   })
   it('click events', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <tab-bar>
           <tab-bar-item title="Home" icon="home"></tab-bar-item>

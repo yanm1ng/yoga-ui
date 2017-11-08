@@ -1,13 +1,18 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Overlay from 'components/overlay'
 
 describe('component overlay testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(Overlay, {})
+    vm = getRenderedVm(Overlay, {})
     expect(vm.$el.className).toEqual('yui-overlay')
   })
   it('should render props:type', () => {
-    let vm = getRenderedVm(Overlay, {
+    vm = getRenderedVm(Overlay, {
       opacity: 0.8
     })
     expect(vm.opacity).toEqual(0.8)
@@ -15,7 +20,7 @@ describe('component overlay testing', () => {
   })
   it('click event', () => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <overlay @click="onClick">
           <div>body</div>
