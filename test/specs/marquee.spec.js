@@ -1,4 +1,4 @@
-import { createVue } from '../utils'
+import { createVue, destroyVM } from '../utils'
 
 describe('component marquee testing', () => {
   let vm
