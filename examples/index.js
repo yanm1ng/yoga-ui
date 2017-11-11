@@ -3,10 +3,11 @@ import app from './app'
 import router from './router'
 import { resetRootFontSize } from 'utils'
 import yogaUI from 'src'
-import { ToastPlugin } from 'src/plugins'
+import { ToastPlugin, ConfirmPlugin } from 'src/plugins'
 
 Vue.use(yogaUI)
 Vue.use(ToastPlugin)
+Vue.use(ConfirmPlugin)
 
 new Vue({
   router,

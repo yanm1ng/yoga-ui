@@ -13,17 +13,17 @@ describe('component confirm testing', () => {
     })
     expect(vm.$el.classList.contains('yui-confirm')).toEqual(true)
   })
-  it('should render props:open', () => {
+  it('should render props:value', () => {
     vm = getRenderedVm(Confirm, {
-      open: true,
+      value: true,
       content: 'content'
     })
-    expect(vm.open).toEqual(true)
+    expect(vm.value).toEqual(true)
     expect(vm.$el.children).not.toBeNull()
   })
   it('should render props:title', () => {
     vm = getRenderedVm(Confirm, {
-      open: true,
+      value: true,
       title: 'title',
       content: 'content'
     })
@@ -32,7 +32,7 @@ describe('component confirm testing', () => {
   })
   it('should render props:content', () => {
     vm = getRenderedVm(Confirm, {
-      open: true,
+      value: true,
       title: 'title',
       content: 'content'
     })
@@ -41,7 +41,7 @@ describe('component confirm testing', () => {
   })
   it('should render props:cancelText', () => {
     vm = getRenderedVm(Confirm, {
-      open: true,
+      value: true,
       cancelText: 'cancelText',
       content: 'content'
     })
@@ -50,7 +50,7 @@ describe('component confirm testing', () => {
   })
   it('should render props:confirmText', () => {
     vm = getRenderedVm(Confirm, {
-      open: true,
+      value: true,
       confirmText: 'confirmText',
       content: 'content'
     })
