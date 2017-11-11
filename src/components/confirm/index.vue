@@ -52,9 +52,7 @@ export default {
     },
     currentValue(value) {
       this.$emit('input', value)
-      if (value) {
-        this.$emit('on-show')
-      }
+      this.$emit(value ? 'on-show' : 'on-hide')
     }
   },
   methods: {
