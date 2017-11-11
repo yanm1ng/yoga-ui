@@ -2,7 +2,6 @@ import ToastComponent from 'components/toast'
 import { mergeOptions } from 'utils'
 
 let vm
-let watcher
 
 const plugin = {
   install: function(Vue) {
@@ -15,31 +14,24 @@ const plugin = {
       document.body.appendChild(vm.$el)
     }
 
-    const defaults = {}
-    for (let i in vm.$options.props) {
-      if (i !== 'value') {
-        defaults[i] = vm.$options.props[i].default
-      }
-    }
-
     const toast = {
       show: function(options = {}) {
-        watcher && watcher()
         if (typeof options === 'string') {
           vm.title = options
         } else if (typeof options === 'object') {
           mergeOptions(vm, options)
         }
+        this.$watcher && this.$watcher()
         if (typeof options === 'object' && options.onShow || options.onHide) {
-          watcher = vm.$watch('value', (val) => {
+          this.$watcher = vm.$watch('currentValue', (val) => {
             val && options.onShow && options.onShow(vm)
             val === false && options.onHide && options.onHide(vm)
           })
         }
-        vm.value = true
+        vm.currentValue = true
       },
       hide: function() {
-        vm.value = false
+        vm.currentValue = false
       }
     }
 
