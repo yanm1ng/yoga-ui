@@ -50,7 +50,7 @@ export default {
         this.$popup = new Vue({
           el: node,
           template: `
-            <actionsheet v-model="open" :menus="menus" @on-close="closeHandler" @on-change="changeHandler"></actionsheet>
+            <actionsheet :auto-close="true" v-model="open" :menus="menus" @on-close="closeHandler" @on-change="changeHandler"></actionsheet>
           `,
           components: { Actionsheet },
           data: {
@@ -85,7 +85,7 @@ export default {
         this.$popup = new Vue({
           el: node,
           template: `
-            <popup-picker v-model="open" :pickers="pickers" @on-change="changeHandler"></popup-picker>
+            <popup-picker :auto-close="true" v-model="open" :pickers="pickers" @on-hide="closeHandler" @on-change="changeHandler"></popup-picker>
           `,
           components: { PopupPicker },
           data: {

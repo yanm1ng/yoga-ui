@@ -1,15 +1,20 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Toast from 'components/toast'
 
 describe('component toast testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(Toast, {
+    vm = getRenderedVm(Toast, {
       value: true
     })
     expect(vm.$el.className).toEqual('yui-toast')
   })
   it('should render props:direction', () => {
-    let vm = getRenderedVm(Toast, {
+    vm = getRenderedVm(Toast, {
       value: true,
       direction: 'top'
     })
@@ -17,7 +22,7 @@ describe('component toast testing', () => {
     expect(vm.$el.querySelector('.yui-toast-top')).not.toBeNull()
   })
   it('should render props:title', () => {
-    let vm = getRenderedVm(Toast, {
+    vm = getRenderedVm(Toast, {
       value: true,
       title: 'title'
     })
@@ -25,7 +30,7 @@ describe('component toast testing', () => {
     expect(vm.$el.querySelector('.yui-toast-content').innerHTML).toEqual('<div>title</div>')
   })
   it('should render props:time', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <toast v-model="show" :time="1000">恭喜你答对了</toast>
       `,
@@ -41,7 +46,7 @@ describe('component toast testing', () => {
     }, 1000)
   })
   it('should render props:status', () => {
-    let vm = getRenderedVm(Toast, {
+    vm = getRenderedVm(Toast, {
       value: true,
       status: 'success'
     })

@@ -1,3 +1,6 @@
+import objectAssign from 'object-assign'
+Object.assign = objectAssign
+
 export const resetRootFontSize = () => {
   let deviceWidth = window.innerWidth
   let devicePixelRatio = window.devicePixelRatio || window.webkitDevicePixelRatio || window.mozDevicePixelRatio
@@ -25,4 +28,17 @@ export const bubbleSort = (arr) => {
     }
   }
   return arr
+}
+
+export const mergeOptions = (vm, options) => {
+  const defaults = {}
+  for (let i in vm.$options.props) {
+    if (i !== 'value') {
+      defaults[i] = vm.$options.props[i].default
+    }
+  }
+  const _options = Object.assign({}, defaults, options)
+  for (let i in _options) {
+    vm[i] = _options[i]
+  }
 }

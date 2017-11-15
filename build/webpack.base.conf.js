@@ -19,7 +19,8 @@ module.exports = {
       'styles': resolve('src/styles'),
       'utils': resolve('src/utils'),
       'mixins': resolve('src/mixins'),
-      'directives': resolve('src/directives')
+      'directives': resolve('src/directives'),
+      'plugins': resolve('src/plugins')
     }
   },
   module: {

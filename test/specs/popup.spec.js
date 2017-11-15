@@ -1,20 +1,25 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Popup from 'components/popup'
 
 describe('component popup testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(Popup, {})
+    vm = getRenderedVm(Popup, {})
     expect(vm.$el.className).toEqual('yui-popup')
   })
   it('should render props:open', () => {
-    let vm = getRenderedVm(Popup, {
+    vm = getRenderedVm(Popup, {
       open: true
     })
     expect(vm.open).toEqual(true)
     expect(vm.$el.querySelector('.yui-popup-inner')).not.toBeNull()
   })
   it('should render props:direction', () => {
-    let vm = getRenderedVm(Popup, {
+    vm = getRenderedVm(Popup, {
       open: true,
       direction: 'top'
     })
@@ -22,7 +27,7 @@ describe('component popup testing', () => {
     expect(vm.$el.querySelector('.yui-popup-top')).not.toBeNull()
   })
   it('should render props:full', () => {
-    let vm = getRenderedVm(Popup, {
+    vm = getRenderedVm(Popup, {
       open: true,
       full: true
     })
@@ -31,7 +36,7 @@ describe('component popup testing', () => {
     expect(vm.$el.querySelector('.yui-overlay')).toBeNull()
   })
   it('should render props:withMask', () => {
-    let vm = getRenderedVm(Popup, {
+    vm = getRenderedVm(Popup, {
       open: true,
       withMask: false
     })
@@ -39,7 +44,7 @@ describe('component popup testing', () => {
     expect(vm.$el.querySelector('.yui-overlay')).toBeNull()
   })
   it('should render props:autoClose', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <popup :open="open" :auto-close="false">
           <div>hello</div>
@@ -58,7 +63,7 @@ describe('component popup testing', () => {
   })
   it('events enter', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <div>
           <x-button @on-click="open = true">Open</x-button>
@@ -87,7 +92,7 @@ describe('component popup testing', () => {
     }, 1000)
   })
   it('events close', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <popup :open="open" @on-close="handleClose">
           <div>hello</div>

@@ -1,34 +1,39 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Card from 'components/card'
 
 describe('component card testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(Card, {})
+    vm = getRenderedVm(Card, {})
     expect(vm.$el.className).toEqual('yui-card')
   })
   it('should render props:headTitle', () => {
-    let vm = getRenderedVm(Card, {
+    vm = getRenderedVm(Card, {
       headTitle: 'headTitle'
     })
     expect(vm.headTitle).toEqual('headTitle')
     expect(vm.$el.querySelector('.yui-card-hd-left').textContent.trim()).toEqual('headTitle')
   })
   it('should render props:headDesc', () => {
-    let vm = getRenderedVm(Card, {
+    vm = getRenderedVm(Card, {
       headDesc: 'headDesc'
     })
     expect(vm.headDesc).toEqual('headDesc')
     expect(vm.$el.querySelector('.yui-card-hd-right').textContent).toEqual('headDesc')
   })
   it('should render props:hasHead', () => {
-    let vm = getRenderedVm(Card, {
+    vm = getRenderedVm(Card, {
       hasHead: false
     })
     expect(vm.hasHead).toEqual(false)
     expect(vm.$el.querySelector('.yui-card-hd')).toBeNull()
   })
   it('should render props:footer', () => {
-    let vm = getRenderedVm(Card, {
+    vm = getRenderedVm(Card, {
       footer: 'footer'
     })
     expect(vm.footer).toEqual('footer')
@@ -36,7 +41,7 @@ describe('component card testing', () => {
     expect(vm.$el.querySelector('.yui-card-ft').textContent).toEqual('footer')
   })
   it('should render slot:icon', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <card head-title="标题" head-desc="描述" footer="查看更多">
           <div slot="icon" style="width: 20px; height: 20px;"></div>
@@ -49,7 +54,7 @@ describe('component card testing', () => {
     }, 200)
   })
   it('should render slot:body', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <card head-title="标题" head-desc="描述" footer="查看更多">
           <div slot="body">
@@ -67,7 +72,7 @@ describe('component card testing', () => {
     let headResult = null
     let bodyResult = null
     let footerResult = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <card head-title="标题" head-desc="描述" footer="查看更多" @on-head-click="onHeadClick" @on-body-click="onBodyClick" @on-footer-click="onFooterClick">
           <div slot="body">
