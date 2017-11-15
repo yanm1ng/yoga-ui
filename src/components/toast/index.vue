@@ -31,7 +31,12 @@ export default {
       type: Number,
       default: 2000
     },
-    status: String
+    status: {
+      type: String,
+      validator: function (value) {
+        return ['success', 'error', 'loading', 'warning'].indexOf(value) !== -1
+      }
+    }
   },
   computed: {
     classes() {

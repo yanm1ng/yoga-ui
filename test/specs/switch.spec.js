@@ -1,14 +1,19 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Switch from 'components/switch'
 
 describe('component switch testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct class', () => {
-    let vm = getRenderedVm(Switch, {})
+    vm = getRenderedVm(Switch, {})
     expect(vm.$el.querySelector('input').type).toEqual('checkbox')
     expect(vm.$el.querySelector('.yui-switch')).not.toBeNull()
   })
   it('should render props:title', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <cell-box title="switch">
           <x-switch v-model="value" title="title"></x-switch>
@@ -23,7 +28,7 @@ describe('component switch testing', () => {
     expect(vm.$el.querySelector('.yui-label').textContent).toEqual('title')
   })
   it('should render props:desc', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <cell-box title="switch">
           <x-switch v-model="value" title="title" desc="desc"></x-switch>
@@ -38,7 +43,7 @@ describe('component switch testing', () => {
     expect(vm.$el.querySelector('.yui-label-desc').textContent).toEqual('desc')
   })
   it('should render props:value', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <cell-box title="switch">
           <x-switch v-model="value" title="title" desc="desc"></x-switch>
@@ -53,7 +58,7 @@ describe('component switch testing', () => {
     expect(vm.$el.querySelector('.yui-switch').value).toEqual('on')
   })
   it('should render props:disabled', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <cell-box title="switch">
           <x-switch v-model="value" title="title" :disabled="true"></x-switch>
@@ -68,7 +73,7 @@ describe('component switch testing', () => {
     expect(vm.$el.querySelector('.yui-switch').getAttribute('disabled')).toEqual('disabled')
   })
   it('v-model bind', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <cell-box title="switch">
           <x-switch v-model="value" title="title"></x-switch>
@@ -88,7 +93,7 @@ describe('component switch testing', () => {
   })
   it('change events', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <cell-box title="switch">
           <x-switch v-model="value" title="title" @on-change="onChange"></x-switch>

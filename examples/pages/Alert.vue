@@ -3,6 +3,9 @@
     <cell-box title="Alert">
       <x-switch v-model="open" title="normal"></x-switch>
     </cell-box>
+    <div :style="{ 'margin': '10px' }">
+      <x-button @on-click="handlePlugin">use plugin</x-button>
+    </div>
     <alert v-model="open" content="你好吗？" title="温馨提示" @on-show="onShow" @on-hide="onHide"></alert>
   </section>
 </template>
@@ -23,6 +26,12 @@ export default {
     },
     onHide() {
       console.log('on-hide')
+    },
+    handlePlugin() {
+      this.$alert.show({
+        title: 'title',
+        content: 'content'
+      })
     }
   }
 }

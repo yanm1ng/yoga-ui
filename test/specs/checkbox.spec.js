@@ -1,9 +1,14 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Checkbox from 'components/checkbox'
 
 describe('component checkbox testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(Checkbox, {
+    vm = getRenderedVm(Checkbox, {
       options: [
         { label: '选项一', value: '1' },
         { label: '选项二', value: '2' }
@@ -13,7 +18,7 @@ describe('component checkbox testing', () => {
     expect(vm.$el.querySelector('.yui-checkbox')).not.toBeNull()
   })
   it('should render props:title', () => {
-    let vm = getRenderedVm(Checkbox, {
+    vm = getRenderedVm(Checkbox, {
       title: 'title',
       options: [
         { label: '选项一', value: '1' },
@@ -24,7 +29,7 @@ describe('component checkbox testing', () => {
     expect(vm.$el.querySelector('.yui-cells-title').textContent).toEqual('title')
   })
   it('should render props:options', () => {
-    let vm = getRenderedVm(Checkbox, {
+    vm = getRenderedVm(Checkbox, {
       options: [
         { label: '选项一', value: '1' },
         { label: '选项二', value: '2' }
@@ -34,7 +39,7 @@ describe('component checkbox testing', () => {
     expect(vm.$el.querySelectorAll('.yui-checkbox').length).toEqual(2)
   })
   it('should render props:values', () => {
-    let vm = getRenderedVm(Checkbox, {
+    vm = getRenderedVm(Checkbox, {
       options: [
         { label: '选项一', value: '1' },
         { label: '选项二', value: '2' }
@@ -46,7 +51,7 @@ describe('component checkbox testing', () => {
   })
   it('click checked', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <checkbox title="title" :options="options" @on-change="handleChange"></checkbox>
       `,
@@ -75,7 +80,7 @@ describe('component checkbox testing', () => {
   })
   it('click with props:max', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <checkbox title="title" :values="values" :max="2" :options="options" @on-change="handleChange"></checkbox>
       `,

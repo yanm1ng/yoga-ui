@@ -23,3 +23,10 @@ export function createVue(Component) {
   }
   return new Vue(Component).$mount(createElm())
 }
+
+export function destroyVM(vm) {
+  vm.$destroy && vm.$destroy()
+  vm.$el &&
+  vm.$el.parentNode &&
+  vm.$el.parentNode.removeChild(vm.$el)
+}

@@ -1,9 +1,14 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Accordion from 'components/accordion'
 
 describe('component accordion testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(Accordion, {
+    vm = getRenderedVm(Accordion, {
       list: [
         { title: 'title1', content: 'content1' },
         { title: 'title2', content: 'content2' }
@@ -13,7 +18,7 @@ describe('component accordion testing', () => {
     expect(vm.$el.querySelectorAll('.yui-accordion').length).toEqual(2)
   })
   it('should render props:defaultOpened', () => {
-    let vm = getRenderedVm(Accordion, {
+    vm = getRenderedVm(Accordion, {
       list: [
         { title: 'title1', content: 'content1' },
         { title: 'title2', content: 'content2' }
@@ -24,7 +29,7 @@ describe('component accordion testing', () => {
     expect(vm.$el.querySelectorAll('.yui-cell-active').length).toEqual(2)
   })
   it('should render props:animate', () => {
-    let vm = getRenderedVm(Accordion, {
+    vm = getRenderedVm(Accordion, {
       list: [
         { title: 'title1', content: 'content1' },
         { title: 'title2', content: 'content2' }
@@ -35,7 +40,7 @@ describe('component accordion testing', () => {
     expect(vm.$el.querySelector('.no-animate')).not.toBeNull()
   })
   it('should render props:single', () => {
-    let vm = getRenderedVm(Accordion, {
+    vm = getRenderedVm(Accordion, {
       list: [
         { title: 'title1', content: 'content1' },
         { title: 'title2', content: 'content2' }
@@ -46,7 +51,7 @@ describe('component accordion testing', () => {
   })
   it('click', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <accordion title="title" :list="list" @on-change="handleChange"></accordion>
       `,
@@ -72,7 +77,7 @@ describe('component accordion testing', () => {
   })
   it('click single', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <accordion title="title" :single="true" :list="list" @on-change="handleChange"></accordion>
       `,

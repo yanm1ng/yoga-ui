@@ -1,15 +1,20 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import { 
   ButtonTab
 } from 'components/button-tab'
 
 describe('component button-tab testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(ButtonTab, {})
+    vm = getRenderedVm(ButtonTab, {})
     expect(vm.$el.className).toEqual('yui-button-tabs')
   })
   it('child should render correct classes', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <button-tab>
           <button-tab-item>全部</button-tab-item>
@@ -28,7 +33,7 @@ describe('component button-tab testing', () => {
     }, 200)
   })
   it('should render props:color', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <button-tab color="#eeeeee">
           <button-tab-item>全部</button-tab-item>
@@ -45,7 +50,7 @@ describe('component button-tab testing', () => {
   })
   it('click button item', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <button-tab @on-change="handleChange">
           <button-tab-item>全部</button-tab-item>
