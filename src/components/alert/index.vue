@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" direction="center" :auto-close="false" @on-close="closeHandler" class="yui-alert">
+  <popup :open="currentValue" direction="center" :auto-close="false" @on-close="closeHandler" class="yui-alert">
     <div class="yui-alert-content">
       <div class="yui-alert-content-hd">
         <strong>{{ title }}</strong>
@@ -15,12 +15,8 @@ import Popup from '../popup'
 
 export default {
   name: 'alert',
-  model: {
-    prop: 'open',
-    event: 'change'
-  },
   props: {
-    open: {
+    value: {
       type: Boolean,
       default: false
     },
@@ -34,14 +30,24 @@ export default {
       default: '好的'
     }
   },
+  data() {
+    return {
+      currentValue: this.value
+    }
+  },
   watch: {
-    open(val) {
-      this.$emit(val ? 'on-show' : 'on-hide')
+    value(value) {
+      this.currentValue = value
+    },
+    currentValue(value) {
+      this.$emit('input', value)
+      this.$emit(value ? 'on-show' : 'on-hide')
     }
   },
   methods: {
     closeHandler() {
-      this.$emit('change', false)
+      this.currentValue = false
+      this.$emit('input', false)
     }
   },
   components: {

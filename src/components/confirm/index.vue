@@ -1,5 +1,5 @@
 <template>
-  <popup :open="open" direction="center" :auto-close="false" @on-close="closeHandler" class="yui-confirm">
+  <popup :open="currentValue" direction="center" :auto-close="false" class="yui-confirm">
     <div class="yui-confirm-content">
       <div class="yui-confirm-content-hd">
         <strong>{{ title }}</strong>
@@ -18,12 +18,8 @@ import Popup from '../popup'
 
 export default {
   name: 'confirm',
-  model: {
-    prop: 'open',
-    event: 'change'
-  },
   props: {
-    open: {
+    value: {
       type: Boolean,
       default: false
     },
@@ -45,24 +41,34 @@ export default {
       default: true
     }
   },
+  data() {
+    return {
+      currentValue: this.value
+    }
+  },
   watch: {
-    open(val) {
-      if (val) {
-        this.$emit('on-show')
-      }
+    value(value) {
+      this.currentValue = value
+    },
+    currentValue(value) {
+      this.$emit('input', value)
+      this.$emit(value ? 'on-show' : 'on-hide')
     }
   },
   methods: {
-    closeHandler() {
-      this.$emit('change', false)
-    },
     onCancel() {
-      this.$emit('change', false)
+      if (!this.currentValue) {
+        return
+      }
+      this.currentValue = false
       this.$emit('on-cancel')
     },
     onConfirm() {
+      if (!this.currentValue) {
+        return
+      }
       if (this.closeOnConfirm) {
-        this.$emit('change', false)
+        this.currentValue = false
       }
       this.$emit('on-confirm')
     }

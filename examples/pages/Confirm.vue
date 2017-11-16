@@ -4,6 +4,9 @@
       <x-switch v-model="open1" title="default"></x-switch>
       <x-switch v-model="open2" title="footer-text"></x-switch>
     </cell-box>
+    <div :style="{ 'margin': '10px' }">
+      <x-button @on-click="handlePlugin">use plugin</x-button>
+    </div>
     <confirm v-model="open1" content="你好吗？" title="温馨提示" @on-show="onShow" @on-confirm="onConfirm"></confirm>
     <confirm v-model="open2" content="你好吗？" title="温馨提示" cancel-text="不好" confirm-text="还不错" @on-show="onShow" @on-confirm="onConfirm"></confirm>
   </section>
@@ -23,6 +26,12 @@ export default {
     },
     onConfirm() {
       console.log('on-confirm')
+    },
+    handlePlugin() {
+      this.$confirm.show({
+        title: '温馨提示',
+        content: '你好吗？'
+      })
     }
   }
 }

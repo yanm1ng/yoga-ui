@@ -1,16 +1,21 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Input from 'components/input'
 
 describe('component input testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(Input, {
+    vm = getRenderedVm(Input, {
       title: 'title'
     })
     expect(vm.$el.classList.contains('yui-input-cell')).toEqual(true)
     expect(vm.$el.querySelector('.yui-input')).not.toBeNull()
   })
   it('should render props:type', () => {
-    let vm = getRenderedVm(Input, {
+    vm = getRenderedVm(Input, {
       title: 'title',
       type: 'email'
     })
@@ -18,7 +23,7 @@ describe('component input testing', () => {
     expect(vm.$el.querySelector('.yui-input').type).toEqual('email')
   })
   it('should render props:placeholder', () => {
-    let vm = getRenderedVm(Input, {
+    vm = getRenderedVm(Input, {
       title: 'title',
       placeholder: 'placeholder'
     })
@@ -26,7 +31,7 @@ describe('component input testing', () => {
     expect(vm.$el.querySelector('.yui-input').getAttribute('placeholder')).toEqual('placeholder')
   })
   it('should render props:max', () => {
-    let vm = getRenderedVm(Input, {
+    vm = getRenderedVm(Input, {
       title: 'title',
       max: 12
     })
@@ -34,7 +39,7 @@ describe('component input testing', () => {
     expect(vm.$el.querySelector('.yui-input').getAttribute('maxlength')).toEqual('12')
   })
   it('should render props:showClear', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <cell-box>
           <x-input title="姓名" v-model="value" @on-focus="handleFocus"></x-input>
@@ -57,7 +62,7 @@ describe('component input testing', () => {
     expect(vm.inputFocus).toEqual(true)
   })
   it('should render props:disabled', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <cell-box>
           <x-input title="title" disabled></x-input>

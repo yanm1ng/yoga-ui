@@ -1,9 +1,14 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Actionsheet from 'components/actionsheet'
 
 describe('component actionsheet testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct classes', () => {
-    let vm = getRenderedVm(Actionsheet, {
+    vm = getRenderedVm(Actionsheet, {
       open: true,
       menus: [
         { label: '选项一', value: 'value1' },
@@ -14,7 +19,7 @@ describe('component actionsheet testing', () => {
     expect(vm.$el.querySelector('.yui-actionsheet')).not.toBeNull()
   })
   it('should render props:showCancel', () => {
-    let vm = getRenderedVm(Actionsheet, {
+    vm = getRenderedVm(Actionsheet, {
       open: true,
       menus: [
         { label: '选项一', value: 'value1' },
@@ -26,7 +31,7 @@ describe('component actionsheet testing', () => {
     expect(vm.$el.querySelector('.yui-actionsheet-cancel')).not.toBeNull()
   })
   it('should render props:cancelText', () => {
-    let vm = getRenderedVm(Actionsheet, {
+    vm = getRenderedVm(Actionsheet, {
       open: true,
       menus: [
         { label: '选项一', value: 'value1' },
@@ -39,7 +44,7 @@ describe('component actionsheet testing', () => {
     expect(vm.$el.querySelector('.yui-actionsheet-cancel').textContent).toEqual('cancelText')
   })
   it('should render props:autoClose', () => {
-    let vm = getRenderedVm(Actionsheet, {
+    vm = getRenderedVm(Actionsheet, {
       open: true,
       menus: [
         { label: '选项一', value: 'value1' },
@@ -51,7 +56,7 @@ describe('component actionsheet testing', () => {
   })
   it('click menu', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <actionsheet v-model="open" :menus="menus" @on-change="onChange"></actionsheet>
       `,
@@ -81,7 +86,7 @@ describe('component actionsheet testing', () => {
   })
   it('click menu not close menus', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <actionsheet v-model="open" :menus="menus" :auto-close="false" @on-change="onChange"></actionsheet>
       `,

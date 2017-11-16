@@ -1,9 +1,14 @@
-import { getRenderedVm, createVue } from '../utils'
+import { getRenderedVm, createVue, destroyVM } from '../utils'
 import Radio from 'components/radio'
 
 describe('component radio testing', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+
   it('should render correct class', () => {
-    let vm = getRenderedVm(Radio, {
+    vm = getRenderedVm(Radio, {
       value: '1',
       options: [
         { label: '选项一', value: '1' },
@@ -13,7 +18,7 @@ describe('component radio testing', () => {
     expect(vm.$el.querySelectorAll('.yui-cell').length).toEqual(2)
   })
   it('should render props:title', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <radio title="title" :value="value" :options="options"></radio>
       `,
@@ -30,7 +35,7 @@ describe('component radio testing', () => {
     expect(vm.$el.querySelector('.yui-cells-title').textContent).toEqual('title')
   })
   it('should render props:position', () => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <radio title="title" position="right" :value="value" :options="options"></radio>
       `,
@@ -47,7 +52,7 @@ describe('component radio testing', () => {
     expect(vm.$el.querySelector('.yui-cell-ft').innerHTML.indexOf('yui-radio')).not.toEqual(-1)
   })
   it('v-model bind', next => {
-    let vm = createVue({
+    vm = createVue({
       template: `
         <radio title="title" v-model="value" :options="options"></radio>
       `,
@@ -70,7 +75,7 @@ describe('component radio testing', () => {
   })
   it('check events', next => {
     let result = null
-    let vm = createVue({
+    vm = createVue({
       template: `
         <radio title="title" v-model="value" :options="options" @on-change="onChange"></radio>
       `,
