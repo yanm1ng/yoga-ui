@@ -69,9 +69,9 @@ describe('component marquee testing', () => {
       `
     })
     setTimeout(() => {
-      expect(vm.$el.querySelector('.yui-marquee-box').style.transitionDuration).toEqual('1000ms')
+      expect(vm.$el.querySelector('.yui-marquee-box').style.webkitTransitionDuration).toEqual('1000ms')
       next()
-    }, 2000)
+    }, 2200)
   })
   it('should render props:time', next => {
     vm = createVue({
@@ -86,6 +86,6 @@ describe('component marquee testing', () => {
     setTimeout(() => {
       expect(vm.$el.querySelector('.yui-marquee-box').style.webkitTransform).toEqual('translate3d(0, -60px, 0)')
       next()
-    }, 500)
+    }, 520)
   })
 })
