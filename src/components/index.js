@@ -31,6 +31,7 @@ import Keyboard from './keyboard'
 import { XMarquee, XMarqueeItem } from './marquee'
 import Popover from './popover'
 import Overlay from './overlay'
+import WingBlank from './wing-blank'
 
 export {
   XButton,
@@ -72,5 +73,6 @@ export {
   XMarquee,
   XMarqueeItem,
   Popover,
-  Overlay
+  Overlay,
+  WingBlank
 }

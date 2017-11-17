@@ -30,6 +30,7 @@ const TabBar = r => require.ensure([], () => r(require('examples/pages/TabBar'))
 const Keyboard = r => require.ensure([], () => r(require('examples/pages/Keyboard')), 'Keyboard')
 const Marquee = r => require.ensure([], () => r(require('examples/pages/Marquee')), 'Marquee')
 const Popover = r => require.ensure([], () => r(require('examples/pages/Popover')), 'Popover')
+const WingBlank = r => require.ensure([], () => r(require('examples/pages/WingBlank')), 'WingBlank')
 
 export default [
   {
@@ -128,5 +129,8 @@ export default [
   }, {
     path: '/popover',
     component: Popover
+  }, {
+    path: '/wing-blank',
+    component: WingBlank
   }
 ]
