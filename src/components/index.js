@@ -32,6 +32,7 @@ import { XMarquee, XMarqueeItem } from './marquee'
 import Popover from './popover'
 import Overlay from './overlay'
 import WingBlank from './wing-blank'
+import WhiteSpace from './white-space'
 
 export {
   XButton,
@@ -74,5 +75,6 @@ export {
   XMarqueeItem,
   Popover,
   Overlay,
-  WingBlank
+  WingBlank,
+  WhiteSpace
 }

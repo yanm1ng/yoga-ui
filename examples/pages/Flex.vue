@@ -1,5 +1,6 @@
 <template>
-  <section :style="{ 'marginTop': '10px' }">
+  <section>
+    <white-space />
     <flex>
       <flex-item><div class="flex-demo">1</div></flex-item>
       <flex-item><div class="flex-demo">1</div></flex-item>
