@@ -17,6 +17,7 @@ describe('component actionsheet testing', () => {
     })
     expect(vm.$el.className).toEqual('yui-popup')
     expect(vm.$el.querySelector('.yui-actionsheet')).not.toBeNull()
+    expect(vm.$el.querySelector('.yui-actionsheet-menus').children.length).toEqual(2)
   })
   it('should render props:showCancel', () => {
     vm = getRenderedVm(Actionsheet, {
@@ -42,6 +43,17 @@ describe('component actionsheet testing', () => {
     })
     expect(vm.cancelText).toEqual('cancelText')
     expect(vm.$el.querySelector('.yui-actionsheet-cancel').textContent).toEqual('cancelText')
+  })
+  it('should render inner message', () => {
+    vm = getRenderedVm(Actionsheet, {
+      open: true,
+      menus: [
+        { label: '选项一', value: 'value1', message: '<span>i am message</span>' },
+        { label: '选项二', value: 'value2' }
+      ]
+    })
+    const menus = vm.$el.querySelector('.yui-actionsheet-menus').children
+    expect(menus[0].querySelector('.yui-actionsheet-menu-message').innerHTML).toEqual('<span>i am message</span>')
   })
   it('should render props:autoClose', () => {
     vm = getRenderedVm(Actionsheet, {

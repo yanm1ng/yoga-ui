@@ -2,7 +2,10 @@
   <popup :open="open" direction="bottom" :auto-close="autoClose" @on-close="closeHandler">
     <div class="yui-actionsheet">
       <ul v-if="menus.length" class="yui-actionsheet-menus">
-        <li v-for="item in menus" :key="item.value" @click="itemHandler(item.value)">{{ item.label }}</li>
+        <li v-for="item in menus" :key="item.value" @click="itemHandler(item.value)">
+          {{ item.label }}
+          <div class="yui-actionsheet-menu-message" v-if="item.message" v-html="item.message"></div>
+        </li>
       </ul>
       <div v-if="showCancel" class="yui-actionsheet-cancel" @click="cancelHandler">{{ cancelText }}</div>
     </div>
@@ -115,6 +118,10 @@ export default {
         transform-origin: 0 0;
         transform: scaleY(0.5);
       }
+    }
+    &-menu-message {
+      font-size: 12px;
+      margin-top: 3px;
     }
   }
 }

@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       menus: [
-        { label: '选项一', value: 'value1' },
+        { label: '选项一', value: 'value1', message: '<span>i am message</span>' },
         { label: '选项二', value: 'value2' },
         { label: '选项三', value: 'value3' }
       ],
