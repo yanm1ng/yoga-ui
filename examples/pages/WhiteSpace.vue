@@ -1,5 +1,5 @@
 <template>
-  <section :style="{ 'marginTop': '10px' }">
+  <section>
     <white-space size="sm" />
     <div :style="styles">Block</div>
     <white-space />
