@@ -6,6 +6,7 @@
     <popup-picker
       v-model="open"
       :pickers="pickers"
+      :value="value"
       @on-change="onChange"
     ></popup-picker>
   </section>
@@ -40,11 +41,16 @@ export default {
   data() {
     return {
       open: false,
+      value: {
+        year: '2012',
+        month: '8'
+      },
       pickers
     }
   },
   methods: {
     onChange(values) {
+      this.values = values
       console.log(values)
     }
   }

@@ -11,7 +11,7 @@
           v-for="(item, index) in pickers"
           :key="index"
           :options="item.options"
-          :value="item.value"
+          :value="currentValue[item.title]"
           @on-change="(val) => onChange(val, index)"
         ></picker>
       </div>
@@ -60,6 +60,9 @@ export default {
         }, this)
         return i === options.length
       }
+    },
+    value: {
+      type: Object
     }
   },
   watch: {
@@ -70,12 +73,12 @@ export default {
   data() {
     return {
       picked: this.pickers,
-      values: {}
+      currentValue: {}
     }
   },
   created() {
     for(let item of this.pickers) {
-      this.values[item.title] = item.options[0].value || ''
+      this.currentValue[item.title] = item.options[0].value || ''
     }
   },
   methods: {
@@ -83,11 +86,11 @@ export default {
       this.$emit('change', false)
     },
     onConfirm() {
-      this.$emit('on-change', pure(this.values)).$emit('change', false)
+      this.$emit('on-change', pure(this.currentValue)).$emit('change', false)
     },
     onChange(val, index) {
       const { title } = this.picked[index]
-      this.values[title] = val
+      this.currentValue[title] = val
     }
   },
   components: {
