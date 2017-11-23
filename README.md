@@ -7,9 +7,8 @@
 ## Demo
 
 ```bash
-  git clone https://github.com/yanm1ng/yoga-ui yoga-ui
-  cd yoga-ui
-  npm install
+  git clone https://github.com/yanm1ng/yoga-ui yoga-ui && cd yoga-ui
+  npm i
   npm run dev
 ```
 
@@ -18,8 +17,14 @@
 1. Global
 ```javascript
 import yogaUI from 'yoga-ui'
+import { ToastPlugin, ConfirmPlugin, AlertPlugin } from 'yoga-ui/plugins'
 
+// use components
 Vue.use(yogaUI)
+// use plugins
+Vue.use(ToastPlugin)
+Vue.use(ConfirmPlugin)
+Vue.use(AlertPlugin)
 ```
 
 2. Component
@@ -33,6 +38,13 @@ export default {
     XButton
   }
 }
+```
+
+## Test && Lint
+
+```bash
+npm run test // run unit test
+npm run lint // run eslint
 ```
 
 ## Components
