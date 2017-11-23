@@ -1,5 +1,6 @@
 <template>
-  <section :style="{ 'marginTop': '10px' }">
+  <section>
+    <white-space />
     <tab @on-change="handleChange">
       <tab-item>已发货</tab-item>
       <tab-item>配送中</tab-item>

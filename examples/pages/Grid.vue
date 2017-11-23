@@ -1,5 +1,6 @@
 <template>
-  <section :style="{ 'marginTop': '10px' }">
+  <section>
+    <white-space />
     <p>cell = 2</p>
     <grid title="row = 2" :rows="2">
       <grid-item label="Grid" icon="emoji"></grid-item>

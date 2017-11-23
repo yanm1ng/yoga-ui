@@ -1,11 +1,11 @@
 <template>
-  <section :style="{ 'marginTop': '10px' }">
+  <wing-blank>
     <button-tab @on-change="handleChange">
       <button-tab-item>全部</button-tab-item>
       <button-tab-item>热门</button-tab-item>
       <button-tab-item>最近</button-tab-item>
     </button-tab>
-  </section>
+  </wing-blank>
 </template>
 
 <script>

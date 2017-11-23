@@ -6,9 +6,9 @@
       <x-switch v-model="icon" title="with icon"></x-switch>
       <x-switch v-model="loading" title="loading"></x-switch>
     </cell-box>
-    <div :style="{ 'margin': '10px' }">
+    <wing-blank>
       <x-button @on-click="handlePlugin">use plugin</x-button>
-    </div>
+    </wing-blank>
     <toast v-model="center">恭喜你答对了</toast>
     <toast v-model="bottom" direction="bottom" @on-close="handleToast('bottom')">恭喜你答对了</toast>
     <toast v-model="icon" status="success" @on-close="handleToast('icon')">恭喜你答对了</toast>

@@ -1,5 +1,6 @@
 <template>
-  <section style="margin-top: 10px;">
+  <section>
+    <white-space />
     <tab-bar>
       <tab-bar-item title="首页" icon="home" badge="3"></tab-bar-item>
       <tab-bar-item title="添加" icon="add"></tab-bar-item>

@@ -47,7 +47,9 @@ export default {
         { title: 'Tab', link: 'tab' },
         { title: 'TabBar', link: 'tab-bar' },
         { title: 'Textarea', link: 'textarea' },
-        { title: 'Toast', link: 'toast' }
+        { title: 'Toast', link: 'toast' },
+        { title: 'WingBlank', link: 'wing-blank' },
+        { title: 'WhiteSpace', link: 'white-space' }
       ]),
       logo
     }

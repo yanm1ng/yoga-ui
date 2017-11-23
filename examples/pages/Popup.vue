@@ -1,5 +1,5 @@
 <template>
-  <section :style="{ 'margin': '10px' }">
+  <wing-blank>
     <x-button @on-click="handlePopup('bottom')">Open Popup Bottom</x-button>
     <x-button @on-click="handlePopup('top')">Open Popup Top</x-button>
     <x-button @on-click="handlePopup('left')">Open Popup Left</x-button>
@@ -20,7 +20,7 @@
     <popup :open="full" direction="bottom" :full="true" @on-close="handlePopup('full')">
       <div>hello</div>
     </popup>
-  </section>
+  </wing-blank>
 </template>
 
 <script>

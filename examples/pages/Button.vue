@@ -1,5 +1,5 @@
 <template>
-  <section :style="{ 'margin': '10px' }">
+  <wing-blank>
     <x-button size="mini">default</x-button>
     <x-button size="mini" type="ghost">ghost</x-button>
     <x-button>default</x-button>
@@ -12,7 +12,7 @@
     </flex>
     <x-button circle>default</x-button>
     <x-button type="danger" circle>danger</x-button>
-  </section>
+  </wing-blank>
 </template>
 
 <script>

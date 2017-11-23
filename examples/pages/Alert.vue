@@ -3,9 +3,9 @@
     <cell-box title="Alert">
       <x-switch v-model="open" title="normal"></x-switch>
     </cell-box>
-    <div :style="{ 'margin': '10px' }">
+    <wing-blank>
       <x-button @on-click="handlePlugin">use plugin</x-button>
-    </div>
+    </wing-blank>
     <alert v-model="open" content="你好吗？" title="温馨提示" @on-show="onShow" @on-hide="onHide"></alert>
   </section>
 </template>
