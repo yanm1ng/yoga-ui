@@ -63,11 +63,17 @@ export default {
     },
     value: {
       type: Object
+    },
+    defaultValue: {
+      type: Object
     }
   },
   watch: {
     open(val) {
       this.$emit(val ? 'on-show' : 'on-hide')
+    },
+    value(value) {
+      this.currentValue = value
     }
   },
   data() {
@@ -77,20 +83,34 @@ export default {
     }
   },
   created() {
-    for(let item of this.pickers) {
-      this.currentValue[item.title] = item.options[0].value || ''
+    if (this.defaultValue) {
+      Object.keys(this.defaultValue).map(key => {
+        this.currentValue[key] = this.defaultValue[key]
+      })
+    } else if (this.value) {
+      Object.keys(this.value).map(key => {
+        this.currentValue[key] = this.value[key]
+      })
+    } else {
+      for(let item of this.pickers) {
+        this.currentValue[item.title] = item.options[0].value || ''
+      }
     }
+    this.returnValue = this.currentValue
   },
   methods: {
     onClose() {
       this.$emit('change', false)
     },
     onConfirm() {
-      this.$emit('on-change', pure(this.currentValue)).$emit('change', false)
+      this.$emit('on-change', pure(this.returnValue)).$emit('change', false)
     },
     onChange(val, index) {
       const { title } = this.picked[index]
-      this.currentValue[title] = val
+      if (!this.value) {
+        this.currentValue[title] = val
+      }
+      this.returnValue[title] = val
     }
   },
   components: {

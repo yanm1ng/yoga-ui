@@ -1,14 +1,11 @@
 <template>
   <section>
     <cell-box title="PopupPicker">
-      <x-switch v-model="open" title="normal"></x-switch>
+      <x-switch v-model="open1" title="default-value"></x-switch>
+      <x-switch v-model="open2" title="normal"></x-switch>
     </cell-box>
-    <popup-picker
-      v-model="open"
-      :pickers="pickers"
-      :value="value"
-      @on-change="onChange"
-    ></popup-picker>
+    <popup-picker v-model="open1" :pickers="pickers" :default-value="value"></popup-picker>
+    <popup-picker v-model="open2" :pickers="pickers" :value="value" @on-change="onChange"></popup-picker>
   </section>
 </template>
 
@@ -40,7 +37,8 @@ pickers.push({
 export default {
   data() {
     return {
-      open: false,
+      open1: false,
+      open2: false,
       value: {
         year: '2012',
         month: '8'
@@ -49,9 +47,9 @@ export default {
     }
   },
   methods: {
-    onChange(values) {
-      this.values = values
-      console.log(values)
+    onChange(value) {
+      console.log(value)
+      this.value = value
     }
   }
 }
