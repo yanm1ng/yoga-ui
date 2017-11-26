@@ -3,7 +3,7 @@
     <div class="yui-actionsheet">
       <ul v-if="menus.length" class="yui-actionsheet-menus">
         <li v-for="item in menus" :key="item.value" @click="itemHandler(item.value)">
-          {{ item.label }}
+          <div :class="{ 'yui-actionsheet-item-active': activeColor && item.value === currentValue }">{{ item.label }}</div>
           <div class="yui-actionsheet-menu-message" v-if="item.message" v-html="item.message"></div>
         </li>
       </ul>
@@ -50,6 +50,32 @@ export default {
     autoClose: {
       type: Boolean,
       default: true
+    },
+    value: {
+      type: String
+    },
+    activeColor: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      currentValue: ''
+    }
+  },
+  created() {
+    if (this.defaultValue) {
+      this.currentValue = this.defaultValue
+    } else if (this.value) {
+      this.currentValue = this.value
+    } else {
+      this.currentValue = ''
+    }
+  },
+  watch: {
+    value(val) {
+      this.currentValue = val
     }
   },
   methods: {
@@ -61,6 +87,9 @@ export default {
       this.closeHandler()
     },
     itemHandler(value) {
+      if (!this.value) {
+        this.currentValue = value
+      }
       this.$emit('on-change', value)
       this.closeHandler()
     }
@@ -122,6 +151,9 @@ export default {
     &-menu-message {
       font-size: 12px;
       margin-top: 3px;
+    }
+    &-item-active {
+      color: $primary-color;
     }
   }
 }
