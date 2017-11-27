@@ -1,7 +1,7 @@
 <template>
   <section>
     <cell-box title="Select">
-      <x-select title="学历1" v-model="value1" :options="options"></x-select>
+      <x-select title="学历1" default-value="高中" v-model="value1" :options="options"></x-select>
       <x-select title="学历2" type="picker" v-model="value2" :options="options"></x-select>
     </cell-box>
   </section>
