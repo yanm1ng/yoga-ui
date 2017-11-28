@@ -1,7 +1,8 @@
 <template>
   <section>
-    <checkbox title="选择题" :values="values1" :options="options" @on-change="handleChange"></checkbox>
-    <checkbox title="选择题(最多2个)" :max="2" :values="values2" :options="options" @on-change="handleChange"></checkbox>
+    <checkbox title="选择题(default-value)" :default-values="values0" :options="options"></checkbox>
+    <checkbox title="选择题(normal)" :values="values1" :options="options" @on-change="handleChange"></checkbox>
+    <checkbox title="选择题(max:2)" :max="2" :default-values="values2" :options="options"></checkbox>
   </section>
 </template>
 
@@ -9,6 +10,7 @@
 export default {
   data() {
     return {
+      values0: ['1', '2'],
       values1: ['1'],
       values2: [],
       options: [
@@ -20,7 +22,8 @@ export default {
   },
   methods: {
     handleChange(values) {
-      console.log(values)
+      console.log('item2 values:', values)
+      this.values1 = values
     }
   }
 }
