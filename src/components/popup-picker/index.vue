@@ -11,7 +11,7 @@
           v-for="(item, index) in pickers"
           :key="index"
           :options="item.options"
-          :value="item.value"
+          :value="currentValue[item.title]"
           @on-change="(val) => onChange(val, index)"
         ></picker>
       </div>
@@ -60,34 +60,57 @@ export default {
         }, this)
         return i === options.length
       }
+    },
+    value: {
+      type: Object
+    },
+    defaultValue: {
+      type: Object
     }
   },
   watch: {
     open(val) {
       this.$emit(val ? 'on-show' : 'on-hide')
+    },
+    value(value) {
+      this.currentValue = value
     }
   },
   data() {
     return {
       picked: this.pickers,
-      values: {}
+      currentValue: {}
     }
   },
   created() {
-    for(let item of this.pickers) {
-      this.values[item.title] = item.options[0].value || ''
+    if (this.defaultValue) {
+      Object.keys(this.defaultValue).map(key => {
+        this.currentValue[key] = this.defaultValue[key]
+      })
+    } else if (this.value) {
+      Object.keys(this.value).map(key => {
+        this.currentValue[key] = this.value[key]
+      })
+    } else {
+      for(let item of this.pickers) {
+        this.currentValue[item.title] = item.options[0].value || ''
+      }
     }
+    this.returnValue = this.currentValue
   },
   methods: {
     onClose() {
       this.$emit('change', false)
     },
     onConfirm() {
-      this.$emit('on-change', pure(this.values)).$emit('change', false)
+      this.$emit('on-change', pure(this.returnValue)).$emit('change', false)
     },
     onChange(val, index) {
       const { title } = this.picked[index]
-      this.values[title] = val
+      if (!this.value) {
+        this.currentValue[title] = val
+      }
+      this.returnValue[title] = val
     }
   },
   components: {

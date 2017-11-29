@@ -19,8 +19,10 @@ export default {
   props: {
     title: String,
     values: {
-      type: Array,
-      default: () => []
+      type: Array
+    },
+    defaultValues: {
+      type: Array
     },
     options: {
       type: Array,
@@ -39,7 +41,21 @@ export default {
   },
   data() {
     return {
-      currentValues: this.values
+      currentValues: null
+    }
+  },
+  watch: {
+    values(val) {
+      this.currentValues = val
+    }
+  },
+  created() {
+    if (this.defaultValues) {
+      this.currentValues = pure(this.defaultValues)
+    } else if (this.values) {
+      this.currentValues = pure(this.values)
+    } else {
+      this.currentValues = []
     }
   },
   computed: {
@@ -66,13 +82,17 @@ export default {
       ]
     },
     onItemClick(val) {
-      const index = this.currentValues.indexOf(val)
+      let newValues = pure(this.currentValues)
+      const index = newValues.indexOf(val)
       if (index === -1) {
-        (this._max > this.currentValues.length) && this.currentValues.push(val)
+        (this._max > this.currentValues.length) && newValues.push(val)
       } else {
-        this.currentValues.splice(index, 1)
+        newValues = newValues.filter(el => el !== val)
       }
-      this.$emit('on-change', pure(bubbleSort(this.currentValues)))
+      if (!this.values) {
+        this.currentValues = newValues
+      }
+      this.$emit('on-change', pure(bubbleSort(newValues)))
     }
   },
   components: {

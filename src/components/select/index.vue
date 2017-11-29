@@ -1,6 +1,6 @@
 <template>
   <cell :title="title" :desc="desc" is-link class="yui-select-cell" @on-click="clickHandler">
-    <span slot="value">{{ value || placeholder }}</span>
+    <span slot="value">{{ currentValue || placeholder }}</span>
   </cell>
 </template>
 
@@ -39,6 +39,26 @@ export default {
         }, this)
         return i === options.length
       }
+    },
+    defaultValue: String
+  },
+  data() {
+    return {
+      currentValue: ''
+    }
+  },
+  created() {
+    if (this.defaultValue) {
+      this.currentValue = this.defaultValue
+    } else if (this.value) {
+      this.currentValue = this.value
+    } else {
+      this.currentValue = ''
+    }
+  },
+  watch: {
+    value(val) {
+      this.currentValue = val
     }
   },
   methods: {
@@ -50,13 +70,13 @@ export default {
         this.$popup = new Vue({
           el: node,
           template: `
-            <actionsheet :auto-close="true" v-model="open" :menus="menus" @on-close="closeHandler" @on-change="changeHandler"></actionsheet>
+            <actionsheet v-model="open" :value="value" :menus="menus" active-color auto-close @on-close="closeHandler" @on-change="changeHandler"></actionsheet>
           `,
           components: { Actionsheet },
           data: {
             menus: select.options,
             open: false,
-            value: select.value
+            value: select.currentValue
           },
           mounted() {
             this.open = true
@@ -73,7 +93,7 @@ export default {
               }, 800)
             },
             changeHandler(value) {
-              if (select.value !== value) {
+              if (select.currentValue !== value) {
                 select.$emit('on-change', value).$emit('input', value)
               } else {
                 this.closeHandler()
@@ -85,7 +105,7 @@ export default {
         this.$popup = new Vue({
           el: node,
           template: `
-            <popup-picker :auto-close="true" v-model="open" :pickers="pickers" @on-hide="closeHandler" @on-change="changeHandler"></popup-picker>
+            <popup-picker v-model="open" :value="value" :pickers="pickers" auto-close @on-hide="closeHandler" @on-change="changeHandler"></popup-picker>
           `,
           components: { PopupPicker },
           data: {
@@ -94,7 +114,9 @@ export default {
               options: select.options
             }],
             open: false,
-            value: select.value
+            value: {
+              value: select.currentValue
+            }
           },
           mounted() {
             this.open = true
@@ -111,7 +133,7 @@ export default {
               }, 800)
             },
             changeHandler({ value }) {
-              if (select.value !== value) {
+              if (select.currentValue !== value) {
                 select.$emit('on-change', value).$emit('input', value)
               } else {
                 this.closeHandler()
