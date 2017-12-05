@@ -54,6 +54,9 @@ export default {
     value: {
       type: String
     },
+    defaultValue: {
+      type: String
+    },
     activeColor: {
       type: Boolean,
       default: false

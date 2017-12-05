@@ -1,7 +1,7 @@
 <template>
   <cell-box :title="title">
     <div class="yui-accordion" v-for="(item, index) in list" :key="item.title">
-      <cell :title="item.title" is-link @on-click="clickHandler(index)" :class="{ 'yui-cell-active': currentOpened.indexOf(index) !== -1 }"></cell>
+      <cell :title="item.title" is-link @on-click="clickHandler(index)" :class="{ 'yui-cell-active': currentActiveKeys.indexOf(index) !== -1 }"></cell>
       <div :class="classes(index)">
         <div class="yui-accordion-content-inner">{{ item.content }}</div>
       </div>
@@ -19,9 +19,11 @@ export default {
   props: {
     title: String,
     list: Array,
-    defaultOpened: {
-      type: Array,
-      default: () => []
+    activeKeys: {
+      type: Array
+    },
+    defaultActiveKeys: {
+      type: Array
     },
     animate: {
       type: Boolean,
@@ -34,35 +36,46 @@ export default {
   },
   data() {
     return {
-      currentOpened: []
+      currentActiveKeys: null
+    }
+  },
+  watch: {
+    activeKeys(val) {
+      this.currentActiveKeys = val
     }
   },
   created() {
-    const { defaultOpened, single } = this
-    if (single) {
-      this.currentOpened = defaultOpened.length ? [defaultOpened[0]] : []
+    const { defaultActiveKeys, activeKeys, single } = this
+    if (defaultActiveKeys && defaultActiveKeys.length) {
+      this.currentActiveKeys = single ? [defaultActiveKeys[0]] : defaultActiveKeys
+    } else if (activeKeys && activeKeys.length) {
+      this.currentActiveKeys = single ? [activeKeys[0]] : activeKeys
     } else {
-      this.currentOpened = defaultOpened
+      this.currentActiveKeys = []
     }
   },
   methods: {
     clickHandler(val) {
       const { single } = this
-      const index = this.currentOpened.indexOf(val)
+      let returnActiveKeys = pure(this.currentActiveKeys)
+      const index = returnActiveKeys.indexOf(val)
       if (index === -1) {
-        single ? this.currentOpened = [val] : this.currentOpened.push(val)
+        single ? returnActiveKeys = [val] : returnActiveKeys.push(val)
       } else {
-        this.currentOpened.splice(index, 1)
+        returnActiveKeys.splice(index, 1)
       }
-      this.$emit('on-change', pure(bubbleSort(this.currentOpened)))
+      if (!this.activeKeys) {
+        this.currentActiveKeys = returnActiveKeys
+      }
+      this.$emit('on-change', pure(bubbleSort(returnActiveKeys)))
     },
     classes(index) {
-      const { currentOpened, animate } = this
+      const { currentActiveKeys, animate } = this
       return [
         'yui-accordion-content',
         {
           'no-animate': !animate,
-          'animate': animate && currentOpened.indexOf(index) !== -1
+          'animate': animate && currentActiveKeys.indexOf(index) !== -1
         }
       ]
     }
