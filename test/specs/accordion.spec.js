@@ -17,15 +17,26 @@ describe('component accordion testing', () => {
     expect(vm.$el.className).toEqual('yui-cells-box')
     expect(vm.$el.querySelectorAll('.yui-accordion').length).toEqual(2)
   })
-  it('should render props:defaultOpened', () => {
+  it('should render props:defaultActiveKeys', () => {
     vm = getRenderedVm(Accordion, {
       list: [
         { title: 'title1', content: 'content1' },
         { title: 'title2', content: 'content2' }
       ],
-      defaultOpened: [0, 1]
+      defaultActiveKeys: [0, 1]
     })
-    expect(vm.defaultOpened.length).toEqual(2)
+    expect(vm.defaultActiveKeys.length).toEqual(2)
+    expect(vm.$el.querySelectorAll('.yui-cell-active').length).toEqual(2)
+  })
+  it('should render props:activeKeys', () => {
+    vm = getRenderedVm(Accordion, {
+      list: [
+        { title: 'title1', content: 'content1' },
+        { title: 'title2', content: 'content2' }
+      ],
+      activeKeys: [0, 1]
+    })
+    expect(vm.activeKeys.length).toEqual(2)
     expect(vm.$el.querySelectorAll('.yui-cell-active').length).toEqual(2)
   })
   it('should render props:animate', () => {
@@ -72,6 +83,8 @@ describe('component accordion testing', () => {
     vm.$el.querySelector('.yui-cell-arrow').click()
     setTimeout(() => {
       expect(result).not.toBeNull()
+      expect(result.length).toEqual(1)
+      expect(vm.$el.querySelectorAll('.yui-cell-active').length).toEqual(1)
       next()
     }, 200)
   })
@@ -101,6 +114,36 @@ describe('component accordion testing', () => {
     setTimeout(() => {
       expect(result).not.toBeNull()
       expect(result.length).toEqual(1)
+      expect(vm.$el.querySelectorAll('.yui-cell-active').length).toEqual(1)
+      next()
+    }, 200)
+  })
+  it('click controlled', next => {
+    let result = null
+    vm = createVue({
+      template: `
+        <accordion :active-keys="activeKeys" title="title" :list="list" @on-change="handleChange"></accordion>
+      `,
+      data() {
+        return {
+          activeKeys: [1],
+          list: [
+            { title: 'title1', content: 'content1' },
+            { title: 'title2', content: 'content2' }
+          ]
+        }
+      },
+      methods: {
+        handleChange(values) {
+          result = values
+        }
+      }
+    })
+    vm.$el.querySelector('.yui-cell-arrow').click()
+    setTimeout(() => {
+      expect(result).not.toBeNull()
+      expect(result.length).toEqual(2)
+      expect(vm.$el.querySelectorAll('.yui-cell-active').length).toEqual(1)
       next()
     }, 200)
   })
