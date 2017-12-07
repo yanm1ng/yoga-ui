@@ -1,7 +1,11 @@
 const parentMixin = {
   mounted() {
-    if (this.value >= 0) {
+    if (this.defaultValue) {
+      this.currentIndex = this.defaultValue
+    } else if (this.value) {
       this.currentIndex = this.value
+    } else {
+      this.currentIndex = 0
     }
   },
   methods: {
@@ -20,8 +24,10 @@ const parentMixin = {
   },
   props: {
     value: {
-      type: Number,
-      default: 0
+      type: Number
+    },
+    defaultValue: {
+      type: Number
     }
   },
   watch: {
@@ -67,7 +73,6 @@ const childMixin = {
     onItemClick() {
       if (typeof this.disabled === 'undefined' || this.disabled === false) {
         this.currentSelected = true
-        this.$parent.currentIndex = this.currentIndex
         this.$nextTick(() => {
           this.$emit('on-item-click', this.currentIndex)
         })
@@ -77,6 +82,7 @@ const childMixin = {
   watch: {
     currentSelected(val) {
       if (val) {
+        this.$parent.currentIndex = this.currentIndex
         this.$parent.index = this.currentIndex
       }
     },
