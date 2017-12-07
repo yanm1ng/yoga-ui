@@ -33,12 +33,12 @@ export default {
       return [
         'yui-tab-bar-item',
         {
-          'yui-tab-bar-item-active': this.currentSelected
+          'yui-tab-bar-item-active': this.childSelected
         }
       ]
     },
     styles() {
-      if (this.currentSelected) {
+      if (this.childSelected) {
         return {
           color: this.$parent.color
         }

@@ -22,16 +22,16 @@ export default {
       return [
         'yui-button-tab-item',
         {
-          'yui-button-tab-current': this.currentSelected,
-          'yui-button-tab-item-first': this.currentIndex === 0,
-          'yui-button-tab-item-last': this.currentIndex === childLen,
-          'yui-button-tab-item-middle': this.currentIndex > 0 && this.currentIndex !== childLen,
+          'yui-button-tab-current': this.childSelected,
+          'yui-button-tab-item-first': this.childIndex === 0,
+          'yui-button-tab-item-last': this.childIndex === childLen,
+          'yui-button-tab-item-middle': this.childIndex > 0 && this.childIndex !== childLen,
           'yui-button-tab-disabled': this.disabled
         }
       ]
     },
     style() {
-      if (this.currentSelected) {
+      if (this.childSelected) {
         return {
           'background-color': this.$parent.color
         }

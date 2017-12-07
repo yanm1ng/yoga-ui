@@ -35,7 +35,7 @@ describe('component button-tab testing', () => {
   it('should render props:color', next => {
     vm = createVue({
       template: `
-        <button-tab color="#eeeeee">
+        <button-tab :default-value="0" color="#eeeeee">
           <button-tab-item>全部</button-tab-item>
           <button-tab-item>热门</button-tab-item>
           <button-tab-item>最近</button-tab-item>

@@ -21,7 +21,7 @@ export default {
       return [
         'yui-tab-item',
         {
-          'yui-tab-selected': this.currentSelected,
+          'yui-tab-selected': this.childSelected,
           'yui-tab-disabled': this.disabled
         }
       ]

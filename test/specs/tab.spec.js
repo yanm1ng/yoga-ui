@@ -39,7 +39,8 @@ describe('component tab testing', () => {
       `
     })
     setTimeout(() => {
-      expect(vm.$el.querySelector('.yui-tab-selected').style.color).toEqual('rgb(235, 71, 53)')
+      const items = vm.$el.querySelectorAll('.yui-tab-item')
+      expect(items[0].classList.contains('yui-tab-selected')).toEqual(true)
       expect(vm.$el.querySelector('.yui-tab-ink-bar').style.backgroundColor).toEqual('rgb(235, 71, 53)')
       next()
     }, 500)

@@ -3,7 +3,7 @@
     <div class="yui-step-item-body">
       <div class="yui-step-item-body-main">
         <icon v-if="status === 'finish'" class="yui-step-item-body-icon" name="roundcheckfill"></icon>
-        <span v-else class="yui-step-item-body-process">{{ this.currentIndex + 1 }}</span>
+        <span v-else class="yui-step-item-body-process">{{ this.childIndex + 1 }}</span>
       </div>
       <p class="yui-step-item-body-title">{{ title }}</p>
     </div>
@@ -24,9 +24,9 @@ export default {
   computed: {
     status() {
       const { current } = this.$parent
-      if (this.currentIndex === current) {
+      if (this.childIndex === current) {
         return 'process'
-      } else if (this.currentIndex < current) {
+      } else if (this.childIndex < current) {
         return 'finish'
       } else {
         return 'wait'

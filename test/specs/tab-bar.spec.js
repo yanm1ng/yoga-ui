@@ -37,7 +37,7 @@ describe('component tab-bar testing', () => {
   it('should render props:icon', () => {
     vm = createVue({
       template: `
-        <tab-bar color="#eb4735">
+        <tab-bar :default-value="0" color="#eb4735">
           <tab-bar-item title="Home" icon="home"></tab-bar-item>
           <tab-bar-item title="Add" icon="add"></tab-bar-item>
           <tab-bar-item title="Share" icon="share"></tab-bar-item>
