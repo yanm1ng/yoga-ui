@@ -6,6 +6,9 @@
       <x-switch v-model="open3" title="success"></x-switch>
       <x-switch v-model="open4" title="info"></x-switch>
     </cell-box>
+    <wing-blank>
+      <x-button type="primary" @on-click="handlePlugin">use plugin</x-button>
+    </wing-blank>
     <notify v-model="open1" :auto-close="false">重要提示</notify>
     <notify v-model="open2">重要提示</notify>
     <notify v-model="open3" status="success">重要提示</notify>
@@ -21,6 +24,11 @@ export default {
       open2: false,
       open3: false,
       open4: false
+    }
+  },
+  methods: {
+    handlePlugin() {
+      this.$notify.show('I am plugin')
     }
   }
 }

@@ -6,13 +6,15 @@ import yogaUI from 'src'
 import {
   ToastPlugin,
   ConfirmPlugin,
-  AlertPlugin
+  AlertPlugin,
+  NotifyPlugin
 } from 'src/plugins'
 
 Vue.use(yogaUI)
 Vue.use(ToastPlugin)
 Vue.use(ConfirmPlugin)
 Vue.use(AlertPlugin)
+Vue.use(NotifyPlugin)
 
 new Vue({
   router,
