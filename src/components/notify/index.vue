@@ -1,6 +1,6 @@
 <template>
-  <popup :open="open" :with-mask="false" direction="top" :auto-close="autoClose" :class="classes">
-    <slot></slot>
+  <popup :open="currentValue" :with-mask="false" direction="top" :auto-close="autoClose" :class="classes">
+    <slot>{{ content }}</slot>
   </popup>
 </template>
 
@@ -17,6 +17,9 @@ export default {
     open: {
       type: Boolean,
       default: false
+    },
+    content: {
+      type: String
     },
     status: {
       type: String,
@@ -36,26 +39,32 @@ export default {
   },
   data() {
     return {
+      currentValue: this.open,
       timeout: null
     }
   },
   watch: {
-    open(value) {
+    currentValue(value) {
       if (this.autoClose && value) {
         this.$emit('change', true)
         this.$emit('on-show')
         clearTimeout(this.timeout)
         this.timeout = setTimeout(() => {
+          this.currentValue = false
           this.$emit('change', false)
           this.$emit('on-hide')
         }, this.time)
       }
+    },
+    open(value) {
+      this.currentValue = value
     }
   },
   created() {
-    if (this.autoClose && this.open) {
+    if (this.autoClose && this.currentValue) {
       clearTimeout(this.timeout)
       this.timeout = setTimeout(() => {
+        this.currentValue = false
         this.$emit('change', false)
         this.$emit('on-hide')
       }, this.time)
