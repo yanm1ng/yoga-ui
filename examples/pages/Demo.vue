@@ -27,6 +27,7 @@ export default {
         { title: 'Cell', link: 'cell' },
         { title: 'Checkbox', link: 'checkbox' },
         { title: 'Confirm', link: 'confirm' },
+        { title: 'CountUp', link: 'count-up' },
         { title: 'Divider', link: 'divider' },
         { title: 'Flex', link: 'flex' },
         { title: 'Grid', link: 'grid' },

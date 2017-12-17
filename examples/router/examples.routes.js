@@ -32,6 +32,7 @@ const Marquee = r => require.ensure([], () => r(require('examples/pages/Marquee'
 const Popover = r => require.ensure([], () => r(require('examples/pages/Popover')), 'Popover')
 const WingBlank = r => require.ensure([], () => r(require('examples/pages/WingBlank')), 'WingBlank')
 const WhiteSpace = r => require.ensure([], () => r(require('examples/pages/WhiteSpace')), 'WhiteSpace')
+const CountUp = r => require.ensure([], () => r(require('examples/pages/CountUp')), 'CountUp')
 
 export default [
   {
@@ -136,5 +137,8 @@ export default [
   }, {
     path: '/white-space',
     component: WhiteSpace
+  }, {
+    path: '/count-up',
+    component: CountUp
   }
 ]

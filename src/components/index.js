@@ -33,6 +33,7 @@ import Popover from './popover'
 import Overlay from './overlay'
 import WingBlank from './wing-blank'
 import WhiteSpace from './white-space'
+import CountUp from './count-up'
 
 export {
   XButton,
@@ -76,5 +77,6 @@ export {
   Popover,
   Overlay,
   WingBlank,
-  WhiteSpace
+  WhiteSpace,
+  CountUp
 }
