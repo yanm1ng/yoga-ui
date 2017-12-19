@@ -40,8 +40,8 @@ export default {
       type: Number,
       default: 2
     },
-    // daley in ms
-    dalay: {
+    // delay in ms
+    delay: {
       type: Number,
       default: 0
     }
