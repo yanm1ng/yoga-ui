@@ -5,7 +5,12 @@ export default {
   name: 'count-up',
   mounted () {
     this.$nextTick(() => {
-      this.countup = new Countup(this.$el, this.startVal, this.endVal, this.decimals, this.duration)
+      this.countup = new Countup(this.$el, this.startVal, this.endVal, this.decimals, this.duration, {
+        separator: this.separator,
+        decimal: this.decimal,
+        prefix: this.prefix,
+        suffix: this.suffix
+      })
       if (this.start) {
         setTimeout(() => {
           this.countup.start()
@@ -44,6 +49,22 @@ export default {
     delay: {
       type: Number,
       default: 0
+    },
+    separator: {
+      type: String,
+      default: ','
+    },
+    decimal: {
+      type: String,
+      default: '.'
+    },
+    prefix: {
+      type: String,
+      default: ''
+    },
+    suffix: {
+      type: String,
+      default: ''
     }
   },
   render (h) {
