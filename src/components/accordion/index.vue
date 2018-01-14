@@ -20,10 +20,12 @@ export default {
     title: String,
     list: Array,
     activeKeys: {
-      type: Array
+      type: Array,
+      default: () => []
     },
     defaultActiveKeys: {
-      type: Array
+      type: Array,
+      default: () => []
     },
     animate: {
       type: Boolean,
@@ -97,7 +99,7 @@ export default {
     & > .yui-cell-arrow .yui-cell-ft {
       &:after {
         transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0) rotate(90deg);
-        transition: transform .3s, -webkit-transform .3s;
+        transition: transform .3s;
       }
     }
     & > .yui-cell-active .yui-cell-ft {
@@ -131,7 +133,6 @@ export default {
     }
     .animate {
       transition-timing-function: cubic-bezier(0.5, 0, 1, 0);
-      transition-delay: 0s;
     }
     .no-animate {
       transition: none;

@@ -13,13 +13,17 @@ $black-color            : #000000;
 $background-color       : #efeff4;
 
 // animation
-$animation-time         : .3s;
-$transition-time        : .2s;
+$animation-time         : .5s;
+
+// transition
+$transition-time        : .4s;
 
 // opacity
+$none-opacity           : 1;
 $soft-opacity           : 0.8;
 $normal-opacity         : 0.5;
 $deep-opacity           : 0.2;
+$full-opacity           : 0;
 
 // other
 $arrow-width            : 4px;
