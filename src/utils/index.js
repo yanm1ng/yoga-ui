@@ -42,3 +42,32 @@ export const mergeOptions = (vm, options) => {
     vm[i] = _options[i]
   }
 }
+
+export const promiseProgress = (promises, onProgress) => {
+  var status = {
+    total: promises.length,
+    resovled: 0,
+    rejected: 0
+  }
+  var promiseMap = promises.map(promise => {
+    return promise.then(res => {
+      return {
+        result: res,
+        status: true
+      }
+    }, error => {
+      return {
+        result: error,
+        status: false
+      }
+    }).then(value => {
+      if (typeof onProgress === 'function') {
+        value.status ? status.resovled++ : status.rejected++
+        onProgress(status)
+      }
+      return value
+    })
+  })
+
+  return Promise.all(promiseMap)
+}
