@@ -1,5 +1,5 @@
 export default {
-  inserted: function (el, binding, vnode) {
+  inserted: function (el, binding) {
     if (binding.value) {
       var animate = binding.value
       var delay = animate.delay || 0

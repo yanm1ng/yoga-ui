@@ -1,7 +1,7 @@
 import { promiseProgress } from 'utils'
 
 const plugin = {
-  install: function (Vue, options) {
+  install: function (Vue) {
     Vue.prototype.$preload = {
       loadImage (imageSource, onProgress) {
         if (!Array.isArray(imageSource)) {

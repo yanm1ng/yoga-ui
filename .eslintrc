@@ -10,7 +10,6 @@
 		"sourceType": "module"
 	},
 	"rules": {
-		// 禁止 for 循环出现方向错误的循环，比如 for (i = 0; i < 10; i--)
 		"indent": ["warn", 2],
 		"no-console": "off",
 		"no-debugger": "error",
@@ -31,5 +30,8 @@
 		"space-in-parens": ["error", "never"],
 		"space-infix-ops": "error",
 		"spaced-comment": ["error", "always"]
+	},
+	"globals": {
+		"Promise": true
 	}
 }
