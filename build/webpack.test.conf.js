@@ -5,7 +5,6 @@ var merge = require('webpack-merge')
 var baseConfig = require('./webpack.base.conf')
 
 var webpackConfig = merge(baseConfig, {
-  // use inline sourcemap for karma-sourcemap-loader
   module: {
     rules: utils.styleLoaders()
   },
@@ -22,7 +21,6 @@ var webpackConfig = merge(baseConfig, {
   ]
 })
 
-// no need for app entry during tests
 delete webpackConfig.entry
 
 module.exports = webpackConfig
