@@ -20,6 +20,7 @@ export default {
   },
   methods: {
     handleChange(keys) {
+      console.log(keys)
       this.activeKeys = keys
     }
   }

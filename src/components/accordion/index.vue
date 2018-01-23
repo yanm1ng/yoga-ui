@@ -66,7 +66,7 @@ export default {
       } else {
         returnActiveKeys.splice(index, 1)
       }
-      if (!this.activeKeys) {
+      if (this.activeKeys.length === 0) {
         this.currentActiveKeys = returnActiveKeys
       }
       this.$emit('on-change', pure(bubbleSort(returnActiveKeys)))
